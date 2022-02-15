@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 13:00:08 by cmariot           #+#    #+#             */
-/*   Updated: 2022/02/14 16:40:57 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/02/15 13:13:05 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,11 @@
 
 Contact::Contact(void)
 {
-	std::cout << "Constructeur par défaut Contact appelé" << std::endl;
 	return ;
 }
 
 Contact::~Contact(void)
 {
-	std::cout << "Déstructeur Contact appelé" << std::endl;
 	return ;
 }
 
