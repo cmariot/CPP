@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 12:56:34 by cmariot           #+#    #+#             */
-/*   Updated: 2022/02/15 13:10:22 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/01 12:15:30 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,23 @@
 
 #include "Contact.hpp"
 
+#include <string>
+
 class	PhoneBook
 {
 	public:
-
-		Contact	repertoire[8];
 
 		PhoneBook(void);	//Constructeur
 		~PhoneBook(void);	//Destructeur
 
 		void	add(Contact new_contact, int index);
-		void	display_contact_list(int number_of_contact) const;
-		void	display_contact_info(std::string input, int number_of_contacts) const;
+		void	search(void);
+
+	private:
+
+		Contact	_repertoire[8];
+		int		_number_of_contact;
+
 };
 
 #endif
