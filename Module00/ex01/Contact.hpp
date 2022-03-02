@@ -5,14 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/23 12:36:11 by cmariot           #+#    #+#             */
-/*   Updated: 2022/02/26 12:08:50 by cmariot          ###   ########.fr       */
+/*   Created: 2022/02/14 12:54:16 by cmariot           #+#    #+#             */
+/*   Updated: 2022/03/02 11:42:07 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_HPP
 # define CONTACT_HPP
 
+#include <string>
 #include <iostream>
 
 class Contact

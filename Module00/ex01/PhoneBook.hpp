@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/23 12:35:41 by cmariot           #+#    #+#             */
-/*   Updated: 2022/02/28 18:09:50 by cmariot          ###   ########.fr       */
+/*   Created: 2022/02/14 12:56:34 by cmariot           #+#    #+#             */
+/*   Updated: 2022/03/02 11:45:08 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 # define PHONEBOOK_HPP
 
 #include "Contact.hpp"
+#include <string>
 
-class PhoneBook
+class	PhoneBook
 {
 	public:
 		PhoneBook(void);
@@ -26,6 +27,7 @@ class PhoneBook
 
 	private:
 		Contact	_repertoire[8];
+		//int		_number_of_contact;
 
 };
 

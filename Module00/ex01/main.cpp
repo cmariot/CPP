@@ -5,12 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/23 12:42:06 by cmariot           #+#    #+#             */
-/*   Updated: 2022/02/28 18:08:55 by cmariot          ###   ########.fr       */
+/*   Created: 2022/02/14 13:01:04 by cmariot           #+#    #+#             */
+/*   Updated: 2022/03/02 11:43:12 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <string>
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
 
