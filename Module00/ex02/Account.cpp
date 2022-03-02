@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   my_awesome_phonebook.h                             :+:      :+:    :+:   */
+/*   Account.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/15 13:47:39 by cmariot           #+#    #+#             */
-/*   Updated: 2022/02/15 13:50:17 by cmariot          ###   ########.fr       */
+/*   Created: 2022/02/16 14:48:18 by cmariot           #+#    #+#             */
+/*   Updated: 2022/02/21 16:28:44 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MY_AWESOME_PHONEBOOK_H
-# define MY_AWESOME_PHONEBOOK_H
+#include "Account.hpp"
 
-# include <iostream>
+Account::Account(void)
+{
+	return ;
+}
 
-# include "PhoneBook.hpp"
-# include "Contact.hpp"
-# include <iostream>
+Account::~Account(void)
+{
+	return ;
+}
 
-typedef struct s_input {
-	std::string first_name;
-	std::string last_name;
-	std::string nickname;
-	std::string phone_number;
-	std::string darkest_secret;
-}	t_input;
+void	Account::makeDeposit(int deposit)
+{
 
-void	display_value(std::string str);
-
-#endif
+}

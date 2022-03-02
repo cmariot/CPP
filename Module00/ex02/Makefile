@@ -6,7 +6,7 @@
 #    By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/30 11:15:47 by cmariot           #+#    #+#              #
-#    Updated: 2022/02/23 12:46:42 by cmariot          ###   ########.fr        #
+#    Updated: 2022/02/16 14:40:48 by cmariot          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@
 #                          PROJECT'S DIRECTORIES                               #
 # **************************************************************************** #
 
-NAME			= my_awesome_phonebook
+NAME			= GlobalBanksters_United
 
 
 # **************************************************************************** #
@@ -34,9 +34,8 @@ LFLAGS			= -Wall -Wextra -Werror -std=c++98
 # **************************************************************************** #
 
 
-SRCS		= main.cpp \
-			  PhoneBook.cpp \
-			  Contact.cpp
+SRCS		= Account.cpp \
+			  tests.cpp
 
 OBJ			:= $(SRCS:.cpp=.o)
 
@@ -92,11 +91,13 @@ re :	fclean all
 
 header:
 		@printf "$(CYAN)"
-		@printf "CPP module0 ex01 :\n"
+		@printf "CPP module0 ex02 :\n"
 		@printf "$(RESET)"
 
 footer: 
 		@printf "$(CYAN)"
 		@printf "Usage:\n"
 		@printf "$(RESET)"
-		@printf "./my_awesome_phonebook\n"
+		@printf "./GlobalBanksters_United\n"
+
+

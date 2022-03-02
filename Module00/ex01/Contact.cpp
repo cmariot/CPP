@@ -5,27 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/14 13:00:08 by cmariot           #+#    #+#             */
-/*   Updated: 2022/02/15 13:13:05 by cmariot          ###   ########.fr       */
+/*   Created: 2022/02/23 12:36:11 by cmariot           #+#    #+#             */
+/*   Updated: 2022/02/28 19:10:04 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include "Contact.hpp"
+#include <iostream>
 
 Contact::Contact(void)
 {
+	std::cout << "Constructeur Contact" << std::endl;
 	return ;
 }
 
 Contact::~Contact(void)
 {
+	std::cout << "Destructeur Contact" << std::endl;
 	return ;
 }
 
-Contact::Contact(int id, std::string fn, std::string ln,std::string nn, std::string pn, std::string ds) :
-	index(id), first_name(fn), last_name(ln), nickname(nn), phone_number(pn), darkest_secret(ds)
+Contact::Contact(std::string fn, std::string ln, std::string nn, std::string pn, std::string ds) :
+	_first_name(fn), _last_name(ln), _nick_name(nn), _phone_number(pn), _darkest_secret(ds)
 {
-	std::cout << "New contact successfuly added." << std::endl;
 	return ;
 }
