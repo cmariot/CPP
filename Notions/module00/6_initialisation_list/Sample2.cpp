@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.cpp                                        :+:      :+:    :+:   */
+/*   Sample2.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/14 13:00:08 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/01 13:20:10 by cmariot          ###   ########.fr       */
+/*   Created: 2022/03/02 14:22:21 by cmariot           #+#    #+#             */
+/*   Updated: 2022/03/02 15:32:48 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contact.hpp"
+#include "Sample2.hpp"
+#include <iostream>
 
-Contact::Contact(void)
+/* Definitions for the Sample class */
+
+Sample2::Sample2(char p1, int p2, float p3) : a1(p1), a2(p2), a3(p3)
 {
+	std::cout << "Sample2 constructor called" << std::endl;
+	std::cout << "this->a1 = " << this->a1 << std::endl;
+	std::cout << "this->a2 = " << this->a2 << std::endl;
+	std::cout << "this->a3 = " << this->a3 << std::endl;
 	return ;
 }
 
-Contact::~Contact(void)
+Sample2::~Sample2(void)
 {
 	return ;
 }

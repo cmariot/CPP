@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.cpp                                        :+:      :+:    :+:   */
+/*   Sample.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/14 13:00:08 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/01 13:20:10 by cmariot          ###   ########.fr       */
+/*   Created: 2022/03/02 14:22:21 by cmariot           #+#    #+#             */
+/*   Updated: 2022/03/02 14:35:04 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contact.hpp"
+#include "Sample.hpp"
+#include <iostream>
 
-Contact::Contact(void)
+/* Definitions for the Sample class */
+
+Sample::Sample(void)
 {
+	std::cout << "Constructor" << std::endl;
 	return ;
 }
 
-Contact::~Contact(void)
+Sample::~Sample(void)
 {
+	std::cout << "Destructor" << std::endl;
 	return ;
 }

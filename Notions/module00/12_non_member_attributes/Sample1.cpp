@@ -1,23 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.cpp                                        :+:      :+:    :+:   */
+/*   Sample1.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/14 13:00:08 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/01 13:20:10 by cmariot          ###   ########.fr       */
+/*   Created: 2022/03/02 14:22:21 by cmariot           #+#    #+#             */
+/*   Updated: 2022/03/02 17:23:32 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contact.hpp"
+#include "Sample1.hpp"
+#include <iostream>
 
-Contact::Contact(void)
+/* Definitions for the Sample class */
+
+Sample1::Sample1(void)
 {
+	std::cout << "Sample1 constructor called" << std::endl;
+	Sample1::_nbInst += 1;
 	return ;
 }
 
-Contact::~Contact(void)
+Sample1::~Sample1(void)
 {
+	std::cout << "Sample1 destructor called" << std::endl;
+	Sample1::_nbInst -= 1;
 	return ;
 }
+
+int	Sample1::get_nbInstance(void)
+{
+	return Sample1::_nbInst;
+}
+
+int	Sample1::_nbInst = 0;

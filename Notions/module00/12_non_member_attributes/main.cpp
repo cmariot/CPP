@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.cpp                                        :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/14 13:00:08 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/01 13:20:10 by cmariot          ###   ########.fr       */
+/*   Created: 2022/03/02 14:30:00 by cmariot           #+#    #+#             */
+/*   Updated: 2022/03/02 17:25:22 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contact.hpp"
+#include "Sample1.hpp"
+#include <iostream>
 
-Contact::Contact(void)
+int	main(void)
 {
-	return ;
-}
+	Sample1 instance1;
+	Sample1 instance2;
+	Sample1 instance3;
 
-Contact::~Contact(void)
-{
-	return ;
+	std::cout << "_nbInst = " << instance1.get_nbInstance() << std::endl;
+
+	Sample1 instance4;
+	Sample1 instance5;
+	
+	std::cout << "_nbInst = " << instance1.get_nbInstance() << std::endl;
+	
+	return(0);
 }

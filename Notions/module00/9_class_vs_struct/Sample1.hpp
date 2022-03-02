@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.cpp                                        :+:      :+:    :+:   */
+/*   Sample1.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/14 13:00:08 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/01 13:20:10 by cmariot          ###   ########.fr       */
+/*   Created: 2022/03/02 14:20:26 by cmariot           #+#    #+#             */
+/*   Updated: 2022/03/02 16:39:28 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contact.hpp"
+#ifndef SAMPLE1_HPP
+#define SAMPLE1_HPP
 
-Contact::Contact(void)
-{
-	return ;
-}
+/* Declaration of the Sample class */
 
-Contact::~Contact(void)
+struct Sample1
 {
-	return ;
-}
+
+	int		foo;
+
+	Sample1(void);			//Constructor
+	~Sample1(void);			//Destructor
+
+	void	bar(void) const;
+
+};
+
+#endif

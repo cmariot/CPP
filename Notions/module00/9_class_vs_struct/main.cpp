@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.cpp                                        :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/14 13:00:08 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/01 13:20:10 by cmariot          ###   ########.fr       */
+/*   Created: 2022/03/02 16:41:24 by cmariot           #+#    #+#             */
+/*   Updated: 2022/03/02 16:42:33 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contact.hpp"
+#include "Sample1.hpp"
+#include "Sample2.hpp"
 
-Contact::Contact(void)
+int	main(void)
 {
-	return ;
-}
+	Sample1	instance1;
+	Sample2	instance2;
 
-Contact::~Contact(void)
-{
-	return ;
+	return (0);
 }

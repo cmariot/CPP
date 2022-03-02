@@ -1,23 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.cpp                                        :+:      :+:    :+:   */
+/*   Sample1.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/14 13:00:08 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/01 13:20:10 by cmariot          ###   ########.fr       */
+/*   Created: 2022/03/02 14:22:21 by cmariot           #+#    #+#             */
+/*   Updated: 2022/03/02 15:50:30 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contact.hpp"
+#include "Sample1.hpp"
+#include <iostream>
 
-Contact::Contact(void)
+/* Definitions for the Sample class */
+
+Sample1::Sample1(float const f) : pi(f), qd(42)
+{
+	std::cout << "Sample1 constructor called" << std::endl;
+	return ;
+}
+
+Sample1::~Sample1(void)
 {
 	return ;
 }
 
-Contact::~Contact(void)
+void	Sample1::bar(void) const
 {
-	return ;
+	std::cout << "this->pi = " << this->pi << std::endl;
+	std::cout << "this->qd = " << this->qd << std::endl;
+	//this->qd = 0;
 }

@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.cpp                                        :+:      :+:    :+:   */
+/*   hello_world.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/14 13:00:08 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/01 13:20:10 by cmariot          ###   ########.fr       */
+/*   Created: 2022/03/02 14:16:10 by cmariot           #+#    #+#             */
+/*   Updated: 2022/03/02 15:15:46 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contact.hpp"
+#include <iostream>
 
-Contact::Contact(void)
+int	main(void)
 {
-	return ;
-}
+	char buf[256];
 
-Contact::~Contact(void)
-{
-	return ;
+	std::cout << "Hello world !" << std::endl;
+	std::cout << "What's your name ?" << std::endl;
+	std::cin >> buf;
+	std::cout << "Hello " << buf << std::endl;
+	return (0);
 }

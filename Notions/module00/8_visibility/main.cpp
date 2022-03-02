@@ -1,23 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.cpp                                        :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/14 13:00:08 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/01 13:20:10 by cmariot          ###   ########.fr       */
+/*   Created: 2022/03/02 14:30:00 by cmariot           #+#    #+#             */
+/*   Updated: 2022/03/02 17:10:42 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contact.hpp"
+#include "Sample1.hpp"
+#include <iostream>
 
-Contact::Contact(void)
+int	main(void)
 {
-	return ;
-}
+	Sample1 instance;
 
-Contact::~Contact(void)
-{
-	return ;
+	instance.public_foo = 2;
+	std::cout << "instance.public_foo = " << instance.public_foo << std::endl;
+
+	instance.public_bar();
+
+	/*
+	instance._private_foo = 2;
+	std::cout << "instance._private_foo = " << instance._private_foo << std::endl;
+
+	instance._private_bar();
+	*/
+
+	return(0);
 }
