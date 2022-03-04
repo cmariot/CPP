@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 13:01:04 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/03 15:47:06 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/04 11:18:33 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,16 @@ int	main(void)
 		if (input.empty() == true)
 		{
 			input.clear();
-			std::cout << "Error, empty command." << std::endl;
+			std::cout << "Error: empty command." << std::endl;
 			return (1);
 		}
 		if (input.compare("ADD") == 0)
 		{
-			repertoire.add();
+			if (repertoire.add())
+			{
+				std::cout << std::endl << "Error: a contact field cannot be empty." << std::endl;
+				return (1);
+			}
 		}
 		else if (input.compare("SEARCH") == 0)
 		{

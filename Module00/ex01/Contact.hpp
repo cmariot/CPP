@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 12:54:16 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/04 08:37:37 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/04 11:14:10 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,11 @@
 class Contact
 {
 	public:
+
 		Contact(void);
-		Contact(std::string fn, std::string ln, std::string nn, std::string pn, std::string ds);
 		~Contact(void);
 
-		void update(void);
-
-		void set_first_name(void);
-		void set_last_name(void);
-		void set_nick_name(void);
-		void set_phone_number(void);
-		void set_darkest_secret(void);
+		int update(void);
 		
 		std::string get_first_name(void) const;
 		std::string get_last_name(void) const;
@@ -37,14 +31,19 @@ class Contact
 		std::string get_phone_number(void) const;
 		std::string get_darkest_secret(void) const;
 
-	protected:
-
 	private:
+
 		std::string	_first_name;
 		std::string	_last_name;
 		std::string	_nick_name;
 		std::string	_phone_number;
 		std::string	_darkest_secret;
+
+		void _set_first_name(void);
+		void _set_last_name(void);
+		void _set_nick_name(void);
+		void _set_phone_number(void);
+		void _set_darkest_secret(void);
 
 };
 

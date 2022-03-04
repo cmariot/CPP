@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 13:00:08 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/04 08:45:35 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/04 11:13:54 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,28 +16,37 @@
 Contact::Contact(void) :
 	_first_name(""), _last_name(""), _nick_name(""), _phone_number(""), _darkest_secret("")
 {
-	std::cout << "Constructeur Contact" << std::endl;
 	return ;
 }
 
 Contact::~Contact(void)
 {
-	std::cout << "Destructeur Contact" << std::endl;
 	return ;
 }
 
-void	Contact::update(void)
+int	Contact::update(void)
 {
-	Contact::set_first_name();
-	Contact::set_last_name();
-	Contact::set_nick_name();
-	Contact::set_phone_number();
-	Contact::set_darkest_secret();
+	Contact::_set_first_name();
+	if (Contact::get_first_name().empty())
+		return (1);
+	Contact::_set_last_name();
+	if (Contact::get_last_name().empty())
+		return (1);
+	Contact::_set_nick_name();
+	if (Contact::get_nick_name().empty())
+		return (1);
+	Contact::_set_phone_number();
+	if (Contact::get_phone_number().empty())
+		return (1);
+	Contact::_set_darkest_secret();
+	if (Contact::get_darkest_secret().empty())
+		return (1);
+	return (0);
 }
 
 //	SET MEMBER ATTRIBUTES
 
-void Contact::set_first_name(void)
+void Contact::_set_first_name(void)
 {
 	std::string	buf;
 
@@ -46,7 +55,7 @@ void Contact::set_first_name(void)
 	this->_first_name = buf;
 }
 
-void Contact::set_last_name(void)
+void Contact::_set_last_name(void)
 {
 	std::string	buf;
 
@@ -55,7 +64,7 @@ void Contact::set_last_name(void)
 	this->_last_name = buf;
 }
 
-void Contact::set_nick_name(void)
+void Contact::_set_nick_name(void)
 {
 	std::string	buf;
 
@@ -64,7 +73,7 @@ void Contact::set_nick_name(void)
 	this->_nick_name = buf;
 }
 
-void Contact::set_phone_number(void)
+void Contact::_set_phone_number(void)
 {
 	std::string	buf;
 
@@ -73,7 +82,7 @@ void Contact::set_phone_number(void)
 	this->_phone_number = buf;
 }
 
-void Contact::set_darkest_secret(void)
+void Contact::_set_darkest_secret(void)
 {
 	std::string	buf;
 
@@ -101,10 +110,10 @@ std::string Contact::get_nick_name(void) const
 
 std::string Contact::get_phone_number(void) const
 {
-	return (this->_first_name);
+	return (this->_phone_number);
 }
 
 std::string Contact::get_darkest_secret(void) const
 {
-	return (this->_first_name);
+	return (this->_darkest_secret);
 }
