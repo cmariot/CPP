@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 12:54:16 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/02 11:42:07 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/04 08:37:37 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,13 @@ class Contact
 		Contact(std::string fn, std::string ln, std::string nn, std::string pn, std::string ds);
 		~Contact(void);
 
-		void set_first_name(std::string buf);
-		void set_last_name(std::string buf);
-		void set_nick_name(std::string buf);
-		void set_phone_number(std::string buf);
-		void set_darkest_secret(std::string buf);
+		void update(void);
+
+		void set_first_name(void);
+		void set_last_name(void);
+		void set_nick_name(void);
+		void set_phone_number(void);
+		void set_darkest_secret(void);
 		
 		std::string get_first_name(void) const;
 		std::string get_last_name(void) const;
