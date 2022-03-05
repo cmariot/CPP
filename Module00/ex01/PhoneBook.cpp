@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 12:57:54 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/04 13:46:27 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/05 12:13:11 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ int	PhoneBook::search(void)
 	// Error : no contact
 	if (this->_number_of_contact == 0)
 	{
-		std::cout << "There is no contact on the PhoneBook yet." << std::endl;
+		std::cout << "There is no contact in the PhoneBook yet." << std::endl;
 		return (0);
 	}
 
@@ -98,7 +98,7 @@ int	PhoneBook::search(void)
 	std::cout << "|";
 	std::cout << std::setw(10) << "nickname";
 	std::cout << std::endl;
-	
+
 	// Display the first array
 	while (index < this->_number_of_contact)
 	{

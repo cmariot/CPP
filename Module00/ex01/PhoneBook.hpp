@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 12:56:34 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/04 13:46:48 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/05 12:11:22 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 class	PhoneBook
 {
 	public:
+
 		PhoneBook(void);
 		~PhoneBook(void);
 		
@@ -26,6 +27,7 @@ class	PhoneBook
 		int		search(void);
 
 	private:
+
 		Contact			_repertoire[8];
 		static int		_number_of_contact;
 		static int		_contact_index;
