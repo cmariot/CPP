@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 14:14:58 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/05 14:30:32 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/06 19:34:41 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class	Weapon
 		Weapon(std::string type);
 		~Weapon(void);
 
-		std::string &getType(void);
+		std::string const &getType() const;
 		void		setType(std::string new_type);
 
 	private:

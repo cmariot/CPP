@@ -1,38 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/05 14:20:44 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/06 19:34:13 by cmariot          ###   ########.fr       */
+/*   Created: 2022/03/07 08:31:41 by cmariot           #+#    #+#             */
+/*   Updated: 2022/03/07 08:48:56 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
+#include "File.hpp"
+#include <iostream>
+#include <string>
+#include <fstream>
 
-Weapon::Weapon(void)
+int main(int argc, char **argv)
 {
-	return ;
-}
+	std::string str1;
+	std::string str2;
+	std::ifstream	input(argv[3]);
 
-Weapon::~Weapon(void)
-{
-	return ;
-}
+	if (argc == 4)
+	{
 
-Weapon::Weapon(std::string type) : _type(type)
-{
-	return ;
-}
-
-void	Weapon::setType(std::string type)
-{
-	this->_type = type;
-}
-
-const std::string &Weapon::getType(void) const
-{
-	return (_type);
+		return (0);
+	}
+	else
+	{
+		std::cout << "Usage: ./sed_is_for_losers filename string1 string2" << std::endl;
+		return (1);
+	}
 }

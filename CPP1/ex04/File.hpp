@@ -1,38 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.cpp                                         :+:      :+:    :+:   */
+/*   File.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/05 14:20:44 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/06 19:34:13 by cmariot          ###   ########.fr       */
+/*   Created: 2022/03/07 08:32:50 by cmariot           #+#    #+#             */
+/*   Updated: 2022/03/07 08:34:30 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
+#ifndef FILE_HPP
+#define FILE_HPP
 
-Weapon::Weapon(void)
+class File 
 {
-	return ;
-}
 
-Weapon::~Weapon(void)
-{
-	return ;
-}
+	public:
+		File(void);
+		~File(void);
 
-Weapon::Weapon(std::string type) : _type(type)
-{
-	return ;
-}
+	private:
 
-void	Weapon::setType(std::string type)
-{
-	this->_type = type;
-}
+};
 
-const std::string &Weapon::getType(void) const
-{
-	return (_type);
-}
+#endif
