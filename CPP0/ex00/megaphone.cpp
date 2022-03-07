@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 18:06:40 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/01 11:23:11 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/07 10:42:52 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 #include <string>
 #include <algorithm>
 
-void	megaphone(int argc, char **argv)
+int	megaphone(int argc, char **argv)
 {
-	int			i;
 	std::string	str;
 
 	if (argc == 1)
@@ -25,20 +24,18 @@ void	megaphone(int argc, char **argv)
 	}
 	else
 	{
-		i = 0;
-		while (argv[i])
+		for (int i = 0; argv[i]; i++) 
 		{
 			str = argv[i];
 			std::transform(str.begin(), str.end(), str.begin(), ::toupper); 
 			std::cout << str;
-			i++;
 		}
 		std::cout << std::endl;
 	}
+	return (0);
 }
 
 int	main(int argc, char **argv)
 {
-	megaphone(argc, argv + 1);
-	return (0);	
+	return (megaphone(argc, argv + 1));
 }

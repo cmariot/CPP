@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 12:57:54 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/05 12:13:11 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/07 10:52:48 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,7 @@ int	PhoneBook::add(void)
 
 std::string	PhoneBook::_column(std::string str)
 {
-	int	str_len;
-
-	str_len = str.length();
-	if (str_len < 10)
+	if (str.length() < 10)
 	{
 		return (str);
 	}

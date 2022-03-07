@@ -6,14 +6,14 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/16 14:48:18 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/05 12:14:57 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/07 12:01:40 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Account.hpp"
 #include <iostream>
 #include <iomanip>
-#include <chrono>
+#include <ctime>
 
 int	Account::_nbAccounts = 0;
 int	Account::_totalAmount = 0;
@@ -127,18 +127,20 @@ void	Account::displayStatus(void) const
 
 void	Account::_displayTimestamp(void)
 {
-	std::chrono::time_point<std::chrono::system_clock> now = std::chrono::system_clock::now();
-	std::time_t time_now = std::chrono::system_clock::to_time_t(now);
+	time_t	now = time(0);
 
-	tm utc_tm = *localtime(&time_now);
-	std::cout << std::setfill('0');
-	std::cout << "[" << (utc_tm.tm_year + 1900);
-	std::cout << std::setw(2) << utc_tm.tm_mon;
-	std::cout << std::setw(2) << utc_tm.tm_mday << "_";
-	std::cout << std::setw(2) << utc_tm.tm_hour;
-	std::cout << std::setw(2) << utc_tm.tm_min;
-	std::cout << std::setw(2) << utc_tm.tm_sec << "] ";
-	//std::cout << "[" << "19920104_091532" << "] ";
+	tm *ltm = localtime(&now);
+
+	std::cout << "[";
+	std::cout << std::setw (2) << std::setfill ('0') << 1900 + ltm->tm_year;
+	std::cout << std::setw (2) << std::setfill ('0') << 1 + ltm->tm_mon;
+	std::cout << std::setw (2) << std::setfill ('0') << ltm->tm_mday << "_";
+	std::cout << std::setw (2) << std::setfill ('0') << ltm->tm_hour;
+	std::cout << std::setw (2) << std::setfill ('0') << ltm->tm_min;
+	std::cout << std::setw (2) << std::setfill ('0') << ltm->tm_sec;
+	std::cout << "] ";
+
+	//	std::cout << "[" << "19920104_091532" << "] ";
 }
 
 Account::Account(void)

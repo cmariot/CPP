@@ -6,7 +6,7 @@
 #    By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/30 11:15:47 by cmariot           #+#    #+#              #
-#    Updated: 2022/02/16 14:40:48 by cmariot          ###   ########.fr        #
+#    Updated: 2022/03/07 11:06:30 by cmariot          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,9 +24,11 @@ NAME			= GlobalBanksters_United
 
 CC				= c++
 
-CFLAGS			= -Wall -Wextra -Werror -std=c++98
+CFLAGS			= -Wall -Wextra -Werror 
+#-std=c++98
 
-LFLAGS			= -Wall -Wextra -Werror -std=c++98
+LFLAGS			= -Wall -Wextra -Werror
+#-std=c++98
 
 
 # **************************************************************************** #
