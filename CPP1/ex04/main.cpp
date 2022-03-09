@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 08:31:41 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/07 16:52:06 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/09 09:21:41 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,7 @@ int main(int argc, char **argv)
 		//Create and open the new file (filename.replace)
 		ifs_name = argv[1];
 		ofs_name = ifs_name.append(".replace");
-		char	*c = const_cast <char *> (ofs_name.c_str());
-		ofs.open (c, std::ofstream::out | std::ofstream::app);
+		ofs.open (const_cast <char *> (ofs_name.c_str()), std::ofstream::out | std::ofstream::app);
 		if (!ofs.good())
 		{
 			std::cout << "Error: filename.replace could not be create." << std::endl;
@@ -46,9 +45,11 @@ int main(int argc, char **argv)
 			return (1);
 		}
 
+		char	c;
+		while (ifs.get(c))          // loop getting single characters
+			ofs << c;
 
-		
-
+		//erase / insert pour remplacer str1 par str2
 
 		ofs.close();
 		ifs.close();
