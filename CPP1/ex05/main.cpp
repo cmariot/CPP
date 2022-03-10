@@ -1,39 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Karen.hpp                                          :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/09 09:26:44 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/09 12:26:58 by cmariot          ###   ########.fr       */
+/*   Created: 2022/03/09 10:47:09 by cmariot           #+#    #+#             */
+/*   Updated: 2022/03/09 10:49:22 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef KAREN_HPP
-# define KAREN_HPP
+#include "Karen.hpp"
 
-#include <iostream>
-
-class Karen
+int	main(void)
 {
+	Karen karen;
 
-	public:
+	karen.complain("debug");
+	karen.complain("info");
+	karen.complain("warning");
+	karen.complain("error");
 
-		Karen(void);
-		~Karen(void);
-
-		void    complain(std::string level) const;
-
-	private:
-
-		void	_debug(void) const;
-		void	_info(void) const;
-		void	_warning(void) const;
-		void	_error(void) const;
-		
-		void	_none(void) const;
-
-};
-
-# endif
+	karen.complain("");
+	karen.complain("does not exist");
+	
+	return (0);
+}

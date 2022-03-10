@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 08:31:41 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/09 09:21:41 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/09 14:55:27 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,14 @@ int main(int argc, char **argv)
 		}
 
 		char	c;
+		
 		while (ifs.get(c))          // loop getting single characters
+		{
 			ofs << c;
+		}
 
 		//erase / insert pour remplacer str1 par str2
+
 
 		ofs.close();
 		ifs.close();
@@ -58,7 +62,7 @@ int main(int argc, char **argv)
 	}
 	else
 	{
-		std::cout << "Usage: ./sed_is_for_losers filename string1 string2" << std::endl;
+		std::cout << "Usage: ./sed_is_for_losers filename str1 str2" << std::endl;
 		return (1);
 	}
 }
