@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 09:26:44 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/09 09:34:15 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/09 17:32:48 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,6 @@ void	Karen::_error(void)
 
 void Karen::complain(std::string level)
 {
-	
+	if (level.compare("error") == 0)
+		_error();
 }

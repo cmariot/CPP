@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   File.cpp                                           :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/07 08:32:44 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/07 08:36:43 by cmariot          ###   ########.fr       */
+/*   Created: 2022/03/09 17:30:56 by cmariot           #+#    #+#             */
+/*   Updated: 2022/03/09 17:31:43 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "File.hpp"
-#include <iostream>
+#include "Karen.hpp"
 
-File::File(void)
+int	main(void)
 {
-	std::cout << "Constructor" << std::endl;
-	return ;
-}
+	Karen	karen;
 
-File::~File(void)
-{
-	std::cout << "Destructor" << std::endl;
-	return ;
+	karen.complain("error");
+
+	return (0);
 }

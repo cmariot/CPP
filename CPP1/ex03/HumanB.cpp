@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/06 14:38:25 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/06 19:40:15 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/09 17:16:23 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ HumanB::HumanB(void)
 	return ;
 }
 
-HumanB::HumanB(std::string name) : _name(name)
+HumanB::HumanB(std::string name) : _name(name), _weapon(NULL)
 {
 	return ;
 }
@@ -45,7 +45,15 @@ std::string HumanB::_get_type(void) const
 
 void	HumanB::attack(void) const
 {
-	std::cout << HumanB::_get_name();
-	std::cout << " attacks with their ";
-	std::cout << HumanB::_get_type() << std::endl;
+	if (this->_weapon != NULL)
+	{
+		std::cout << HumanB::_get_name();
+		std::cout << " attacks with their ";
+		std::cout << HumanB::_get_type() << std::endl;
+	}
+	else
+	{
+		std::cout << HumanB::_get_name();
+		std::cout << " doesn't attacks, he hasn't any weapon." << std::endl;
+	}
 }
