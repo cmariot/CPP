@@ -6,7 +6,7 @@
 #    By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/30 11:15:47 by cmariot           #+#    #+#              #
-#    Updated: 2022/03/10 10:19:29 by cmariot          ###   ########.fr        #
+#    Updated: 2022/03/10 14:51:23 by cmariot          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@
 #                          PROJECT'S DIRECTORIES                               #
 # **************************************************************************** #
 
-NAME			= sed_is_for_losers 
+NAME			= karenFilter 
 
 
 # **************************************************************************** #
@@ -34,7 +34,8 @@ LFLAGS			= -Wall -Wextra -Werror -std=c++98
 # **************************************************************************** #
 
 
-SRCS		= main.cpp
+SRCS		= main.cpp \
+			  Karen.cpp
 
 OBJ			:= $(SRCS:.cpp=.o)
 
@@ -90,13 +91,13 @@ re :	fclean all
 
 header:
 		@printf "$(CYAN)"
-		@printf "CPP module01 ex04 :\n"
+		@printf "CPP module01 ex06 :\n"
 		@printf "$(RESET)"
 
 footer: 
 		@printf "$(CYAN)"
 		@printf "Usage:\n"
 		@printf "$(RESET)"
-		@printf "./" 
-		@printf $(NAME)
-		@printf "\n"
+		@printf "./"
+		@printf "$(NAME)"
+		@printf "\"LEVEL\"\n"

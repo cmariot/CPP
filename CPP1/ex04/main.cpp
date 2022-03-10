@@ -6,21 +6,13 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 08:31:41 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/10 10:14:13 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/10 13:52:46 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
 #include <fstream>
-
-std::string	outfile_name(char *argv)
-{
-	std::string	ofs_name = argv;
-
-	ofs_name = ofs_name.append(".replace");
-	return (ofs_name);
-}
 
 int main(int argc, char **argv)
 {
@@ -44,7 +36,13 @@ int main(int argc, char **argv)
 	}
 
 	//Create and open the new file (filename.replace)
-	std::ofstream	ofs(outfile_name(argv[1]));
+	
+	std::ofstream	ofs;
+
+	std::string	ofs_name(argv[1]);
+	ofs_name = ofs_name.append(".replace");
+	const char *c = ofs_name.c_str();
+	ofs.open(c);
 	if (!ofs.good())
 	{
 		std::cout << "Error: filename.replace could not be create." << std::endl;
