@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 17:08:16 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/10 18:36:03 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/11 16:53:24 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,14 @@
 
 int main(void)
 {
-	Fixed instance;
+	Fixed a;
+	Fixed b(a);
+	Fixed c;
+	c = b;
 
-	std::cout << "_NUMBER = " << instance.getRawBits() << std::endl;
-	instance.setRawBits(42);
-	std::cout << "_NUMBER = " << instance.getRawBits() << std::endl;
-	
-	Fixed instance2(instance);
-	std::cout << "_NUMBER = " << instance2.getRawBits() << std::endl;
-	instance2.setRawBits(0);
-	std::cout << "_NUMBER = " << instance2.getRawBits() << std::endl;
+	std::cout << a.getRawBits() << std::endl;
+	std::cout << b.getRawBits() << std::endl;
+	std::cout << c.getRawBits() << std::endl;
 
-	Fixed instance3 = instance2;
-	std::cout << "_NUMBER = " << instance3.getRawBits() << std::endl;
-
-
-	return (0);
+	return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 17:09:33 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/11 10:57:57 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/11 17:15:20 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ int const	Fixed::_nb_bits = 8;
 
 Fixed::Fixed(void) : _number(0)
 {
-	std::cout << "Constructeur par default" << std::endl;
+	std::cout << "Default constructor called" << std::endl;
 	return ;
 }
 
 Fixed::Fixed(const Fixed &obj) : _number(obj._number)
 {
-	std::cout << "Constructeur de copie" << std::endl;
+	std::cout << "Copy constructor called" << std::endl;
 	return ;
 }
 
@@ -36,6 +36,7 @@ Fixed::~Fixed(void)
 
 int Fixed::getRawBits(void) const
 {
+	std::cout << "getRawBits member function called" << std::endl;
 	return (this->_number);
 }
 

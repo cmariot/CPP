@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/05 12:22:48 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/05 13:18:31 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/11 14:01:39 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ class	Zombie
 
 	public:
 
-		Zombie(std::string name);
 		Zombie(void);
+		Zombie(std::string name);
 		~Zombie(void);
 
 		void		set_name(std::string name);

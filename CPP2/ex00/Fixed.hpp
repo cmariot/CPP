@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 17:08:42 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/11 11:27:07 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/11 14:27:09 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,20 @@ class Fixed
 {
 	public:
 
-		Fixed(void);				//Constructeur par default
-		~Fixed(void);				//Destructeur par default
-		Fixed(const Fixed &obj);	//Constructeur de recopie
-									//Opérateur d’affectation
+		Fixed(void);						//Constructeur par default
+		Fixed(const Fixed &obj);			//Constructeur de recopie
+											//Surcharge d'opérateur d’affectation
+		~Fixed(void);						//Destructeur par default
 
-		int		getRawBits(void) const;
-		void	setRawBits(int const raw);
+		int		getRawBits(void) const;		//Retourne la valeur du nombre a virgule sans la convertir
+		void	setRawBits(int const raw);	//Initialise la valeur du nombre a virgule fixe
 
 	private:
 
-		int					_number;
-		static int const	_nb_bits;
+		int					_number;		//Stock la valeur du nombre en virgule fixe
+		static int const	_nb_bits;		//Stock le nombre de bits de la partie fractionnaire,
+											//dont la valeur sera toujours le literal entier 8.
+
 } ;
 
 #endif
