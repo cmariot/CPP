@@ -6,7 +6,7 @@
 #    By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/30 11:15:47 by cmariot           #+#    #+#              #
-#    Updated: 2022/03/10 19:50:05 by cmariot          ###   ########.fr        #
+#    Updated: 2022/03/10 17:12:29 by cmariot          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@
 #                          PROJECT'S DIRECTORIES                               #
 # **************************************************************************** #
 
-NAME			= karenFilter 
+NAME			= canon 
 
 
 # **************************************************************************** #
@@ -35,7 +35,7 @@ LFLAGS			= -Wall -Wextra -Werror -std=c++98
 
 
 SRCS		= main.cpp \
-			  Karen.cpp
+			  Fixed.cpp
 
 OBJ			:= $(SRCS:.cpp=.o)
 
@@ -91,13 +91,15 @@ re :	fclean all
 
 header:
 		@printf "$(CYAN)"
-		@printf "CPP module01 ex06 :\n"
+		@printf "CPP module02 ex01 :\n"
 		@printf "$(RESET)"
 
 footer: 
 		@printf "$(CYAN)"
 		@printf "Usage:\n"
 		@printf "$(RESET)"
-		@printf "./"
-		@printf "$(NAME)"
-		@printf "[DEBUG / INFO / WARNING / ERROR]\n"
+		@printf "./" 
+		@printf $(NAME)
+		@printf "\n"
+
+

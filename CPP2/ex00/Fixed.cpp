@@ -1,38 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/05 12:22:40 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/10 23:27:16 by cmariot          ###   ########.fr       */
+/*   Created: 2022/03/10 17:09:33 by cmariot           #+#    #+#             */
+/*   Updated: 2022/03/10 18:33:19 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Fixed.hpp"
 #include <iostream>
 
-Zombie::Zombie(std::string name) : _name(name)
+Fixed::Fixed(void) : _number(0)
 {
+	std::cout << "Constructeur par default" << std::endl;
 	return ;
 }
 
-Zombie::~Zombie(void)
+Fixed::Fixed(const Fixed &obj) : _number(obj._number)
 {
-	std::cout << Zombie::get_name() << ": ";
-	std::cout << "died." << std::endl;
+	std::cout << "Constructeur de copie" << std::endl;
 	return ;
 }
 
-std::string	Zombie::get_name(void) const
+Fixed::~Fixed(void)
 {
-	return (this->_name);
+	std::cout << "Destructeur par default" << std::endl;
+	return ;
 }
 
-void	Zombie::announce(void) const
+
+int Fixed::getRawBits(void) const
 {
-	std::cout << this->get_name() << ": ";
-	std::cout << "BraiiiiiiinnnzzzZ..." << std::endl;
-	return ;
+	return (this->_number);
+}
+
+void Fixed::setRawBits(int const raw)
+{
+	this->_number = raw;
 }

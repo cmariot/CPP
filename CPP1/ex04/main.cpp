@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 08:31:41 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/10 13:52:46 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/10 19:59:45 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <string>
 #include <fstream>
 
-int main(int argc, char **argv)
+int	usage_error(int argc, char **argv)
 {
 	if (argc != 4)
 	{
@@ -26,6 +26,13 @@ int main(int argc, char **argv)
 		std::cout << "Error: empty string." << std::endl;
 		return (1);
 	}
+	return (0);
+}
+
+int main(int argc, char **argv)
+{
+	if (usage_error(argc, argv))
+		return (1);
 
 	//Open the file filename, check if the file exists
 	std::ifstream ifs(argv[1]);
@@ -36,13 +43,11 @@ int main(int argc, char **argv)
 	}
 
 	//Create and open the new file (filename.replace)
-	
 	std::ofstream	ofs;
 
 	std::string	ofs_name(argv[1]);
-	ofs_name = ofs_name.append(".replace");
-	const char *c = ofs_name.c_str();
-	ofs.open(c);
+	ofs_name.append(".replace");
+	ofs.open(ofs_name.c_str());
 	if (!ofs.good())
 	{
 		std::cout << "Error: filename.replace could not be create." << std::endl;
