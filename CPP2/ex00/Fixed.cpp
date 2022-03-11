@@ -6,12 +6,14 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 17:09:33 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/10 18:33:19 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/11 10:57:57 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 #include <iostream>
+
+int const	Fixed::_nb_bits = 8;
 
 Fixed::Fixed(void) : _number(0)
 {

@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 17:30:56 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/10 19:47:40 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/11 11:33:04 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,6 @@ int	main(int argc, char **argv)
 
 		switch (get_lvl(level))
 		{
-			case (0) :
-			{
-				std::cout << "[ Probably complaining about insignificant problems ]";
-				std::cout << std::endl;
-				return (1);
-			}
 			case (1) :
 				karen.complain("debug");
 			case (2) :
@@ -50,6 +44,12 @@ int	main(int argc, char **argv)
 				karen.complain("warning");
 			case (4) :
 				karen.complain("error");
+				break ;
+			default :
+				std::cout << "[ Probably complaining about insignificant problems ]";
+				std::cout << std::endl;
+				return (1);
+
 		}
 		return (0);
 	}

@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 08:31:41 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/10 19:59:45 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/11 11:46:37 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,19 +36,19 @@ int main(int argc, char **argv)
 
 	//Open the file filename, check if the file exists
 	std::ifstream ifs(argv[1]);
-	if (!ifs.good())
+	if (!ifs.is_open())
 	{
 		std::cout << "Error: no such file. Check the first argument." << std::endl;
 		return (1);
 	}
 
-	//Create and open the new file (filename.replace)
-	std::ofstream	ofs;
-
+	//Get the new file name
 	std::string	ofs_name(argv[1]);
 	ofs_name.append(".replace");
-	ofs.open(ofs_name.c_str());
-	if (!ofs.good())
+
+	//Create and open the new file (filename.replace)
+	std::ofstream	ofs(ofs_name.c_str());
+	if (!ofs.is_open())
 	{
 		std::cout << "Error: filename.replace could not be create." << std::endl;
 		ifs.close();
