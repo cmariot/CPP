@@ -6,14 +6,14 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 17:09:33 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/11 17:15:20 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/14 13:24:04 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 #include <iostream>
 
-int const	Fixed::_nb_bits = 8;
+int const	Fixed::_fractionalBits = 8;
 
 Fixed::Fixed(void) : _number(0)
 {
@@ -21,15 +21,16 @@ Fixed::Fixed(void) : _number(0)
 	return ;
 }
 
-Fixed::Fixed(const Fixed &obj) : _number(obj._number)
+Fixed::Fixed(const Fixed &obj)
 {
 	std::cout << "Copy constructor called" << std::endl;
+	this->_number = obj.getRawBits();
 	return ;
 }
 
 Fixed::~Fixed(void)
 {
-	std::cout << "Destructeur par default" << std::endl;
+	std::cout << "Destructor called" << std::endl;
 	return ;
 }
 
@@ -43,4 +44,11 @@ int Fixed::getRawBits(void) const
 void Fixed::setRawBits(int const raw)
 {
 	this->_number = raw;
+}
+
+Fixed &Fixed::operator = (Fixed const & rhs)
+{
+	std::cout << "Copy assignment operator called" << std::endl;
+	this->_number = rhs.getRawBits();
+	return (*this);
 }
