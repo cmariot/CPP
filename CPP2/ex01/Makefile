@@ -6,7 +6,7 @@
 #    By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/30 11:15:47 by cmariot           #+#    #+#              #
-#    Updated: 2022/03/14 17:10:21 by cmariot          ###   ########.fr        #
+#    Updated: 2022/03/14 17:09:56 by cmariot          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@
 #                          PROJECT'S DIRECTORIES                               #
 # **************************************************************************** #
 
-NAME			= canon 
+NAME			= canon2 
 
 
 # **************************************************************************** #
@@ -91,7 +91,7 @@ re :	fclean all
 
 header:
 		@printf "$(CYAN)"
-		@printf "CPP module02 ex00 :\n"
+		@printf "CPP module02 ex01 :\n"
 		@printf "$(RESET)"
 
 footer: 
