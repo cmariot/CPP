@@ -5,24 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/10 17:08:16 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/15 12:15:52 by cmariot          ###   ########.fr       */
+/*   Created: 2022/03/14 12:18:48 by cmariot           #+#    #+#             */
+/*   Updated: 2022/03/14 12:32:44 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
-#include <iostream>
+#include "Integer.hpp"
 
-int main(void)
+int	main(void)
 {
-	Fixed a;
-	Fixed b(a);
-	Fixed c;
-	c = b;
+	Integer a(0);
+	Integer	b(21);
+	Integer c(0);
 
-	std::cout << a.getRawBits() << std::endl;
-	std::cout << b.getRawBits() << std::endl;
-	std::cout << c.getRawBits() << std::endl;
+	std::cout << "Value of a : " << a << std::endl;
+	std::cout << "Value of b : " << b << std::endl;
+	std::cout << "Value of c : " << c << std::endl;
 
-	return 0;
+	c = Integer(21);
+	std::cout << "Value of c : " << c << std::endl;
+
+	a = b + c;
+	std::cout << "Value of a : " << a << std::endl;
+
+	return (0);
 }

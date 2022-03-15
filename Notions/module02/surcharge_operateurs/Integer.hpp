@@ -1,28 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Integer.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/10 17:08:16 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/15 12:15:52 by cmariot          ###   ########.fr       */
+/*   Created: 2022/03/14 11:57:27 by cmariot           #+#    #+#             */
+/*   Updated: 2022/03/14 13:15:15 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#ifndef INTEGER_HPP
+#define INTEGER_HPP
+
 #include <iostream>
 
-int main(void)
+class	Integer
 {
-	Fixed a;
-	Fixed b(a);
-	Fixed c;
-	c = b;
+	public:
+		
+		Integer(int const n);
+		~Integer(void);
 
-	std::cout << a.getRawBits() << std::endl;
-	std::cout << b.getRawBits() << std::endl;
-	std::cout << c.getRawBits() << std::endl;
+		int	getValue(void) const;
 
-	return 0;
-}
+		Integer &	operator = (Integer const & rhs);
+		Integer		operator + (Integer const & rhs) const;
+
+	private:
+
+		int	_n;
+
+} ;
+
+std::ostream & operator << (std::ostream & o, Integer const & rhs);
+
+#endif
