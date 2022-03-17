@@ -6,13 +6,11 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 12:13:47 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/17 21:00:26 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/17 21:08:07 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "DiamondTrap.hpp"
-
 
 /***********************************************/
 /*            CONSTRUCTEURS/DESTRUCTEURS       */
@@ -57,7 +55,11 @@ DiamondTrap::~DiamondTrap(void)
 //Operateur d'affectation (=)
 DiamondTrap const &	DiamondTrap::operator = (DiamondTrap const & rhs)
 {
-	this->_name = rhs._name;
+	this->_name				= rhs._name;
+	this->ClapTrap::_name	= rhs.ClapTrap::_name; 
+	this->_hit_points		= rhs._hit_points;
+	this->_energy_points	= rhs._energy_points;
+	this->_attack_damage	= rhs._attack_damage;
 	return (*this);
 }
 

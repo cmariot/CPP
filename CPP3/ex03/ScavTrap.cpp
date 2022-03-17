@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 16:19:29 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/17 17:03:27 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/17 21:14:51 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,18 +59,6 @@ ScavTrap const &	ScavTrap::operator = (ScavTrap const & rhs)
 
 
 /***********************************************/
-/*             OPERATEURS ARITHMETIQUES        */
-/***********************************************/
-
-/***********************************************/
-/*            OPERATEURS D'INCREMENTATION      */
-/***********************************************/
-
-/***********************************************/
-/*             OPERATEURS DE COMPARAISON       */
-/***********************************************/
-
-/***********************************************/
 /*                FONCTIONS MEMBRES            */
 /***********************************************/
 
@@ -92,6 +80,6 @@ void	ScavTrap::attack(const std::string & target)
 
 void ScavTrap::guardGate(void) const
 {
-	std::cout << "ScavTrap is now in Gate keeper mode." << std::endl;
+	std::cout << "ScavTrap " << this->_name <<  " is now in Gate keeper mode." << std::endl;
 	return ;
 }

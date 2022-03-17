@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 16:19:29 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/17 20:44:32 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/17 21:15:29 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,10 @@ class	ScavTrap : virtual public ClapTrap
 		ScavTrap(void);											// Constructeur par default
 		ScavTrap(ScavTrap const & copy);						// Constructeur par copie
 		~ScavTrap(void);										// Destructeur
+																
 		ScavTrap const &	operator = (ScavTrap const & rhs);	// Surcharge d'opérateur d’affectation
 
-		void attack(const std::string & target);				// Surcharge de la fonction membre heritee
+		void attack(const std::string & target);				// Surcharge de la fonction membre heritee de ClapTrap
 
 		void guardGate(void) const;								// Fonction membre propre a la classe
 
