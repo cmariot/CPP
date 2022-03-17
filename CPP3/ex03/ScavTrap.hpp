@@ -1,34 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 16:19:29 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/17 12:05:53 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/17 20:44:32 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP
-#define FRAGTRAP_HPP
+#ifndef SCAVTRAP_HPP
+#define SCAVTRAP_HPP
 
 #include "ClapTrap.hpp"
 #include <iostream>
 
-class	FragTrap : public ClapTrap
+class	ScavTrap : virtual public ClapTrap
 {
 
 	public:
 
-		FragTrap(void);											// Constructeur par default
-		FragTrap(FragTrap const & copy);						// Constructeur par copie
-		~FragTrap(void);										// Destructeur
-		FragTrap const &	operator = (FragTrap const & rhs);	// Surcharge d'opérateur d’affectation
+		ScavTrap(void);											// Constructeur par default
+		ScavTrap(ScavTrap const & copy);						// Constructeur par copie
+		~ScavTrap(void);										// Destructeur
+		ScavTrap const &	operator = (ScavTrap const & rhs);	// Surcharge d'opérateur d’affectation
 
 		void attack(const std::string & target);				// Surcharge de la fonction membre heritee
-	
-		void highFivesGuys(void) const;							// Fonction membre specifique a la classe
+
+		void guardGate(void) const;								// Fonction membre propre a la classe
+
 } ;
 
 #endif
