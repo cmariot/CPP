@@ -6,29 +6,25 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 12:39:00 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/16 14:58:21 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/17 08:46:48 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
-
-unsigned int	ClapTrap::_hit_points = 10;
-unsigned int	ClapTrap::_energy_points = 10;
-unsigned int	ClapTrap::_attack_damage = 0;
 
 /***********************************************/
 /*            CONSTRUCTEURS/DESTRUCTEURS       */
 /***********************************************/
 
 //Constructeur par default
-ClapTrap::ClapTrap(void) : _name("default")
+ClapTrap::ClapTrap(void) : _name("default"), _hit_points(10), _energy_points(10), _attack_damage(0)
 {
 	std::cout << "ClapTrap default constructor called." << std::endl;
 	return ;
 }
 
 //Constructeur par nom
-ClapTrap::ClapTrap(std::string name) : _name(name)
+ClapTrap::ClapTrap(std::string name) : _name(name), _hit_points(10), _energy_points(10), _attack_damage(0)
 {
 	std::cout << "ClapTrap constructor with name called." << std::endl;
 	return ;
@@ -129,4 +125,9 @@ void	ClapTrap::beRepaired(unsigned int amount)
 		std::cout << this->_name << " could not be repaired." << std::endl;
 	}
 	return ;
+}
+
+unsigned int	ClapTrap::get_hit_points(void) const
+{
+	return (this->_hit_points);
 }

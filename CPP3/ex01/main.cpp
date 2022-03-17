@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 19:29:58 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/16 19:25:08 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/17 09:01:15 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 
 int	main(void)
 {
-	ScavTrap	foo;
+	ScavTrap test;
 
+	test.attack("Foo");
+	test.guardGate();
 	return (0);
 }

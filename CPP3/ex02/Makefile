@@ -6,7 +6,7 @@
 #    By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/30 11:15:47 by cmariot           #+#    #+#              #
-#    Updated: 2022/03/17 08:52:02 by cmariot          ###   ########.fr        #
+#    Updated: 2022/03/17 09:18:51 by cmariot          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@
 #                          PROJECT'S DIRECTORIES                               #
 # **************************************************************************** #
 
-NAME			= ScavTrap
+NAME			= FragTrap
 
 
 # **************************************************************************** #
@@ -35,7 +35,7 @@ LFLAGS			= -Wall -Wextra -Werror -std=c++98
 
 
 SRCS		= main.cpp \
-			  ScavTrap.cpp \
+			  FragTrap.cpp \
 			  ClapTrap.cpp
 
 OBJ			:= $(SRCS:.cpp=.o)
@@ -92,7 +92,7 @@ re :	fclean all
 
 header:
 		@printf "$(CYAN)"
-		@printf "CPP module03 ex01 :\n"
+		@printf "CPP module03 ex02 :\n"
 		@printf "$(RESET)"
 
 footer: 

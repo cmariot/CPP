@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 12:39:00 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/16 14:48:59 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/17 08:48:45 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,14 @@ class	ClapTrap
 		void takeDamage(unsigned int amount);					// Perd amount _hit_points
 		void beRepaired(unsigned int amount);					// Gagne amount _hit_points (coute 1 energie)
 
+		unsigned int	get_hit_points(void) const;				// Retourne le nombre de points de vie
+
 	private:
 
 		std::string		_name;									// Nom du ClapTrap
-		static unsigned int	_hit_points;							// Points de vie
-		static unsigned int	_energy_points;							// Points d'energie
-		static unsigned int	_attack_damage;							// Dommages d'attaque
+		unsigned int	_hit_points;							// Points de vie
+		unsigned int	_energy_points;							// Points d'energie
+		unsigned int	_attack_damage;							// Dommages d'attaque
 
 } ;
 
