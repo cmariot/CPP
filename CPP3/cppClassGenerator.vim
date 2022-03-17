@@ -1,4 +1,12 @@
-"C++ CLASS GENERATOR: OPENING 2 NEW FILES
+" To add this function to vim :
+" Call on commands from an external file in .vimrc
+
+" if filereadable(expand("FILE_PATH"))
+"  source FILE_PATH
+" endif
+
+" C++ CLASS GENERATOR : GENERATE A HEADER FILE AND A FUNCTION FILE
+" FOR A CANNONICAL CLASS
 
 function! Class(arg)
 
