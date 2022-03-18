@@ -1,59 +1,59 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.cpp                                       :+:      :+:    :+:   */
+/*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 16:19:29 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/18 16:07:15 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/18 15:55:09 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 
 /***********************************************/
 /*            CONSTRUCTEURS/DESTRUCTEURS       */
 /***********************************************/
 
 //Constructeur par default
-FragTrap::FragTrap(void)
+ScavTrap::ScavTrap(void)
 {
-	std::cout << "FragTrap default constructor called." << std::endl;
-	
+	std::cout << "ScavTrap default constructor called." << std::endl;
+
 	this->_name				= "default";
 	this->_hit_points		= 100;
-	this->_energy_points	= 100;
-	this->_attack_damage	= 30;
+	this->_energy_points	= 50;
+	this->_attack_damage	= 20;
 	
 	return ;
 }
 
-//Constructeur par name
-FragTrap::FragTrap(std::string name)
+//constructeur par name
+ScavTrap::ScavTrap(std::string name)
 {
-	std::cout << "FragTrap " << name << " constructor called." << std::endl;
+	std::cout << "Scavtrap " << name << " constructor called." << std::endl;
 
 	this->_name				= name;
 	this->_hit_points		= 100;
-	this->_energy_points	= 100;
-	this->_attack_damage	= 30;
+	this->_energy_points	= 50;
+	this->_attack_damage	= 20;
 	
 	return ;
 }
 
 //Constructeur par copie
-FragTrap::FragTrap(FragTrap const & copy)
+ScavTrap::ScavTrap(ScavTrap const & copy)
 {
-	std::cout << "FragTrap copy constructor called." << std::endl;
+	std::cout << "ScavTrap copy constructor called." << std::endl;
 	*this = copy;
 	return ;
 }
 
 //Destructeur
-FragTrap::~FragTrap(void)
+ScavTrap::~ScavTrap(void)
 {
-	std::cout << "FragTrap destructor called." << std::endl;
+	std::cout << "ScavTrap destructor called." << std::endl;
 	return ;
 }
 
@@ -63,13 +63,12 @@ FragTrap::~FragTrap(void)
 /***********************************************/
 
 //Operateur d'affectation (=)
-FragTrap const &	FragTrap::operator = (FragTrap const & rhs)
+ScavTrap const &	ScavTrap::operator = (ScavTrap const & rhs)
 {
 	this->_name				= rhs._name;
 	this->_hit_points		= rhs._hit_points;
 	this->_energy_points	= rhs._energy_points;
 	this->_attack_damage	= rhs._attack_damage;
-	
 	return (*this);
 }
 
@@ -78,13 +77,13 @@ FragTrap const &	FragTrap::operator = (FragTrap const & rhs)
 /*                FONCTIONS MEMBRES            */
 /***********************************************/
 
-void	FragTrap::attack(const std::string & target)
+void	ScavTrap::attack(const std::string & target)
 {
 	if (this->_energy_points && this->_hit_points)
 	{
 		this->_energy_points -= 1;
 		
-		std::cout << "FragTrap " << this->_name <<  " attacks " << target;
+		std::cout << "ScavTrap " << this->_name <<  " attacks " << target;
 		std::cout << ", causing " << this->_attack_damage <<  " points of damage !" << std::endl;
 	}
 	else
@@ -94,12 +93,13 @@ void	FragTrap::attack(const std::string & target)
 	return ;
 }
 
-void	FragTrap::highFivesGuys(void) const
+void ScavTrap::guardGate(void) const
 {
-	std::cout << "FragTrap " << this->_name <<  " want a highfive !" << std::endl;
+	std::cout << "ScavTrap " << this->_name << " is now in Gate keeper mode." << std::endl;
+	return ;
 }
 
-void	FragTrap::display_specs(void) const
+void	ScavTrap::display_specs(void) const
 {
 	std::cout << "_name          : " << this->_name << std::endl;
 	std::cout << "_hit_points    : " << this->_hit_points << std::endl;

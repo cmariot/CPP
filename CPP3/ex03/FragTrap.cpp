@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 16:19:29 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/18 09:44:00 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/18 16:44:58 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,19 @@ FragTrap::FragTrap(void)
 	std::cout << "FragTrap default constructor called." << std::endl;
 	
 	this->_name				= "default";
+	this->_hit_points		= 100;
+	this->_energy_points	= 100;
+	this->_attack_damage	= 30;
+	
+	return ;
+}
+
+//Constructeur par name
+FragTrap::FragTrap(std::string name)
+{
+	std::cout << "FragTrap " << name << " constructor called." << std::endl;
+
+	this->_name				= name;
 	this->_hit_points		= 100;
 	this->_energy_points	= 100;
 	this->_attack_damage	= 30;
@@ -84,4 +97,13 @@ void	FragTrap::attack(const std::string & target)
 void	FragTrap::highFivesGuys(void) const
 {
 	std::cout << "FragTrap " << this->_name <<  " want a highfive !" << std::endl;
+}
+
+void	FragTrap::display_specs(void) const
+{
+	std::cout << "_name          : " << this->_name << std::endl;
+	std::cout << "_hit_points    : " << this->_hit_points << std::endl;
+	std::cout << "_energy_points : " << this->_energy_points << std::endl;
+	std::cout << "_attack_damage : " << this->_attack_damage << std::endl;
+	return ;
 }

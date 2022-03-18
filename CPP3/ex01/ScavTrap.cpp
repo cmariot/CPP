@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 16:19:29 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/18 09:38:14 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/18 14:55:46 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,25 @@
 ScavTrap::ScavTrap(void)
 {
 	std::cout << "ScavTrap default constructor called." << std::endl;
-	this->_name				= "default_scavtrap";
+
+	this->_name				= "default";
 	this->_hit_points		= 100;
 	this->_energy_points	= 50;
 	this->_attack_damage	= 20;
+	
+	return ;
+}
+
+//Constructeur par name
+ScavTrap::ScavTrap(std::string name)
+{
+	std::cout << "ScavTrap " << name << " constructor called." << std::endl;
+
+	this->_name				= name;
+	this->_hit_points		= 100;
+	this->_energy_points	= 50;
+	this->_attack_damage	= 20;
+	
 	return ;
 }
 
@@ -80,6 +95,15 @@ void	ScavTrap::attack(const std::string & target)
 
 void ScavTrap::guardGate(void) const
 {
-	std::cout << "ScavTrap is now in Gate keeper mode." << std::endl;
+	std::cout << "ScavTrap " << this->_name << " is now in Gate keeper mode." << std::endl;
+	return ;
+}
+
+void	ScavTrap::display_specs(void) const
+{
+	std::cout << "_name          : " << this->_name << std::endl;
+	std::cout << "_hit_points    : " << this->_hit_points << std::endl;
+	std::cout << "_energy_points : " << this->_energy_points << std::endl;
+	std::cout << "_attack_damage : " << this->_attack_damage << std::endl;
 	return ;
 }

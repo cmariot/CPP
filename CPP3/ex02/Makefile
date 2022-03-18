@@ -6,7 +6,7 @@
 #    By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/30 11:15:47 by cmariot           #+#    #+#              #
-#    Updated: 2022/03/17 09:18:51 by cmariot          ###   ########.fr        #
+#    Updated: 2022/03/18 15:02:34 by cmariot          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ LFLAGS			= -Wall -Wextra -Werror -std=c++98
 
 SRCS		= main.cpp \
 			  FragTrap.cpp \
+			  ScavTrap.cpp \
 			  ClapTrap.cpp
 
 OBJ			:= $(SRCS:.cpp=.o)

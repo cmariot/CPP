@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 19:29:58 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/17 09:01:15 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/18 15:02:38 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,18 @@
 
 int	main(void)
 {
-	ScavTrap test;
+	ScavTrap test("Foo");
+	
+	test.display_specs();
 
-	test.attack("Foo");
+	//Fonctions membre heritees de FragTrap
+	test.attack("Bar");
+	test.takeDamage(5);
+	test.beRepaired(10);
+
+	//Fonctions membre propres a ScavTrap
 	test.guardGate();
+	test.display_specs();
+
 	return (0);
 }

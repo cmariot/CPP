@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 16:19:29 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/17 09:16:30 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/18 14:52:05 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class	ScavTrap : public ClapTrap
 	public:
 
 		ScavTrap(void);											// Constructeur par default
+		ScavTrap(std::string name);								// Constructeur par name
 		ScavTrap(ScavTrap const & copy);						// Constructeur par copie
 		~ScavTrap(void);										// Destructeur
 		ScavTrap const &	operator = (ScavTrap const & rhs);	// Surcharge d'opérateur d’affectation
@@ -30,6 +31,7 @@ class	ScavTrap : public ClapTrap
 	
 		void guardGate(void) const;								// Fonction membre propre a la classe
 
+		void	display_specs(void) const;
 } ;
 
 #endif

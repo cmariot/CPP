@@ -1,38 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 16:19:29 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/18 16:09:49 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/18 15:53:24 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP
-#define FRAGTRAP_HPP
+#ifndef SCAVTRAP_HPP
+#define SCAVTRAP_HPP
 
 #include "ClapTrap.hpp"
 #include <iostream>
 
-class	FragTrap : public ClapTrap
+class	ScavTrap : public ClapTrap
 {
 
 	public:
 
-		FragTrap(void);											// Constructeur par default
-		FragTrap(std::string name);								// Constructeur par nom
-		FragTrap(FragTrap const & copy);						// Constructeur par copie
-		~FragTrap(void);										// Destructeur
-		FragTrap const &	operator = (FragTrap const & rhs);	// Surcharge d'opérateur d’affectation
+		ScavTrap(void);											// Constructeur par default
+		ScavTrap(std::string name);								// Constructeur par name
+		ScavTrap(ScavTrap const & copy);						// Constructeur par copie
+		~ScavTrap(void);										// Destructeur
+		ScavTrap const &	operator = (ScavTrap const & rhs);	// Surcharge d'opérateur d’affectation
 
 		void	attack(const std::string & target);				// Surcharge de la fonction membre heritee
 	
-		void	highFivesGuys(void) const;							// Fonction membre specifique a la classe
+		void	guardGate(void) const;							// Fonction membre propre a la classe
 
 		void	display_specs(void) const;
-
 } ;
 
 #endif
