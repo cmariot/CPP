@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 16:19:29 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/17 21:14:51 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/18 09:45:09 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ ScavTrap::ScavTrap(void)
 //Constructeur par copie
 ScavTrap::ScavTrap(ScavTrap const & copy)
 {
-	//std::cout << "ScavTrap copy constructor called." << std::endl;
+	std::cout << "ScavTrap copy constructor called." << std::endl;
 	*this = copy;
 	return ;
 }

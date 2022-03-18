@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 16:19:29 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/17 21:09:07 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/18 09:44:00 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,18 +62,6 @@ FragTrap const &	FragTrap::operator = (FragTrap const & rhs)
 
 
 /***********************************************/
-/*             OPERATEURS ARITHMETIQUES        */
-/***********************************************/
-
-/***********************************************/
-/*            OPERATEURS D'INCREMENTATION      */
-/***********************************************/
-
-/***********************************************/
-/*             OPERATEURS DE COMPARAISON       */
-/***********************************************/
-
-/***********************************************/
 /*                FONCTIONS MEMBRES            */
 /***********************************************/
 
@@ -95,6 +83,5 @@ void	FragTrap::attack(const std::string & target)
 
 void	FragTrap::highFivesGuys(void) const
 {
-	
-		std::cout << "FragTrap " << this->_name <<  " want a highfive !" << std::endl;
+	std::cout << "FragTrap " << this->_name <<  " want a highfive !" << std::endl;
 }

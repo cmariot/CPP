@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 12:13:47 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/17 21:08:45 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/18 09:43:36 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,22 +25,22 @@ class	DiamondTrap : public ScavTrap, public FragTrap
 		DiamondTrap(void);											// Constructeur par default
 		DiamondTrap(std::string name);								// Constructeur par name
 		DiamondTrap(DiamondTrap const & copy);						// Constructeur par copie
-		
+
 		~DiamondTrap(void);											// Destructeur
-		
+
 		DiamondTrap const &	operator = (DiamondTrap const & rhs);	// Surcharge d'opérateur d’affectation
 
-		void	attack(std::string const & target);					// Surcharge de la fonction attack heritee
+		void	attack(std::string const & target);					// Surcharge de la fonction attack 
 
 		void	whoAmI(void) const;									// Affiche le nom du Diamond et celui du Claptrap
 
-		void			set_attributes(void);
+		void			set_attributes(void);						// Set the member attributes of DiamondTrap
 
-		std::string		get_name(void) const;
-		std::string		get_ClapTrap_name(void) const;
-		int				get_hit_points(void) const;
-		int				get_energy_points(void) const;
-		int				get_damage_points(void) const;
+		std::string		get_name(void) const;						// Return _name
+		std::string		get_ClapTrap_name(void) const;				// Return ClapTrap::_name
+		int				get_hit_points(void) const;					// Return _hit_points
+		int				get_energy_points(void) const;				// Return _energy_points
+		int				get_damage_points(void) const;				// Return _attack_damage
 
 	private:
 
@@ -48,7 +48,8 @@ class	DiamondTrap : public ScavTrap, public FragTrap
 
 } ;
 
-std::ostream & operator << (std::ostream & o, DiamondTrap const & rhs);	// Surcharge d'operateur <<
+// Surcharge d'operateur <<
+std::ostream & operator << (std::ostream & o, DiamondTrap const & rhs);
 
 #endif
 
