@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 09:53:40 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/18 09:58:22 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/18 18:10:19 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class	Dog : public Animal
 		~Dog(void);									// Destructeur
 		Dog const &	operator = (Dog const & rhs);	// Surcharge d'opérateur d’affectation
 
+		void	makeSound(void) const;
 
 	private:
 

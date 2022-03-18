@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 17:08:42 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/14 16:15:08 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/18 18:32:36 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 class Fixed 
 {
+
 	public:
 
 		Fixed(void);								// Constructeur par default
@@ -28,9 +29,10 @@ class Fixed
 		int		getRawBits(void) const;				// Retourne la valeur du nombre a virgule sans la convertir
 		void	setRawBits(int const raw);			// Initialise la valeur du nombre a virgule fixe
 
+
 	private:
 
-		int					_number;				// Stock la valeur du nombre a virgule fixe
+		int					_rawBits;				// Stock la valeur du nombre a virgule fixe
 		static int const	_fractionalBits;		// Stock le nombre de bits de la partie fractionnaire,
 													// dont la valeur sera toujours le literal entier 8.
 

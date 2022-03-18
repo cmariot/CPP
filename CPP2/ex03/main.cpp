@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 17:08:16 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/15 16:51:12 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/18 19:20:16 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,29 +73,38 @@ bool	du_meme_cote(Point a, Point b, Point c, Point d, int i)
 
 bool bst(Point const a, Point const b, Point const c, Point const d)
 {
-
+	std::string array[6] =	{	
+								"D est dans le meme demi plan que C par rapport a la droite AB",
+								"D n'est pas dans le meme demi plan que C par rapport a la droite AB",
+								"D est dans le meme demi plan que A par rapport a la droite BC",
+								"D n'est pas dans le meme demi plan que A par rapport a la droite BC",
+								"D est dans le meme demi plan que B par rapport a la droite AC",
+								"D n'est pas dans le meme demi plan que B par rapport a la droite AC"
+							};
+	
 	bool un = du_meme_cote(a, b, c, d, 1);
 	if (un == true)
-		std::cout << "D est dans le meme demi plan que C par rapport a la droite AB" << std::endl;
+		std::cout << array[0] << std::endl;
 	else
-		std::cout << "D n'est pas dans le meme demi plan que C par rapport a la droite AB" << std::endl;
+		std::cout << array[1] << std::endl;
 	std::cout << std::endl;
 
 
 	bool deux = du_meme_cote(b, c, a, d, 2);
 	if (deux == true)
-		std::cout << "D est dans le meme demi plan que A par rapport a la droite BC" << std::endl;
+		std::cout << array[2] << std::endl;
 	else
-		std::cout << "D n'est pas dans le meme demi plan que A par rapport a la droite BC" << std::endl;
+		std::cout << array[3] << std::endl;
 	std::cout << std::endl;
 	
 
 	bool trois = du_meme_cote(a, c, b, d, 3);
 	if (trois == true)
-		std::cout << "D est dans le meme demi plan que B par rapport a la droite AC" << std::endl;
+		std::cout << array[4] << std::endl;
 	else
-		std::cout << "D n'est pas dans le meme demi plan que B par rapport a la droite AC" << std::endl;
+		std::cout << array[5] << std::endl;
 	std::cout << std::endl;
+
 
 	if (un == true && deux == true && trois == true)
 	{
@@ -111,16 +120,17 @@ bool bst(Point const a, Point const b, Point const c, Point const d)
 
 int main(void)
 {
+	// Les points a b et c sont les sommets d'un triangle
 	Point a(2.0f, 2);
 	Point b(4, 5.0f);
 	Point c(7, 3);
-	
-	Point e(3.0f, 3.5f);
 
-	Point d(3.0f, 3.0f);	// Dans le triangle
-	//Point d(a);			// Sur un sommet -> pas dans le triangle
-	//Point d = e;		// Sur une arrete -> pas dans le triangle
-	//Point d;				// Pas dans le triangle (0, 0)
+
+	// On veut tester si le point d est a l'interieur du triangle
+	Point d(3.0f, 3.0f);					// Dans le triangle
+	//Point d(a);							// Sur un sommet -> pas dans le triangle
+	//Point d(3.0f, 3.5f);					// Sur une arrete -> pas dans le triangle
+	//Point d;								// Pas dans le triangle (0, 0)
 
 	bst(a, b, c, d);
 

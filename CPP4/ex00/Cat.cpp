@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 09:54:16 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/18 10:09:41 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/18 18:17:13 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,4 +70,7 @@ Cat const &	Cat::operator = (Cat const & rhs)
 /*                FONCTIONS MEMBRES            */
 /***********************************************/
 
-
+void	Cat::makeSound(void) const
+{
+	std::cout << "* Miaou *" << std::endl;
+}

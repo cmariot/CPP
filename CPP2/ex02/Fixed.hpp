@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 17:08:42 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/14 22:43:26 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/18 18:28:17 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ class Fixed
 
 		int		getRawBits(void) const;				// Retourne la valeur du nombre a virgule sans la convertir
 		void	setRawBits(int const raw);			// Initialise la valeur du nombre a virgule fixe
-		float	toFloat(void) const;				// Convertit _number en float
-		int		toInt(void) const;					// Convertit _number en int
+		float	toFloat(void) const;				// Convertit _rawBits en float
+		int		toInt(void) const;					// Convertit _rawBits en int
 
 		static Fixed	min(Fixed & first, Fixed & second);				// Retourne le min
 		static Fixed 	min(Fixed const & first, Fixed const & second);	// Retourne le min (entre deux constants)
@@ -59,7 +59,7 @@ class Fixed
 
 	private:
 
-		int					_number;				// Stocke la valeur du nombre a virgule fixe
+		int					_rawBits;				// Stocke la valeur du nombre a virgule fixe
 		static int const	_fractionalBits;		// Stocke le nombre de bits de la partie fractionnaire,
 													// dont la valeur sera toujours le literal entier 8.
 

@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 17:09:33 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/14 17:08:43 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/18 18:26:58 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int const	Fixed::_fractionalBits = 8;
 /***********************************************/
 
 //Constructeur par default
-Fixed::Fixed(void) : _number(0)
+Fixed::Fixed(void) : _rawBits(0)
 {
 	std::cout << "Default constructor called" << std::endl;
 	return ;
@@ -38,7 +38,7 @@ Fixed::Fixed(Fixed const & fixed)
 Fixed::Fixed(int const n)
 {
 	std::cout << "Int constructor called" << std::endl;
-	this->_number = n << this->_fractionalBits;
+	this->_rawBits = n << this->_fractionalBits;
 	return ;
 }
 
@@ -46,7 +46,7 @@ Fixed::Fixed(int const n)
 Fixed::Fixed(float const f)
 {
 	std::cout << "Float constructor called" << std::endl;
-	this->_number = roundf(f * (1 << this->_fractionalBits));
+	this->_rawBits = roundf(f * (1 << this->_fractionalBits));
 	return ;
 }
 
@@ -66,7 +66,7 @@ Fixed::~Fixed(void)
 Fixed &			Fixed::operator = (Fixed const & rhs)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
-	this->_number = rhs.getRawBits();
+	this->_rawBits = rhs.getRawBits();
 	return (*this);
 }
 
@@ -84,17 +84,17 @@ std::ostream &	operator << (std::ostream & output, Fixed const & rhs)
 
 int		Fixed::getRawBits(void) const
 {
-	return (this->_number);
+	return (this->_rawBits);
 }
 
 void	Fixed::setRawBits(int const raw)
 {
-	this->_number = raw;
+	this->_rawBits = raw;
 }
 
 float	Fixed::toFloat(void) const
 {
-	return ((float)this->_number / (float)(1 << this->_fractionalBits));
+	return ((float)this->_rawBits / (float)(1 << this->_fractionalBits));
 }
 
 int		Fixed::toInt(void) const

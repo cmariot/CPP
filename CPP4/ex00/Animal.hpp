@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 09:49:34 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/18 10:08:55 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/18 18:19:34 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,9 @@ class	Animal
 		~Animal(void);										// Destructeur
 		Animal const &	operator = (Animal const & rhs);	// Surcharge d'opérateur d’affectation
 
-		std::string	get_type(void) const;					// Return type
+		std::string	getType(void) const;					// Return type
+
+		void	makeSound(void) const;
 
 	private:
 

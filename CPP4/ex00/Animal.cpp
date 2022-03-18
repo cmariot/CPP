@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 09:49:34 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/18 10:07:41 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/18 18:19:20 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,12 @@ Animal const &	Animal::operator = (Animal const & rhs)
 /*                FONCTIONS MEMBRES            */
 /***********************************************/
 
-std::string	Animal::get_type(void) const
+std::string	Animal::getType(void) const
 {
 	return (this->type);
+}
+
+void	Animal::makeSound(void) const
+{
+	std::cout << "* Not an human sound *" << std::endl;
 }
