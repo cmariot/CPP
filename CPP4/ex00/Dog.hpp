@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 09:53:40 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/19 12:48:37 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/19 17:39:36 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class	Dog : public Animal
 
 		Dog(void);									// Constructeur par default
 		Dog(Dog const & copy);						// Constructeur par copie
-		~Dog(void);									// Destructeur
+		virtual ~Dog(void);									// Destructeur
 		Dog const &	operator = (Dog const & rhs);	// Surcharge d'opérateur d’affectation
 
 		virtual void	makeSound(void) const;		// Fonction membre virtual = methode

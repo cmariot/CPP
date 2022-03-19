@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 09:48:42 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/19 17:27:53 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/19 17:35:01 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,12 +82,12 @@ int	main(void)
 	std::cout << "The " << meta6->getType() << " say : ";
 	meta6->makeSound();
 
-	//delete meta1;
-	//delete meta2;
-	//delete meta3;
-	//delete meta4;
-	//delete meta5;
-	//delete meta6;
+	delete meta1;
+	delete meta2;
+	delete meta3;
+	delete meta4;
+	delete meta5;
+	delete meta6;
 
 	return (0);
 }
