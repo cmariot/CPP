@@ -1,42 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/18 09:54:16 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/19 13:06:39 by cmariot          ###   ########.fr       */
+/*   Created: 2022/03/19 12:52:54 by cmariot           #+#    #+#             */
+/*   Updated: 2022/03/19 13:03:45 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "WrongAnimal.hpp"
 
 /***********************************************/
 /*            CONSTRUCTEURS/DESTRUCTEURS       */
 /***********************************************/
 
 //Constructeur par default
-Cat::Cat(void)
+WrongAnimal::WrongAnimal(void): type("wrong_animal")
 {
-	std::cout << "Cat default constructor called." << std::endl;
-	this->type = "Cat";
-	this->Animal::type = this->type;
+	std::cout << "WrongAnimal default constructor called." << std::endl;
 	return ;
 }
 
 //Constructeur par copie
-Cat::Cat(Cat const & copy)
+WrongAnimal::WrongAnimal(WrongAnimal const & copy)
 {
-	std::cout << "Cat copy constructor called." << std::endl;
+	std::cout << "WrongAnimal copy constructor called." << std::endl;
 	*this = copy;
 	return ;
 }
 
 //Destructeur
-Cat::~Cat(void)
+WrongAnimal::~WrongAnimal(void)
 {
-	std::cout << "Cat destructor called." << std::endl;
+	std::cout << "WrongAnimal destructor called." << std::endl;
 	return ;
 }
 
@@ -46,7 +44,7 @@ Cat::~Cat(void)
 /***********************************************/
 
 //Operateur d'affectation (=)
-Cat const &	Cat::operator = (Cat const & rhs)
+WrongAnimal const &	WrongAnimal::operator = (WrongAnimal const & rhs)
 {
 	this->type = rhs.type;
 	return (*this);
@@ -54,10 +52,27 @@ Cat const &	Cat::operator = (Cat const & rhs)
 
 
 /***********************************************/
+/*             OPERATEURS ARITHMETIQUES        */
+/***********************************************/
+
+/***********************************************/
+/*            OPERATEURS D'INCREMENTATION      */
+/***********************************************/
+
+/***********************************************/
+/*             OPERATEURS DE COMPARAISON       */
+/***********************************************/
+
+/***********************************************/
 /*                FONCTIONS MEMBRES            */
 /***********************************************/
 
-void	Cat::makeSound(void) const
+std::string	WrongAnimal::getType(void) const
 {
-	std::cout << "* Miaou *" << std::endl;
+	return (this->type);
+}
+
+void	WrongAnimal::makeSound(void) const
+{
+	std::cout << "* Coucou *" << std::endl;
 }
