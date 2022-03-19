@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 17:09:33 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/18 18:26:39 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/19 10:44:18 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ Fixed::Fixed(void) : _rawBits(0)
 Fixed::Fixed(Fixed const & obj)
 {
 	std::cout << "Copy constructor called" << std::endl;
-	this->_rawBits = obj.getRawBits();
+	*this = obj;
 	return ;
 }
 

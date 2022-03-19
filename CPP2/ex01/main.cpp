@@ -6,12 +6,11 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 17:08:16 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/18 18:37:51 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/19 10:51:00 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
-#include <iostream>
 
 int	main(void)
 {

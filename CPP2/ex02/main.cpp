@@ -6,12 +6,13 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 17:08:16 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/18 18:44:33 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/19 11:02:20 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 #include <iostream>
+#include <iomanip>
 
 void	test_operateurs_comparaison(void)
 {
@@ -22,61 +23,61 @@ void	test_operateurs_comparaison(void)
 
 	//Operateur de comparaison <
 	if (c < d)	//vrai
-		std::cout << c << " < " << d << std::endl;
+		std::cout << c << " < " << d << "    : retourne vrai" << std::endl;
 	else
 		std::cout << "Erreur" << std::endl;
 
 	if (d < c)	//faux
 		std::cout << "Erreur" << std::endl;
 	else
-		std::cout << d << " < " << c << " : retourne faux" << std::endl;
+		std::cout << d << " < " << c << "    : retourne faux" << std::endl;
 
 	if (c < c)	//faux
 		std::cout << "Erreur" << std::endl;
 	else
-		std::cout << c << " < " << c << " : retourne faux" << std::endl;
+		std::cout << c << " < " << c << "  : retourne faux" << std::endl;
 
 
 	//Operateur de comparaison >
 	if (d > c)	//vrai
-		std::cout << d << " > " << c << std::endl;
+		std::cout << d << " > " << c << "    : retourne vrai" << std::endl;
 	else
 		std::cout << "Erreur" << std::endl;
 
 
 	//Operateur de comparaison <=
 	if (c <= d)	//vrai
-		std::cout << c << " <= " << d << std::endl;
+		std::cout << c << " <= " << d << "   : retourne vrai" << std::endl;
 	else
 		std::cout << "Erreur" << std::endl;
 
 	if (c <= c)	//vrai
-		std::cout << c << " <= " << c << std::endl;
+		std::cout << c << " <= " << c << " : retourne vrai" << std::endl;
 	else
 		std::cout << "Erreur" << std::endl;
 
 	//Operateur de comparaison >=
 	if (d >= c)	//vrai
-		std::cout << d << " >= " << c << std::endl;
+		std::cout << d << " >= " << c << "   : retourne vrai" << std::endl;
 	else
 		std::cout << "Erreur" << std::endl;
 
 	if (d >= d)	//vrai
-		std::cout << d << " >= " << d << std::endl;
+		std::cout << d << " >= " << d << "     : retourne vrai" << std::endl;
 	else
 		std::cout << "Erreur" << std::endl;
 
 
 	//Operateur de comparaison ==
 	if (c == c)	//vrai
-		std::cout << c << " == " << c << std::endl;
+		std::cout << c << " == " << c << " : retourne vrai" << std::endl;
 	else
 		std::cout << "Erreur" << std::endl;
 
 
 	//Operateur de comparaison !=
 	if (c != d)	//vrai
-		std::cout << c << " != " << d << std::endl;
+		std::cout << c << " != " << d << "   : retourne vrai" << std::endl;
 	else
 		std::cout << "Erreur" << std::endl;
 
@@ -103,10 +104,10 @@ void	test_operateurs_incrementation(void)
 
 	std::cout << "Tests operateurs incrementation/decrementation :" << std::endl;
 
-	std::cout << "Avant: a = " << a << "; a++ -> " << a++ << "; Apres: a = " << a << std::endl;
-	std::cout << "Avant: a = " << a << "; ++a -> " << ++a << "; Apres: a = " << a << std::endl;
-	std::cout << "Avant: a = " << a << "; a-- -> " << a-- << "; Apres: a = " << a << std::endl;
-	std::cout << "Avant: a = " << a << "; --a -> " << --a << "; Apres: a = " << a << std::endl;
+	std::cout << "Avant: a = " << a << "; Pendant: a++ = " << a++ << "; Apres: a = " << a << std::endl;
+	std::cout << "Avant: a = " << a << "; Pendant: ++a -> " << ++a << "; Apres: a = " << a << std::endl;
+	std::cout << "Avant: a = " << a << "; Pendant: a-- -> " << a-- << "; Apres: a = " << a << std::endl;
+	std::cout << "Avant: a = " << a << "; Pendant: --a -> " << --a << "; Apres: a = " << a << std::endl;
 }
 
 void	test_min_max(void)

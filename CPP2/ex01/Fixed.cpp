@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/10 17:09:33 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/18 18:26:58 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/19 10:48:56 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ Fixed::Fixed(int const n)
 	return ;
 }
 
-//Constructeur par flottant constant
+// Constructeur par flottant constant
+// Left Bitwise Shift : 101010 << 1 = 010101
 Fixed::Fixed(float const f)
 {
 	std::cout << "Float constructor called" << std::endl;
