@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/18 09:49:34 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/19 12:50:05 by cmariot          ###   ########.fr       */
+/*   Created: 2022/03/19 12:52:54 by cmariot           #+#    #+#             */
+/*   Updated: 2022/03/19 13:01:19 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
+#ifndef WRONGANIMAL_HPP
+#define WRONGANIMAL_HPP
 
 #include <iostream>
-#include <string>
 
-class	Animal
+class	WrongAnimal
 {
 
 	public:
 
-		Animal(void);										// Constructeur par default
-		Animal(Animal const & copy);						// Constructeur par copie
-
-		~Animal(void);										// Destructeur
-
-		Animal const &	operator = (Animal const & rhs);	// Surcharge d'opérateur d’affectation
+		WrongAnimal(void);										// Constructeur par default
+		WrongAnimal(WrongAnimal const & copy);						// Constructeur par copie
+		~WrongAnimal(void);									// Destructeur
+		WrongAnimal const &	operator = (WrongAnimal const & rhs);	// Surcharge d'opérateur d’affectation
 
 		std::string	getType(void) const;					// Return type
 
@@ -37,7 +34,7 @@ class	Animal
 
 		std::string type;
 
-
 } ;
 
 #endif
+
