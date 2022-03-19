@@ -6,13 +6,16 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 09:48:42 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/18 18:21:41 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/19 16:57:49 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
+
+#include "WrongAnimal.hpp"
+#include "WrongCat.hpp"
 
 void	create_animal(void)
 {
@@ -48,7 +51,7 @@ int	main(void)
 
 	const Animal* meta = new Animal();
 	const Animal* j = new Dog();
-	const Animal* i = new Cat();
+	const Animal* i = new WrongCat();
 	std::cout << j->getType() << " " << std::endl;
 	std::cout << i->getType() << " " << std::endl;
 	i->makeSound(); //will output the cat sound !
