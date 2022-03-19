@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 09:48:42 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/19 16:59:03 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/19 17:27:53 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,18 +48,46 @@ int	main(void)
 	create_dog();
 	std::cout << std::endl;
 	create_cat();
+	std::cout << std::endl;
 
-	const Animal* meta = new Animal();
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
+	const Animal		*meta1 = new Animal();
+	const Animal		*meta2 = new Dog();
+	const Animal		*meta3 = new Cat();
 
-	std::cout << meta->getType() << " " << std::endl;
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
+	const WrongAnimal	*meta4 = new WrongAnimal();
+	const WrongAnimal	*meta5 = new WrongCat();
+	const WrongCat		*meta6 = new WrongCat();
+	
+	//const Animal		*error1 = new WrongAnimal();
+	//const Animal		*error2 = new WrongCat();
+	//const Cat			*error3 = new Animal();
+	//const Cat			*error3 = new WrongAnimal();
+	//const WrongCat		*error3 = new Cat();
 
-    meta->makeSound();
-	i->makeSound(); //will output the cat sound !
-	j->makeSound();
+	std::cout << "The " << meta1->getType() << " say : ";
+	meta1->makeSound();
+
+	std::cout << "The " << meta2->getType() << " say : ";
+	meta2->makeSound();
+	
+	std::cout << "The " << meta3->getType() << " say : ";
+	meta3->makeSound();
+
+	std::cout << "The " << meta4->getType() << " say : ";
+	meta4->makeSound();
+	
+	std::cout << "The " << meta5->getType() << " say : ";
+	meta5->makeSound();
+	
+	std::cout << "The " << meta6->getType() << " say : ";
+	meta6->makeSound();
+
+	//delete meta1;
+	//delete meta2;
+	//delete meta3;
+	//delete meta4;
+	//delete meta5;
+	//delete meta6;
 
 	return (0);
 }

@@ -6,7 +6,7 @@
 #    By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/30 11:15:47 by cmariot           #+#    #+#              #
-#    Updated: 2022/03/18 09:54:46 by cmariot          ###   ########.fr        #
+#    Updated: 2022/03/19 17:03:20 by cmariot          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,9 @@ LFLAGS			= -Wall -Wextra -Werror -std=c++98
 SRCS		= main.cpp \
 			  Animal.cpp \
 			  Cat.cpp \
-			  Dog.cpp
+			  Dog.cpp \
+			  WrongAnimal.cpp \
+			  WrongCat.cpp
 
 OBJ			:= $(SRCS:.cpp=.o)
 

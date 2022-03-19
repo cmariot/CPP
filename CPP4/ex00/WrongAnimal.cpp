@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 12:52:54 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/19 13:03:45 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/19 17:27:22 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 /***********************************************/
 
 //Constructeur par default
-WrongAnimal::WrongAnimal(void): type("wrong_animal")
+WrongAnimal::WrongAnimal(void): type("WrongAnimal")
 {
 	std::cout << "WrongAnimal default constructor called." << std::endl;
 	return ;
@@ -50,18 +50,6 @@ WrongAnimal const &	WrongAnimal::operator = (WrongAnimal const & rhs)
 	return (*this);
 }
 
-
-/***********************************************/
-/*             OPERATEURS ARITHMETIQUES        */
-/***********************************************/
-
-/***********************************************/
-/*            OPERATEURS D'INCREMENTATION      */
-/***********************************************/
-
-/***********************************************/
-/*             OPERATEURS DE COMPARAISON       */
-/***********************************************/
 
 /***********************************************/
 /*                FONCTIONS MEMBRES            */
