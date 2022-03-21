@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 16:27:01 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/21 18:34:56 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/21 18:47:37 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ void		MateriaSource::learnMateria(AMateria* materia)
 		{
 			//std::cout << "Materia de type " << materia->getType() << " ajoutee a l'index " << i << std::endl;
 			_materia_source[i] = materia->clone();
+			delete materia;
 			return;
 		}
 	}
