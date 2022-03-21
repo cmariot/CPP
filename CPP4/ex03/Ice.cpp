@@ -1,40 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/18 09:49:34 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/21 15:00:43 by cmariot          ###   ########.fr       */
+/*   Created: 2022/03/21 14:22:23 by cmariot           #+#    #+#             */
+/*   Updated: 2022/03/21 18:40:19 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "Ice.hpp"
 
 /***********************************************/
 /*            CONSTRUCTEURS/DESTRUCTEURS       */
 /***********************************************/
 
 //Constructeur par default
-Animal::Animal(void) : type("Animal")
+Ice::Ice(void)
 {
-	std::cout << "Animal default constructor called." << std::endl;
+	//std::cout << "Ice default constructor called." << std::endl;
+	this->_type = "ice";
 	return ;
 }
 
 //Constructeur par copie
-Animal::Animal(Animal const & copy)
+Ice::Ice(Ice const & copy)
 {
-	std::cout << "Animal copy constructor called." << std::endl;
+	//std::cout << "Ice copy constructor called." << std::endl;
 	*this = copy;
 	return ;
 }
 
 //Destructeur
-Animal::~Animal(void)
+Ice::~Ice(void)
 {
-	std::cout << "Animal destructor called." << std::endl;
+	//std::cout << "Ice destructor called." << std::endl;
 	return ;
 }
 
@@ -44,9 +45,9 @@ Animal::~Animal(void)
 /***********************************************/
 
 //Operateur d'affectation (=)
-Animal const &	Animal::operator = (Animal const & rhs)
+Ice const &	Ice::operator = (AMateria const & rhs)
 {
-	this->type = rhs.type;
+	this->_type = rhs.getType();
 	return (*this);
 }
 
@@ -55,12 +56,15 @@ Animal const &	Animal::operator = (Animal const & rhs)
 /*                FONCTIONS MEMBRES            */
 /***********************************************/
 
-std::string	Animal::getType(void) const
+//Methode clone heritee de AMateria
+AMateria* Ice::clone(void) const
 {
-	return (this->type);
+	AMateria *clone = new Ice(*this);
+	return (clone);
 }
 
-void	Animal::makeSound(void) const
+//Methode use heritee de AMateria
+void	Ice::use(ICharacter& target)
 {
-	std::cout << "* Not an human sound *" << std::endl;
+	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 }

@@ -1,40 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/18 09:49:34 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/21 15:00:43 by cmariot          ###   ########.fr       */
+/*   Created: 2022/03/18 09:53:40 by cmariot           #+#    #+#             */
+/*   Updated: 2022/03/21 14:14:53 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "Dog.hpp"
 
 /***********************************************/
 /*            CONSTRUCTEURS/DESTRUCTEURS       */
 /***********************************************/
 
 //Constructeur par default
-Animal::Animal(void) : type("Animal")
+Dog::Dog(void)
 {
-	std::cout << "Animal default constructor called." << std::endl;
+	std::cout << "Dog default constructor called." << std::endl;
+	this->type = "Dog";
+	this->AAnimal::type = this->type;
+	this->_brain = new Brain;
 	return ;
 }
 
 //Constructeur par copie
-Animal::Animal(Animal const & copy)
+Dog::Dog(Dog const & copy)
 {
-	std::cout << "Animal copy constructor called." << std::endl;
+	std::cout << "Dog copy constructor called." << std::endl;
 	*this = copy;
 	return ;
 }
 
 //Destructeur
-Animal::~Animal(void)
+Dog::~Dog(void)
 {
-	std::cout << "Animal destructor called." << std::endl;
+	std::cout << "Dog destructor called." << std::endl;
+	if (this->_brain)
+		delete this->_brain;
 	return ;
 }
 
@@ -44,9 +49,10 @@ Animal::~Animal(void)
 /***********************************************/
 
 //Operateur d'affectation (=)
-Animal const &	Animal::operator = (Animal const & rhs)
+Dog const &	Dog::operator = (Dog const & rhs)
 {
 	this->type = rhs.type;
+	this->_brain = new Brain(*(rhs._brain));
 	return (*this);
 }
 
@@ -55,12 +61,26 @@ Animal const &	Animal::operator = (Animal const & rhs)
 /*                FONCTIONS MEMBRES            */
 /***********************************************/
 
-std::string	Animal::getType(void) const
+void	Dog::makeSound(void) const
 {
-	return (this->type);
+	std::cout << "* Ouaf *" << std::endl;
 }
 
-void	Animal::makeSound(void) const
+void	Dog::set_idea(int i, std::string idea)
 {
-	std::cout << "* Not an human sound *" << std::endl;
+	if (i < 0 || i > 100)
+		std::cout << "Error, out of range [0;100]" << std::endl;
+	else
+		this->_brain->_ideas[i] = idea;
+}
+
+std::string	Dog::get_idea(int i) const
+{
+	if (i < 0 || i > 100)
+	{
+		std::cout << "Error, out of range [0;100]" << std::endl;
+		return ("");
+	}
+	else
+		return (this->_brain->_ideas[i]);
 }

@@ -1,40 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/18 09:49:34 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/21 15:00:43 by cmariot          ###   ########.fr       */
+/*   Created: 2022/03/21 14:22:23 by cmariot           #+#    #+#             */
+/*   Updated: 2022/03/21 18:39:02 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "Cure.hpp"
 
 /***********************************************/
 /*            CONSTRUCTEURS/DESTRUCTEURS       */
 /***********************************************/
 
 //Constructeur par default
-Animal::Animal(void) : type("Animal")
+Cure::Cure(void)
 {
-	std::cout << "Animal default constructor called." << std::endl;
+	//std::cout << "Cure default constructor called." << std::endl;
+	this->_type = "cure";
 	return ;
 }
 
 //Constructeur par copie
-Animal::Animal(Animal const & copy)
+Cure::Cure(Cure const & copy)
 {
-	std::cout << "Animal copy constructor called." << std::endl;
+	//std::cout << "Cure copy constructor called." << std::endl;
 	*this = copy;
 	return ;
 }
 
 //Destructeur
-Animal::~Animal(void)
+Cure::~Cure(void)
 {
-	std::cout << "Animal destructor called." << std::endl;
+	//std::cout << "Cure destructor called." << std::endl;
 	return ;
 }
 
@@ -44,9 +45,9 @@ Animal::~Animal(void)
 /***********************************************/
 
 //Operateur d'affectation (=)
-Animal const &	Animal::operator = (Animal const & rhs)
+Cure const &	Cure::operator = (AMateria const & rhs)
 {
-	this->type = rhs.type;
+	this->_type = rhs.getType();
 	return (*this);
 }
 
@@ -55,12 +56,15 @@ Animal const &	Animal::operator = (Animal const & rhs)
 /*                FONCTIONS MEMBRES            */
 /***********************************************/
 
-std::string	Animal::getType(void) const
+//Methode clone heritee de AMateria
+AMateria* Cure::clone(void) const
 {
-	return (this->type);
+	AMateria *clone = new Cure(*this);
+	return (clone);
 }
 
-void	Animal::makeSound(void) const
+//Methode use heritee de AMateria
+void	Cure::use(ICharacter& target)
 {
-	std::cout << "* Not an human sound *" << std::endl;
+	std::cout << "* heals " << target.getName() << "’s wounds *" << std::endl;
 }

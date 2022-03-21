@@ -1,40 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   AAnimal.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 09:49:34 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/21 15:00:43 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/21 14:12:39 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 
 /***********************************************/
 /*            CONSTRUCTEURS/DESTRUCTEURS       */
 /***********************************************/
 
 //Constructeur par default
-Animal::Animal(void) : type("Animal")
+AAnimal::AAnimal(void) : type("AAnimal")
 {
-	std::cout << "Animal default constructor called." << std::endl;
+	std::cout << "AAnimal default constructor called." << std::endl;
 	return ;
 }
 
 //Constructeur par copie
-Animal::Animal(Animal const & copy)
+AAnimal::AAnimal(AAnimal const & copy)
 {
-	std::cout << "Animal copy constructor called." << std::endl;
+	std::cout << "AAnimal copy constructor called." << std::endl;
 	*this = copy;
 	return ;
 }
 
 //Destructeur
-Animal::~Animal(void)
+AAnimal::~AAnimal(void)
 {
-	std::cout << "Animal destructor called." << std::endl;
+	std::cout << "AAnimal destructor called." << std::endl;
 	return ;
 }
 
@@ -44,9 +44,10 @@ Animal::~Animal(void)
 /***********************************************/
 
 //Operateur d'affectation (=)
-Animal const &	Animal::operator = (Animal const & rhs)
+AAnimal const &	AAnimal::operator = (AAnimal const & rhs)
 {
-	this->type = rhs.type;
+	(void)rhs;
+	//this->_var = rhs._var;
 	return (*this);
 }
 
@@ -55,12 +56,12 @@ Animal const &	Animal::operator = (Animal const & rhs)
 /*                FONCTIONS MEMBRES            */
 /***********************************************/
 
-std::string	Animal::getType(void) const
+std::string	AAnimal::getType(void) const
 {
 	return (this->type);
 }
 
-void	Animal::makeSound(void) const
+void	AAnimal::makeSound(void) const
 {
 	std::cout << "* Not an human sound *" << std::endl;
 }

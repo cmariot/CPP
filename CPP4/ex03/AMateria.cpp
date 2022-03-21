@@ -1,40 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/18 09:49:34 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/21 15:00:43 by cmariot          ###   ########.fr       */
+/*   Created: 2022/03/21 14:21:47 by cmariot           #+#    #+#             */
+/*   Updated: 2022/03/21 18:40:55 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "AMateria.hpp"
 
 /***********************************************/
 /*            CONSTRUCTEURS/DESTRUCTEURS       */
 /***********************************************/
 
 //Constructeur par default
-Animal::Animal(void) : type("Animal")
+AMateria::AMateria(void) : _type("materia")
 {
-	std::cout << "Animal default constructor called." << std::endl;
+	//std::cout << "AMateria default constructor called." << std::endl;
+	return ;
+}
+
+//Constructeur par type
+AMateria::AMateria(std::string const & type) : _type(type)
+{
+	//std::cout << "AMateria constructor by type called." << std::endl;
 	return ;
 }
 
 //Constructeur par copie
-Animal::Animal(Animal const & copy)
+AMateria::AMateria(AMateria const & copy)
 {
-	std::cout << "Animal copy constructor called." << std::endl;
+	//std::cout << "AMateria copy constructor called." << std::endl;
 	*this = copy;
 	return ;
 }
 
 //Destructeur
-Animal::~Animal(void)
+AMateria::~AMateria(void)
 {
-	std::cout << "Animal destructor called." << std::endl;
+	//std::cout << "AMateria destructor called." << std::endl;
 	return ;
 }
 
@@ -44,9 +51,10 @@ Animal::~Animal(void)
 /***********************************************/
 
 //Operateur d'affectation (=)
-Animal const &	Animal::operator = (Animal const & rhs)
+AMateria const &	AMateria::operator = (AMateria const & rhs)
 {
-	this->type = rhs.type;
+	//std::cout << "Affectation operator (=) called" << std::endl;
+	this->_type = rhs._type;
 	return (*this);
 }
 
@@ -55,12 +63,12 @@ Animal const &	Animal::operator = (Animal const & rhs)
 /*                FONCTIONS MEMBRES            */
 /***********************************************/
 
-std::string	Animal::getType(void) const
+std::string const & AMateria::getType() const
 {
-	return (this->type);
+	return (this->_type);
 }
 
-void	Animal::makeSound(void) const
+void	AMateria::use(ICharacter& target)
 {
-	std::cout << "* Not an human sound *" << std::endl;
+	std::cout << "* materia used on " << target.getName() << " *" << std::endl;
 }

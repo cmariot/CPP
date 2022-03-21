@@ -1,40 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/18 09:49:34 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/21 15:00:43 by cmariot          ###   ########.fr       */
+/*   Created: 2022/03/21 11:49:15 by cmariot           #+#    #+#             */
+/*   Updated: 2022/03/21 13:01:15 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "Brain.hpp"
 
 /***********************************************/
 /*            CONSTRUCTEURS/DESTRUCTEURS       */
 /***********************************************/
 
 //Constructeur par default
-Animal::Animal(void) : type("Animal")
+Brain::Brain(void)
 {
-	std::cout << "Animal default constructor called." << std::endl;
+	std::cout << "Brain default constructor called." << std::endl;
+	for (int i = 0; i < 100; i++)
+		this->_ideas[i] = "eat, sleep, repeat";
 	return ;
 }
 
 //Constructeur par copie
-Animal::Animal(Animal const & copy)
+Brain::Brain(Brain const & copy)
 {
-	std::cout << "Animal copy constructor called." << std::endl;
+	std::cout << "Brain copy constructor called." << std::endl;
 	*this = copy;
 	return ;
 }
 
 //Destructeur
-Animal::~Animal(void)
+Brain::~Brain(void)
 {
-	std::cout << "Animal destructor called." << std::endl;
+	std::cout << "Brain destructor called." << std::endl;
 	return ;
 }
 
@@ -44,23 +46,32 @@ Animal::~Animal(void)
 /***********************************************/
 
 //Operateur d'affectation (=)
-Animal const &	Animal::operator = (Animal const & rhs)
+Brain const &	Brain::operator = (Brain const & rhs)
 {
-	this->type = rhs.type;
+	for (int i = 0; i < 100; i++)
+		this->_ideas[i] = rhs._ideas[i];
 	return (*this);
 }
 
-
 /***********************************************/
-/*                FONCTIONS MEMBRES            */
+/*                FONCTIONS MEMBRE             */
 /***********************************************/
 
-std::string	Animal::getType(void) const
+void	Brain::set_idea(int i, std::string idea)
 {
-	return (this->type);
+	if (i < 0 || i > 100)
+		std::cout << "Error, out of range [0;100]" << std::endl;
+	else
+		this->_ideas[i] = idea;
 }
 
-void	Animal::makeSound(void) const
+std::string	Brain::get_idea(int i) const
 {
-	std::cout << "* Not an human sound *" << std::endl;
+	if (i < 0 || i > 100)
+	{
+		std::cout << "Error, out of range [0;100]" << std::endl;
+		return ("");
+	}
+	else
+		return (this->_ideas[i]);
 }
