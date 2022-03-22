@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 16:27:24 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/21 19:36:14 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/22 08:57:51 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 
 # include <iostream>
 # include "ICharacter.hpp"
+# include "Ice.hpp"
+# include "Cure.hpp"
+
+class	Ice;
+class	Cure;
 
 class	Character : public ICharacter
 {
@@ -38,9 +43,11 @@ class	Character : public ICharacter
 		std::string		_name;											// Nom du personnage
 		AMateria*		_inventaire[4];									// Inventaire pouvant comporter jusqu'a 4 materias
 		
-		AMateria*		_to_delete;										// Liste des AMateria a delete si unequip
-		int				_to_delete_nb;									// Nombre de materia a delete a la fin
 
+		AMateria*		_ice_to_delete;									// Liste des AMateria a delete si unequip
+		int				_nb_ice_to_delete;								// Nombre de materia a delete a la fin
+		AMateria*		_cure_to_delete;								// Liste des AMateria a delete si unequip
+		int				_nb_cure_to_delete;								// Nombre de materia a delete a la fin
 } ;
 
 #endif
