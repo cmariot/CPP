@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 16:27:24 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/22 09:01:28 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/22 09:05:56 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,10 @@ Character::~Character(void)
 	for (int i = 0; i < 4; i++)
 		if (_inventaire[i] != NULL)
 			delete _inventaire[i];
-	if (this->_ice_to_delete)
+	if (this->_nb_ice_to_delete)
 		delete [] this->_ice_to_delete;
+	if (this->_nb_cure_to_delete)
+		delete [] this->_cure_to_delete;
 	return ;
 }
 
