@@ -6,7 +6,7 @@
 #    By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/30 11:15:47 by cmariot           #+#    #+#              #
-#    Updated: 2022/03/21 19:41:57 by cmariot          ###   ########.fr        #
+#    Updated: 2022/03/22 09:08:25 by cmariot          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,9 +24,9 @@ NAME			= interface
 
 CC				= c++
 
-CFLAGS			= -Wall #-Wextra -Werror -std=c++98
+CFLAGS			= -Wall -Wextra -Werror -std=c++98 -g3 -O2
 
-LFLAGS			= -Wall #-Wextra -Werror -std=c++98
+LFLAGS			= -Wall -Wextra -Werror -std=c++98 -g3 -O2
 
 
 # **************************************************************************** #
@@ -70,7 +70,7 @@ all : header $(NAME) footer
 $(NAME)	: $(OBJ)
 		$(CC) $(LFLAGS) $(OBJ) -o $(NAME)
 
-leaks :	all
+leaks :	re
 		valgrind --leak-check=full --show-leak-kinds=all --track-fds=yes --track-origins=yes ./$(NAME)
 
 install: re

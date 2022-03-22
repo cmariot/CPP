@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 14:41:24 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/22 08:25:44 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/22 09:11:50 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,9 @@ void test1(void)
 	toto.equip(cure);
 	toto.use(0, toto);
 
-	delete cure;
-	delete ice;
-
 }
 
-int	main(void)
+void test2(void)
 {
 	IMateriaSource* src = new MateriaSource();
 	src->learnMateria(new Ice());
@@ -62,6 +59,11 @@ int	main(void)
 	delete bob;
 	delete me;
 	delete src;
+}
 
+int	main(void)
+{
+	test1();
+	test2();
 	return (0);
 }
