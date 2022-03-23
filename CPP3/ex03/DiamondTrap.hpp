@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 12:13:47 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/18 09:43:36 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/23 09:12:53 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,8 @@ class	DiamondTrap : public ScavTrap, public FragTrap
 		DiamondTrap const &	operator = (DiamondTrap const & rhs);	// Surcharge d'opérateur d’affectation
 
 		void	attack(std::string const & target);					// Surcharge de la fonction attack 
-
 		void	whoAmI(void) const;									// Affiche le nom du Diamond et celui du Claptrap
-
-		void			set_attributes(void);						// Set the member attributes of DiamondTrap
+		void	set_attributes(void);								// Set the member attributes of DiamondTrap
 
 		std::string		get_name(void) const;						// Return _name
 		std::string		get_ClapTrap_name(void) const;				// Return ClapTrap::_name

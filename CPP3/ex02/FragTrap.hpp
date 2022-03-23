@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 16:19:29 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/18 16:09:49 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/23 09:11:28 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ class	FragTrap : public ClapTrap
 
 		void	attack(const std::string & target);				// Surcharge de la fonction membre heritee
 	
-		void	highFivesGuys(void) const;							// Fonction membre specifique a la classe
+		void	highFivesGuys(void) const;						// Fonction membre specifique a la classe
 
-		void	display_specs(void) const;
+		void	display_specs(void) const;						// Display informations
 
 } ;
 

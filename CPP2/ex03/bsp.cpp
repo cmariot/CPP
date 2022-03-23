@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 11:09:01 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/19 11:10:40 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/23 09:00:16 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,22 +18,20 @@ Fixed calcul_pente(Point a, Point b)
 	return ((a.get_y() - b.get_y()) / (a.get_x() - b.get_x()));
 }
 
-void	calcul_equation_droite(Point a, Point b, Fixed *equation_droite)
+// equation de droite :
+// y = ax + b
+void	calcul_equation_droite(Point x, Point y, Fixed *equation_droite)
 {
 	//Calcul de la pente entre les points A et B
-	Fixed pente = calcul_pente(a, b);
+	Fixed a = calcul_pente(x, y);
 	
-	//equation de droite :
-	//y = ax + b
-	//ou a correspond a la pente
-
-	//on remplace y et x par ceux du point a
+	//on remplace y et x par ceux du point x
 	//a.get_y() = (pente * a.get_x()) + b
 
-	Fixed c = a.get_y() - (pente * a.get_x());
+	Fixed b = x.get_y() - (a * x.get_x());
 
-	equation_droite[0] = pente;
-	equation_droite[1] = c;
+	equation_droite[0] = a;
+	equation_droite[1] = b;
 }
 
 /* La droite AB separe le plan en deux ;

@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 19:29:58 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/17 08:43:41 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/23 09:05:21 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ int	main(void)
 	first.takeDamage(8);
 	first.attack("default");
 
-	std::cout << "HIT POINTS de FIRST = " << first.get_hit_points() << std::endl;
-	std::cout << "HIT POINTS de DEFAULT = " << par_defaut.get_hit_points() << std::endl;
+	std::cout << "HP de first au final  = " << first.get_hit_points() << std::endl;
+	std::cout << "HP de default au final  = " << par_defaut.get_hit_points() << std::endl;
 	return (0);
+
 }

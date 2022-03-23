@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 09:49:34 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/19 17:39:10 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/23 09:16:17 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class	Animal
 		Animal(void);										// Constructeur par default
 		Animal(Animal const & copy);						// Constructeur par copie
 
-		virtual ~Animal(void);										// Destructeur
+		virtual ~Animal(void);								// Destructeur
 
 		Animal const &	operator = (Animal const & rhs);	// Surcharge d'opérateur d’affectation
 
