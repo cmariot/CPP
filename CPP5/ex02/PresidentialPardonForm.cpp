@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 16:16:27 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/22 18:32:07 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/23 15:09:28 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,11 +71,6 @@ void PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {
 	if (makeVerif(executor.getGrade(), getExecutionGrade()) == 0)
 	{
-		//execution
-		std::cout << "execution ok" << std::endl;
-	}
-	else
-	{
-		std::cout << "execution ko" << std::endl;
+		std::cout << executor.getName() << " has been pardoned by the president Zaphod Beeblebrox." << std::endl;
 	}
 }

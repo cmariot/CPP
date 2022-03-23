@@ -6,7 +6,7 @@
 #    By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/30 11:15:47 by cmariot           #+#    #+#              #
-#    Updated: 2022/03/18 15:02:34 by cmariot          ###   ########.fr        #
+#    Updated: 2022/03/23 11:52:02 by cmariot          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,7 +69,8 @@ $(NAME)	: $(OBJ)
 		$(CC) $(LFLAGS) $(OBJ) -o $(NAME)
 
 leaks :	all
-		valgrind --leak-check=full --show-leak-kinds=all --track-fds=yes --track-origins=yes ./megaphone
+		valgrind --leak-check=full --show-leak-kinds=all --track-fds=yes --track-origins=yes ./$(NAME)
+
 
 install: re
 		cp $(NAME) ~/bin

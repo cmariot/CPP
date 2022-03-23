@@ -6,15 +6,16 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 16:15:51 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/22 16:46:28 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/23 12:17:33 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SHRUBBERYCREATIONFORM_HPP
-#define SHRUBBERYCREATIONFORM_HPP
+# define SHRUBBERYCREATIONFORM_HPP
 
-#include <iostream>
-#include "Form.hpp"
+# include <iostream>
+# include "Form.hpp"
+# include <fstream> 
 
 class	ShrubberyCreationForm : public Form
 {

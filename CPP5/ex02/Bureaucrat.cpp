@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 10:30:53 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/22 18:28:42 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/23 14:50:15 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,6 +139,8 @@ void	Bureaucrat::executeForm(Form const & form)
 {
 	if (form.makeVerif(this->_grade, form.getExecutionGrade()) == 0)
 	{
-		std::cout << this->getName() <<  " executed  " << form.getName() << std::endl;
+		Bureaucrat & thisRef = *this;
+		form.execute(thisRef);
+		std::cout << this->getName() <<  " executed " << form.getName() << std::endl;
 	}
 }

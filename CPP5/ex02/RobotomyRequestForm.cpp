@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 16:16:11 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/22 17:16:37 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/23 15:06:36 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,10 +67,28 @@ RobotomyRequestForm const &	RobotomyRequestForm::operator = (RobotomyRequestForm
 /*                FONCTIONS MEMBRES            */
 /***********************************************/
 
+#include <stdlib.h>
+
 void RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
 	if (makeVerif(executor.getGrade(), getExecutionGrade()) == 0)
 	{
-		//execution
+		 /* initialize random seed: */
+		std::srand (time(NULL));
+		/* generate a random number between 0 and 1 */
+		switch (std::rand() % 2)
+		{
+			case (0):
+			{
+				std::cout << "Brzzrzrzrzrzrzrzr (* drill sound *)" << std::endl; 
+				std::cout << this->_target << " has succesfuly be robotomized." << std::endl;
+				break ;
+			}
+			case (1):
+			{
+				std::cout << "The operation failed." << std::endl;
+				break;
+			}
+		}
 	}
 }

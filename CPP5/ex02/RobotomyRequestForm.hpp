@@ -6,15 +6,15 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 16:16:11 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/22 16:46:21 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/23 12:17:29 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ROBOTOMYREQUESTFORM_HPP
-#define ROBOTOMYREQUESTFORM_HPP
+# define ROBOTOMYREQUESTFORM_HPP
 
-#include <iostream>
-#include "Form.hpp"
+# include <iostream>
+# include "Form.hpp"
 
 class	RobotomyRequestForm : public Form
 {
