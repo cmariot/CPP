@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 12:39:00 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/17 09:08:08 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/24 08:49:19 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class	ClapTrap
 		ClapTrap(std::string name);								// Constructeur par nom
 		ClapTrap(ClapTrap const & copy);						// Constructeur par copie
 		~ClapTrap(void);										// Destructeur
-		ClapTrap const &	operator = (ClapTrap const & rhs);	// Surcharge d'opérateur d’affectation
+		ClapTrap const & operator = (ClapTrap const & rhs);		// Surcharge d'opérateur d’affectation
 
 		void attack(const std::string& target);					// Fait perdre _attack_damage a target (coute 1 energie)
 		void takeDamage(unsigned int amount);					// Perd amount _hit_points

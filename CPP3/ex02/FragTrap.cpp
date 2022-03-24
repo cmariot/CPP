@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 16:19:29 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/18 16:07:15 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/24 08:54:26 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,16 @@ FragTrap const &	FragTrap::operator = (FragTrap const & rhs)
 	return (*this);
 }
 
+//Operateur <<
+std::ostream &	operator << (std::ostream & output, FragTrap const & rhs)
+{
+	output << "_name          : " << rhs.getName() << std::endl;
+	output << "_hit_points    : " << rhs.getHP() << std::endl;
+	output << "_energy_points : " << rhs.getEnergy() << std::endl;
+	output << "_attack_damage : " << rhs.getAttackDamage() << std::endl;
+	return (output);
+}
+
 
 /***********************************************/
 /*                FONCTIONS MEMBRES            */
@@ -99,11 +109,22 @@ void	FragTrap::highFivesGuys(void) const
 	std::cout << "FragTrap " << this->_name <<  " want a highfive !" << std::endl;
 }
 
-void	FragTrap::display_specs(void) const
+std::string FragTrap::getName(void) const
 {
-	std::cout << "_name          : " << this->_name << std::endl;
-	std::cout << "_hit_points    : " << this->_hit_points << std::endl;
-	std::cout << "_energy_points : " << this->_energy_points << std::endl;
-	std::cout << "_attack_damage : " << this->_attack_damage << std::endl;
-	return ;
+	return (this->_name);
+}
+
+int FragTrap::getHP(void) const
+{
+	return (this->_hit_points);
+}
+
+int FragTrap::getEnergy(void) const
+{
+	return (this->_energy_points);
+}
+
+int FragTrap::getAttackDamage(void) const
+{
+	return (this->_attack_damage);
 }

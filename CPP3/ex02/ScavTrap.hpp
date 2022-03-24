@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 16:19:29 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/18 15:53:24 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/24 08:48:09 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,16 @@ class	ScavTrap : public ClapTrap
 		~ScavTrap(void);										// Destructeur
 		ScavTrap const &	operator = (ScavTrap const & rhs);	// Surcharge d'opérateur d’affectation
 
-		void	attack(const std::string & target);				// Surcharge de la fonction membre heritee
+		void	 attack(const std::string & target);			// Surcharge de la fonction membre heritee
 	
 		void	guardGate(void) const;							// Fonction membre propre a la classe
 
-		void	display_specs(void) const;
+		std::string	getName(void) const;
+		int	getHP(void) const;
+		int	getEnergy(void) const;
+		int	getAttackDamage(void) const;
 } ;
+
+std::ostream & operator << (std::ostream & o, ScavTrap const & rhs);
 
 #endif

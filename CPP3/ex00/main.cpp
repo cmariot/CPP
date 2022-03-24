@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 19:29:58 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/23 09:05:21 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/24 08:34:03 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ int	main(void)
 	
 	par_defaut.attack("Foo");
 	first.takeDamage(5);
-	first.beRepaired(3);
+	for (int i = 0; i < 1; i++)
+		first.beRepaired(3);
 	first.takeDamage(8);
 	first.attack("default");
 

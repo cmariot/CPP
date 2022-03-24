@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 16:19:29 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/18 16:07:42 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/24 09:18:27 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,17 @@ class	FragTrap : virtual public ClapTrap
 		~FragTrap(void);										// Destructeur
 		FragTrap const &	operator = (FragTrap const & rhs);	// Surcharge d'opérateur d’affectation
 
-		void attack(const std::string & target);				// Surcharge de la fonction membre heritee
-		void highFivesGuys(void) const;							// Fonction membre specifique a la classe
+		void	attack(const std::string & target);				// Surcharge de la fonction membre heritee
+	
+		void	highFivesGuys(void) const;						// Fonction membre specifique a la classe
 
-		void	display_specs(void) const;
+		std::string	getName(void) const;
+		int	getHP(void) const;
+		int	getEnergy(void) const;
+		int	getAttackDamage(void) const;
 
 } ;
+
+std::ostream & operator << (std::ostream & o, FragTrap const & rhs);
 
 #endif

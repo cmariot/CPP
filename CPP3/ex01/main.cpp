@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 19:29:58 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/18 15:02:38 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/24 08:45:09 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	main(void)
 {
 	ScavTrap test("Foo");
 	
-	test.display_specs();
+	std::cout << test << std::endl;
 
 	//Fonctions membre heritees de FragTrap
 	test.attack("Bar");
@@ -26,7 +26,7 @@ int	main(void)
 
 	//Fonctions membre propres a ScavTrap
 	test.guardGate();
-	test.display_specs();
+	std::cout << test <<  std::endl;
 
 	return (0);
 }

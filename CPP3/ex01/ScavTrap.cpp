@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 16:19:29 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/18 14:55:46 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/24 08:47:59 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,15 @@ ScavTrap const &	ScavTrap::operator = (ScavTrap const & rhs)
 	return (*this);
 }
 
+//Operateur <<
+std::ostream &	operator << (std::ostream & output, ScavTrap const & rhs)
+{
+	output << "_name          : " << rhs.getName() << std::endl;
+	output << "_hit_points    : " << rhs.getHP() << std::endl;
+	output << "_energy_points : " << rhs.getEnergy() << std::endl;
+	output << "_attack_damage : " << rhs.getAttackDamage() << std::endl;
+	return (output);
+}
 
 /***********************************************/
 /*                FONCTIONS MEMBRES            */
@@ -99,11 +108,22 @@ void ScavTrap::guardGate(void) const
 	return ;
 }
 
-void	ScavTrap::display_specs(void) const
+std::string ScavTrap::getName(void) const
 {
-	std::cout << "_name          : " << this->_name << std::endl;
-	std::cout << "_hit_points    : " << this->_hit_points << std::endl;
-	std::cout << "_energy_points : " << this->_energy_points << std::endl;
-	std::cout << "_attack_damage : " << this->_attack_damage << std::endl;
-	return ;
+	return (this->_name);
+}
+
+int ScavTrap::getHP(void) const
+{
+	return (this->_hit_points);
+}
+
+int ScavTrap::getEnergy(void) const
+{
+	return (this->_energy_points);
+}
+
+int ScavTrap::getAttackDamage(void) const
+{
+	return (this->_attack_damage);
 }

@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 12:13:47 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/18 16:06:21 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/24 09:21:09 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,9 @@ DiamondTrap const &	DiamondTrap::operator = (DiamondTrap const & rhs)
 {
 	this->_name				= rhs._name;
 	this->ClapTrap::_name	= rhs.ClapTrap::_name; 
-	this->_hit_points		= rhs._hit_points;
-	this->_energy_points	= rhs._energy_points;
-	this->_attack_damage	= rhs._attack_damage;
+	this->_hit_points		= rhs.get_hit_points();
+	this->_energy_points	= rhs.get_energy_points();
+	this->_attack_damage	= rhs.get_damage_points();
 	return (*this);
 }
 
@@ -111,7 +111,7 @@ int	DiamondTrap::get_damage_points(void) const
 
 void	DiamondTrap::set_attributes(void)
 {
-	this->_hit_points		= FragTrap::_hit_points;
+	this->_hit_points		= FragTrap::getHP();
 	this->_energy_points	= ScavTrap::_energy_points;
 	this->_attack_damage	= FragTrap::_attack_damage;
 	this->ClapTrap::_name	= this->_name + "_clap_name";

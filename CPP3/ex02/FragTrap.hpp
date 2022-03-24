@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 16:19:29 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/23 09:11:28 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/24 08:56:08 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,13 @@ class	FragTrap : public ClapTrap
 	
 		void	highFivesGuys(void) const;						// Fonction membre specifique a la classe
 
-		void	display_specs(void) const;						// Display informations
+		std::string	getName(void) const;
+		int	getHP(void) const;
+		int	getEnergy(void) const;
+		int	getAttackDamage(void) const;
 
 } ;
+
+std::ostream & operator << (std::ostream & o, FragTrap const & rhs);
 
 #endif
