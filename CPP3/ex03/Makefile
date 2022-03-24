@@ -6,7 +6,7 @@
 #    By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/30 11:15:47 by cmariot           #+#    #+#              #
-#    Updated: 2022/03/23 11:52:13 by cmariot          ###   ########.fr        #
+#    Updated: 2022/03/24 09:25:01 by cmariot          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,9 +24,9 @@ NAME			= DiamondTrap
 
 CC				= c++
 
-CFLAGS			= -Wall -Wextra -Werror -std=c++98
+CFLAGS			= -Wall -Wextra -Werror -Wshadow -Wno-shadow -std=c++98
 
-LFLAGS			= -Wall -Wextra -Werror -std=c++98
+LFLAGS			= -Wall -Wextra -Werror -Wshadow -Wno-shadow -std=c++98
 
 
 # **************************************************************************** #
