@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 10:30:53 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/23 14:50:15 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/24 11:21:24 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,13 @@
 /***********************************************/
 
 //Constructeur par default
+Bureaucrat::Bureaucrat(void) : _name("default"), _grade(150)
+{
+	//std::cout << "Bureaucrat default constructor called." << std::endl;
+	return ;
+}
+
+//Constructeur par name et grade
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name)
 {
 	//std::cout << "Bureaucrat default constructor called." << std::endl;

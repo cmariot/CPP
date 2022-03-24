@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 10:30:53 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/22 18:24:47 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/24 11:06:45 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,48 +22,53 @@ class	Bureaucrat
 {
 
 	public:
-
-		Bureaucrat(std::string name, int grade);					// Constructeur par default
+	
+		Bureaucrat(void);											// Constructeur par default
+		Bureaucrat(std::string name, int grade);					// Constructeur par name et grade
 		Bureaucrat(Bureaucrat const & copy);						// Constructeur par copie
+
 		~Bureaucrat(void);											// Destructeur
+
 		Bureaucrat const &	operator = (Bureaucrat const & rhs);	// Surcharge d'opérateur d’affectation
 
-		std::string	getName(void) const;
-		int			getGrade(void) const;
+		std::string	getName(void) const;							// Retourne _name
+		int			getGrade(void) const;							// Retourne _grade
 
-		void		incrementGrade(void);
-		void		decrementGrade(void);
+		void		incrementGrade(void);							// Fait +1 sur le grade (perte de pouvoir)
+		void		decrementGrade(void);							// Fait -1 sur le grade (gin de pouvoir)
 
-		void		signForm(Form *form) const;
+		void		signForm(Form *form) const;						// Affiche un message si le formulaire est signe
 
-		void		executeForm(Form const & form);
+		void		executeForm(Form const & form);					// Affiche un message si bureacrate execute le formulaire
 
 	private:
 
-		std::string	_name;
-		int			_grade;
+		std::string	_name;											// Nom du bureaucrate
+		int			_grade;											// Grade du bureaucrate
 
+		// Exception jetee si grade trop haut lors de la construction ou lors de l'incrementation
+		class GradeTooHighException : public std::exception
+		{
+			public:
+				virtual const char * what() const throw()
+				{
+					return ("Error: grade too high.");
+				}
+		} ;
 
-	class GradeTooHighException : public std::exception
-	{
-		public:
-			virtual const char * what() const throw()
-			{
-				return ("Bureaucrat exception: grade too high.");
-			}
-	} ;
-
-	class GradeTooLowException : public std::exception
-	{
-		public:
-			virtual const char * what() const throw()
-			{
-				return ("Bureaucrat exception: grade too low.");
-			}
-	} ;
+		// Exception jetee si grade trop bas lors de la construction ou lors de l'incrementation
+		class GradeTooLowException : public std::exception
+		{
+			public:
+				virtual const char * what() const throw()
+				{
+					return ("Error: grade too low.");
+				}
+		} ;
 
 } ;
 
+// Surcharge de l'operateur << ppour la clase Bureaucrat
 std::ostream & operator << (std::ostream & out, Bureaucrat const & rhs);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 16:11:49 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/23 17:18:02 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/24 11:56:15 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,18 @@ class	Intern
 
 	public:
 
-		Intern(void);										// Constructeur par default
-		Intern(Intern const & copy);						// Constructeur par copie
+		Intern(void);														// Constructeur par default
+		Intern(Intern const & copy);										// Constructeur par copie
 		
-		~Intern(void);										// Destructeur
+		~Intern(void);														// Destructeur
 		
-		Intern const &	operator = (Intern const & rhs);	// Surcharge d'opérateur d’affectation
+		Intern const &	operator = (Intern const & rhs);					// Surcharge d'opérateur d’affectation
 
-		Form	*makeForm(std::string form_name, std::string target_form);
+		Form	*makeForm(std::string form_name, std::string target_form);	// Renvoie un formulaire de type
+																			// form_name et dont la cible est
+																			// target_form
 
-
-
+		// Exception jetee si le formulaire n'est pas connu
 		class UnknownFormException : public std::exception
 		{
 			public:

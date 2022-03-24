@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 10:30:53 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/22 11:46:36 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/24 10:32:52 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,24 +19,28 @@ class	Bureaucrat
 {
 
 	public:
-
-		Bureaucrat(std::string name, int grade);			// Constructeur par default
+	
+		Bureaucrat(void);											// Constructeur par default
+		Bureaucrat(std::string name, int grade);					// Constructeur par name et grade
 		Bureaucrat(Bureaucrat const & copy);						// Constructeur par copie
-		~Bureaucrat(void);									// Destructeur
+
+		~Bureaucrat(void);											// Destructeur
+
 		Bureaucrat const &	operator = (Bureaucrat const & rhs);	// Surcharge d'opérateur d’affectation
 
-		std::string	getName(void) const;
-		int			getGrade(void) const;
+		std::string	getName(void) const;							// Retourne _name
+		int			getGrade(void) const;							// Retourne _grade
 
-		void		incrementGrade(void);
-		void		decrementGrade(void);
+		void		incrementGrade(void);							// Fait +1 sur le grade (perte de pouvoir)
+		void		decrementGrade(void);							// Fait -1 sur le grade (gin de pouvoir)
 
 	private:
 
-		std::string	_name;
-		int			_grade;
+		std::string	_name;											// Nom du bureaucrate
+		int			_grade;											// Grade du bureaucrate
 
 
+	// Exception jetee si grade trop haut lors de la construction ou lors de l'incrementation
 	class GradeTooHighException : public std::exception
 	{
 		public:
@@ -46,6 +50,7 @@ class	Bureaucrat
 			}
 	} ;
 
+	// Exception jetee si grade trop bas lors de la construction ou lors de l'incrementation
 	class GradeTooLowException : public std::exception
 	{
 		public:
@@ -57,6 +62,7 @@ class	Bureaucrat
 
 } ;
 
+// Surcharge de l'operateur <<
 std::ostream & operator << (std::ostream & out, Bureaucrat const & rhs);
 
 #endif

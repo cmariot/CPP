@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 16:11:49 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/23 17:21:17 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/24 12:15:24 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@
 //Constructeur par default
 Intern::Intern(void)
 {
-	std::cout << "Intern default constructor called." << std::endl;
+	//std::cout << "Intern default constructor called." << std::endl;
 	return ;
 }
 
 //Constructeur par copie
 Intern::Intern(Intern const & copy)
 {
-	std::cout << "Intern copy constructor called." << std::endl;
+	//std::cout << "Intern copy constructor called." << std::endl;
 	*this = copy;
 	return ;
 }
@@ -34,7 +34,7 @@ Intern::Intern(Intern const & copy)
 //Destructeur
 Intern::~Intern(void)
 {
-	std::cout << "Intern destructor called." << std::endl;
+	//std::cout << "Intern destructor called." << std::endl;
 	return ;
 }
 
@@ -59,30 +59,27 @@ Form	*Intern::makeForm(std::string form_name, std::string form_target)
 {
 	try
 	{
-		if (form_name == "presidential pardon")
+		std::string	known_forms[3] = {"presidential pardon", "robotomy request", "shrubbery creation"};
+		Form *form = NULL;
+		for (int i = 0; i < 3; i++)
 		{
-			Form *form = new PresidentialPardonForm(form_target);
-			std::cout << "Intern creates " << form_name << std::endl;
-			return (form);
+			if (form_name == known_forms[i])
+			{
+				if (i == 0)
+					form = new PresidentialPardonForm(form_target);
+				else if (i == 1)
+					form = new RobotomyRequestForm(form_target);
+				else
+					form = new ShrubberyCreationForm(form_target);
+				std::cout << "Intern creates " << form->getName() << std::endl;
+				return (form);
+			}
 		}
-		else if (form_name == "robotomy request")
-		{
-			Form *form = new RobotomyRequestForm(form_target);
-			std::cout << "Intern creates " << form_name << std::endl;
-			return (form);
-		}
-		else if (form_name == "shrubbery creation")
-		{
-			Form *form = new ShrubberyCreationForm(form_target);
-			std::cout << "Intern creates " << form_name << std::endl;
-			return (form);
-		}
-		else
-			throw Intern::UnknownFormException(); 
+		throw Intern::UnknownFormException(); 
 	}
 	catch (Intern::UnknownFormException & exception)
 	{
 		std::cout << exception.what() << std::endl;
-		return (0);
+		return (NULL);
 	}
 }

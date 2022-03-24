@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 16:16:11 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/23 12:17:29 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/24 11:16:34 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ class	RobotomyRequestForm : public Form
 
 	public:
 
-		RobotomyRequestForm(std::string target);										// Constructeur par default
+		RobotomyRequestForm(std::string target);									// Constructeur par default
 		RobotomyRequestForm(RobotomyRequestForm const & copy);						// Constructeur par copie
-		~RobotomyRequestForm(void);									// Destructeur
+		~RobotomyRequestForm(void);													// Destructeur
 		RobotomyRequestForm const &	operator = (RobotomyRequestForm const & rhs);	// Surcharge d'opérateur d’affectation
 
 		void execute(Bureaucrat const & executor) const;

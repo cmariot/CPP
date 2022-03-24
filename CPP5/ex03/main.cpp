@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 10:30:10 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/23 17:19:49 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/24 12:12:06 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,53 +17,53 @@
 #include "ShrubberyCreationForm.hpp"
 # include "Intern.hpp"
 
-void	test_creation_arbuste(void)
-{
-	Bureaucrat				me("Charles", 0);
-	Bureaucrat				jardinier("Foo", 0);
-	ShrubberyCreationForm	form("arbres");
-
-	me.signForm(&form);
-
-	jardinier.executeForm(form);
-}
-
 void	test_robotomy(void)
 {
-	Bureaucrat				me("Charles", 0);
-	Bureaucrat				robotomizer("Foo", 0);
-	RobotomyRequestForm		form("Dyson");
+	Intern	foo;
+	Form	*form = NULL;
 
-	me.signForm(&form);
-	
-	robotomizer.executeForm(form);
+	form = foo.makeForm("robotomy request", "bar");
+	if (form != NULL)
+		delete form;
 }
 
-void	test_president(void)
+void	test_presidential(void)
 {
-	Bureaucrat				me("Charles", 0);
-	Bureaucrat				president("Bar", 0);
-	PresidentialPardonForm	form("Pardon");
+	Intern	foo;
+	Form	*form = NULL;
 
-	me.signForm(&form);
-	
-	president.executeForm(form);
+	form = foo.makeForm("presidential pardon", "bar");
+	if (form != NULL)
+		delete form;
+}
+
+void	test_shrubbery(void)
+{
+	Intern	foo;
+	Form	*form = NULL;
+
+	form = foo.makeForm("shrubbery creation", "bar");
+	if (form != NULL)
+		delete form;
+}
+
+void	test_bidon(void)
+{
+	Intern	foo;
+	Form	*form = NULL;
+
+	form = foo.makeForm("Truc", "bar");
+	if (form != NULL)
+		delete form;
 }
 
 int	main(void)
 {
-	Intern stagiaire;
+	test_robotomy();
+	test_presidential();
+	test_shrubbery();
 
-	Form *form = stagiaire.makeForm("robotomy request", "form");
-	
-	std::cout << "Signature grade : " << form->getSignatureGrade() << std::endl;
-	
-	Intern  someRandomIntern;
-    Form*   rrf;
-    rrf = someRandomIntern.makeForm("robotomy request", "Bender");
-
-	if (rrf != 0)
-		std::cout << "Signature grade : " << rrf->getSignatureGrade() << std::endl;
+	test_bidon();
 
 	return (0);
 }

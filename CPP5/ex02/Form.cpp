@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 11:52:11 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/22 17:21:58 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/24 11:13:08 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,36 @@
 /*            CONSTRUCTEURS/DESTRUCTEURS       */
 /***********************************************/
 
+/***********************************************/
+/*            CONSTRUCTEURS/DESTRUCTEURS       */
+/***********************************************/
+
 //Constructeur par default
-Form::Form(std::string name, int signature_grade, int execution_grade) : _name(name), _signed(0), _signature_grade(signature_grade), _execution_grade(execution_grade)
+Form::Form(void): _name("default"), _signed(0), _signature_grade(0), _execution_grade(0)
 {
 	//std::cout << "Form default constructor called." << std::endl;
+	return ;
+}
+
+//Constructeur par name et grades
+Form::Form(std::string name, int signature_grade, int execution_grade) : _name(name), _signed(0), _signature_grade(signature_grade), _execution_grade(execution_grade)
+{
+	//std::cout << "Form constructor called." << std::endl;
+	try
+	{
+		if (signature_grade > 150)
+			throw Form::GradeTooHighException();
+		else if (signature_grade < 0)
+			throw Form::GradeTooLowException();
+	}
+	catch (Form::GradeTooLowException & exception)
+	{
+		std::cout << exception.what() << std::endl;
+	}
+	catch (Form::GradeTooHighException & exception)
+	{
+		std::cout << exception.what() << std::endl;
+	}
 	return ;
 }
 
@@ -53,11 +79,10 @@ Form const &	Form::operator = (Form const & rhs)
 std::ostream &	operator << (std::ostream & output, Form const & rhs)
 {
 	output << "Form: " << rhs.getName();
-	output << " - Signed: "; 
 	if (rhs.getSignature() == 1)
-		output << "true";
+		output << " - Signed: true";
 	else
-		output << "false";
+		output << " - Signed: false";
 	output << " - Signature grade required: " << rhs.getSignatureGrade();
 	output << " - Execution grade required: " << rhs.getExecutionGrade();
 	return (output);
@@ -78,12 +103,12 @@ bool			Form::getSignature(void) const
 	return (this->_signed);
 }
 
-int				Form::getSignatureGrade(void) const
+int		Form::getSignatureGrade(void) const
 {
 	return (this->_signature_grade);
 }
 
-int				Form::getExecutionGrade(void) const
+int		Form::getExecutionGrade(void) const
 {
 	return (this->_execution_grade);
 }
@@ -93,13 +118,9 @@ void	Form::beSigned(Bureaucrat *bureaucrat)
 	try
 	{
 		if (bureaucrat->getGrade() <= this->getSignatureGrade())
-		{
 			bureaucrat->signForm(this);
-		}
 		else
-		{
 			throw Form::GradeTooLowException();
-		}
 	}
 	catch (Form::GradeTooLowException & exception)
 	{

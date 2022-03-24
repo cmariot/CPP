@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 16:16:27 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/23 12:13:23 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/24 11:16:13 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ class	PresidentialPardonForm : public Form
 
 	public:
 
-		PresidentialPardonForm(std::string target);										// Constructeur par default
+		PresidentialPardonForm(std::string target);											// Constructeur par default
 		PresidentialPardonForm(PresidentialPardonForm const & copy);						// Constructeur par copie
-		~PresidentialPardonForm(void);									// Destructeur
+		~PresidentialPardonForm(void);														// Destructeur
 		PresidentialPardonForm const &	operator = (PresidentialPardonForm const & rhs);	// Surcharge d'opérateur d’affectation
 
 		void execute(Bureaucrat const & executor) const;
