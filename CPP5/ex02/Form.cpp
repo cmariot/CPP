@@ -6,15 +6,11 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 11:52:11 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/24 11:13:08 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/24 17:02:31 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
-
-/***********************************************/
-/*            CONSTRUCTEURS/DESTRUCTEURS       */
-/***********************************************/
 
 /***********************************************/
 /*            CONSTRUCTEURS/DESTRUCTEURS       */
@@ -138,18 +134,12 @@ int		Form::makeVerif(int executor_grade, int execution_form_grade) const
 {
 	try
 	{
-		if (executor_grade <= execution_form_grade && this->_signed)
-		{
+		if (executor_grade <= execution_form_grade && this->_signed == 1)
 			return (0);
-		}
 		else if (this->_signed == 0)
-		{
 			throw Form::SignatureException();
-		}
 		else
-		{
 			throw Form::ExecutionException();
-		}
 	}
 	catch (Form::SignatureException & exception)
 	{

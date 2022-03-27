@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 16:11:49 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/24 12:15:24 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/24 17:18:43 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ Form	*Intern::makeForm(std::string form_name, std::string form_target)
 					form = new PresidentialPardonForm(form_target);
 				else if (i == 1)
 					form = new RobotomyRequestForm(form_target);
-				else
+				else if (i == 2)
 					form = new ShrubberyCreationForm(form_target);
 				std::cout << "Intern creates " << form->getName() << std::endl;
 				return (form);

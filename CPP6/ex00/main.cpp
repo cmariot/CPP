@@ -5,19 +5,33 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/02 14:30:00 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/02 17:10:50 by cmariot          ###   ########.fr       */
+/*   Created: 2022/03/24 16:03:24 by cmariot           #+#    #+#             */
+/*   Updated: 2022/03/26 19:16:26 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Sample1.hpp"
-#include "Sample2.hpp"
 #include <iostream>
+#include "Cast.hpp"
 
-int	main(void)
+void convert(char *arg)
 {
-	Sample1 instance1('a', 1, 0.1);
-	Sample2 instance2('b', 2, 0.2);
+	std::cout << "char:   " << arg << std::endl;
+	std::cout << "int:    " << static_cast<int>(arg[0]) << std::endl;
+	std::cout << "float:  " << static_cast<float>(arg[0]) << std::endl;
+	std::cout << "double: " << static_cast<double>(arg[0]) << std::endl;
+}
 
-	return(0);
+int	main(int argc, char **argv)
+{
+	if (argc == 2)
+	{
+		Cast a(argv[1]);
+		std::cout << a;
+		return (0);
+	}
+	else
+	{
+		std::cout << "Usage : ./convert [ARG]" << std::endl;
+		return (1);
+	}
 }
