@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 11:48:04 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/28 01:02:08 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/28 14:42:15 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,13 @@ class	Cast
 		float	getFloat(void) const;
 		double	getDouble(void) const;
 
+		bool	impossibleConversion(void) const;
+
+		bool	minus_inf;
+		bool	null;
+		bool	plus_inf;
+		
+		bool	int_conversion_overflow;
 
 	private:
 

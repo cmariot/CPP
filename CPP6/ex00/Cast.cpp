@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 11:48:04 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/26 21:24:32 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/28 16:17:36 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@
 /***********************************************/
 
 //Constructeur par default
-Cast::Cast(char *arg) : _str(arg), _char(0), _int(0), _float(0), _double(0), _char_non_displayable(false),
-	_int_overflow(false), _float_overflow(false), _double_overflow(false), _unknown_type(false)
+Cast::Cast(char *arg) : minus_inf(false), null(false), plus_inf(false), int_conversion_overflow(false), _str(arg), _char(0), _int(0), _float(0), _double(0), _char_non_displayable(false), _int_overflow(false), _float_overflow(false), _double_overflow(false), _unknown_type(false)
 {
 	if (isChar(this->_str))
 	{
@@ -82,10 +81,44 @@ Cast const &	Cast::operator = (Cast const & rhs)
 //Operateur <<
 std::ostream &	operator << (std::ostream & output, Cast const & rhs)
 {
-	output << "char   : " << rhs.getChar() << std::endl;
-	output << "int    : " << rhs.getInt() << std::endl;
-	output << "float  : " << rhs.getFloat() << "f" << std::endl;
-	output << "double : " << rhs.getDouble() << std::endl;
+	if (rhs.impossibleConversion() == true)
+		std::cout << "Sorry, couldn't convert your input, it may be caused by an overflow or an unknown type." << std::endl;
+	else if (rhs.minus_inf == true)
+	{
+		output << "char   : impossible" << std::endl;
+		output << "int    : impossible" << std::endl;
+		output << "float  : -inff" << std::endl;
+		output << "double : -inf" << std::endl;
+	}
+	else if (rhs.null == true)
+	{
+		output << "char   : impossible" << std::endl;
+		output << "int    : impossible" << std::endl;
+		output << "float  : nanf" << std::endl;
+		output << "double : nan" << std::endl;
+	}
+	else if (rhs.plus_inf == true)
+	{
+		output << "char   : impossible" << std::endl;
+		output << "int    : impossible" << std::endl;
+		output << "float  : +inff" << std::endl;
+		output << "double : +inf" << std::endl;
+	}
+	else
+	{
+		if (isprint(rhs.getChar()) == true)
+			output << "char   : " << rhs.getChar() << std::endl;
+		else 
+			output << "char   : Non displayable"  << std::endl;
+		
+		if (rhs.int_conversion_overflow == false) 
+			output << "int    : " << rhs.getInt() << std::endl;
+		else
+			output << "int    : impossible" << std::endl;
+
+		output << "float  : " << rhs.getFloat() << "f" << std::endl;
+		output << "double : " << rhs.getDouble() << std::endl;
+	}
 	return (output);
 }
 
@@ -117,6 +150,8 @@ bool	Cast::isFloat(std::string str) const
 {
 	int	number_of_points = 0;
 
+	if (str == "-inff" || str == "nanf" || str == "+inff")
+		return (true);
 	if (str[str.length() - 1] != 'f')
 		return (false);
 	for (size_t i = 0 ; i < str.length() - 1 ; i++)
@@ -138,6 +173,8 @@ bool	Cast::isDouble(std::string str) const
 {
 	int	number_of_points = 0;
 
+	if (str == "-inf" || str == "nan" || str == "+inf")
+		return (true);
 	for (size_t i = 0 ; i < str.length() ; i++)
 	{
 		if (i == 0 && (str[i] == '+' || str[i] == '-'))
@@ -176,11 +213,20 @@ void	Cast::strToFloat(void)
 	char	*end;
 	float	tmp;
 
-	tmp = strtod(this->_str.c_str(), &end);
-	if ((end == this->_str.c_str() + (this->_str.length() - 1)) && *end == 'f')
-		this->_float = tmp;
+	if (this->_str == "-inff")
+		this->minus_inf = true;
+	else if (this->_str == "nanf")
+		this->null = true;
+	else if (this->_str == "+inff")
+		this->plus_inf = true;
 	else
-		this->_float_overflow = true;
+	{
+		tmp = strtod(this->_str.c_str(), &end);
+		if ((end == this->_str.c_str() + (this->_str.length() - 1)) && *end == 'f')
+			this->_float = tmp;
+		else
+			this->_float_overflow = true;
+	}
 }
 
 void	Cast::strToDouble(void)
@@ -188,11 +234,20 @@ void	Cast::strToDouble(void)
 	char	*end;
 	float	tmp;
 
-	tmp = strtod(this->_str.c_str(), &end);
-	if (end == this->_str.c_str() + this->_str.length())
-		this->_double = tmp;
+	if (this->_str == "-inf")
+		this->minus_inf = true;
+	else if (this->_str == "nan")
+		this->null = true;
+	else if (this->_str == "+inf")
+		this->plus_inf = true;
 	else
-		this->_double_overflow = true;
+	{
+		tmp = strtod(this->_str.c_str(), &end);
+		if (end == this->_str.c_str() + this->_str.length())
+			this->_double = tmp;
+		else
+			this->_double_overflow = true;
+	}
 }
 
 void	Cast::convertChar(void)
@@ -212,14 +267,20 @@ void	Cast::convertInt(void)
 void	Cast::convertFloat(void)
 {
 	this->_char = static_cast<char>(this->_float);
-	this->_int = static_cast<int>(this->_float);
+	if (this->_float >= static_cast<float>(INT_MIN) && this->_float <= static_cast<float>(INT_MAX))
+		this->_int = static_cast<int>(this->_float);
+	else
+		this->int_conversion_overflow = true;
 	this->_double = static_cast<double>(this->_float);
 }
 
 void	Cast::convertDouble(void)
 {
 	this->_char = static_cast<char>(this->_double);
-	this->_int = static_cast<int>(this->_double);
+	if (this->_double >= static_cast<double>(INT_MIN) && this->_double <= static_cast<double>(INT_MAX))
+		this->_int = static_cast<int>(this->_float);
+	else
+		this->int_conversion_overflow = true;
 	this->_float = static_cast<float>(this->_double);
 }
 
@@ -243,4 +304,10 @@ double	Cast::getDouble(void) const
 	return (this->_double);
 }
 
-
+bool	Cast::impossibleConversion(void) const
+{
+	if (this->_int_overflow || this->_double_overflow || this->_float_overflow || this->_unknown_type)
+		return (true);
+	else
+		return (false);
+}
