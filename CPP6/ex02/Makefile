@@ -6,7 +6,7 @@
 #    By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/30 11:15:47 by cmariot           #+#    #+#              #
-#    Updated: 2022/03/29 09:21:40 by cmariot          ###   ########.fr        #
+#    Updated: 2022/03/29 11:08:21 by cmariot          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@
 #                          PROJECT'S DIRECTORIES                               #
 # **************************************************************************** #
 
-NAME			= real_type
+NAME			= dynamic_cast
 
 
 # **************************************************************************** #
@@ -35,10 +35,7 @@ LFLAGS			= -Wall -Wextra -Werror -std=c++98 -g3 -O2
 
 
 SRCS		= main.cpp \
-			  Base.cpp \
-			  A.cpp \
-			  B.cpp \
-			  C.cpp
+			  Base.cpp
 
 OBJ			:= $(SRCS:.cpp=.o)
 

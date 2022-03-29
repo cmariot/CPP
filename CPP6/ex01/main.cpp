@@ -6,10 +6,11 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 08:41:14 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/29 09:15:51 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/29 10:21:20 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdint.h>
 #include "Data.hpp"
 
 uintptr_t	serialize(Data* ptr);

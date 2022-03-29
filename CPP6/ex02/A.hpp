@@ -5,31 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/29 09:23:12 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/29 09:23:12 by cmariot          ###   ########.fr       */
+/*   Created: 2022/03/29 10:27:39 by cmariot           #+#    #+#             */
+/*   Updated: 2022/03/29 10:28:31 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef A_HPP
-#define A_HPP
+# define A_HPP
 
-#include <iostream>
+#include "Base.hpp"
 
-class	A
+class A : public Base
 {
-
-	public:
-
-		A(void);										// Constructeur par default
-		A(A const & copy);						// Constructeur par copie
-		~A(void);									// Destructeur
-		A const &	operator = (A const & rhs);	// Surcharge d'opérateur d’affectation
-
-
-	private:
-
 
 } ;
 
 #endif
-
