@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 11:48:04 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/28 16:17:36 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/29 08:35:03 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,10 @@ Cast::~Cast(void)
 //Operateur d'affectation (=)
 Cast const &	Cast::operator = (Cast const & rhs)
 {
+	this->minus_inf = rhs.minus_inf;
+	this->null = rhs.null;
+	this->plus_inf = rhs.plus_inf;
+	this->_str = rhs._str;
 	this->_char = rhs._char;
 	this->_int = rhs._int;
 	this->_float = rhs._float;
@@ -75,6 +79,7 @@ Cast const &	Cast::operator = (Cast const & rhs)
 	this->_int_overflow = rhs._int_overflow;
 	this->_float_overflow = rhs._float_overflow;
 	this->_double_overflow = rhs._double_overflow;
+	this->_unknown_type = rhs._unknown_type;
 	return (*this);
 }
 
