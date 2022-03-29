@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 14:24:46 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/29 14:43:43 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/29 17:28:37 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,35 +15,56 @@
 
 #include <iostream>
 
-template <typename T>
+template <class T>
 class	Array
 {
 
 	public:
 
-		Array< T >(void);									// Constructeur par default 
-														//	-> cree un tableau vide
+		Array(void) : _size(0)
+		{
+			std::cout << "Constructeur par default" << std::endl;
+			this->_array = new T [0];
+			return ;
+		}
 
-		Array< T >(unsigned int n);							// Constructeur par unsigned int
-														//	-> Cree un aray de n elements initialises a 0
+		Array(unsigned int n) : _size(n)
+		{
+			std::cout << "Constructeur par unsigned int" << std::endl;
+			this->_array = new T [n];
+			return ;
+		}
 
-		Array< T >(Array const & copy);						// Constructeur par copie
+		~Array(void)
+		{
+			std::cout << "Destructeur" << std::endl;
+			delete [] this->_array;
+		}
 
-		~Array< T >(void);									// Destructeur
+		unsigned int	size(void) const
+		{
+			return (this->_size);
+		}
 
-		Array const &	operator = (Array const & rhs);	// Surcharge d'opérateur d’affectation
+		Array const &	operator = (Array const & rhs)
+		{
+			this->_size = rhs.size();
+			this->_array = new T [this->_size];
+			for (int i = 0; i < this->_size; i++)
+				this->_array[i] = rhs._array[i];
+			return (*this);
+		}
 
-														// Surcharge operateur []
-	
-		unsigned int	size(void) const;				// Retourne le nombre d'elements dans l'array
-
+		//TO DO :
+		//	- [ ] Surcharge d'operateur d'affectation
+		//	- [ ] Constructeur par copie
+		//	- [ ] Operateur d'indice [] /!\ index invalide
+		//	- [ ] fonction membre size()
 
 	private:
 
-		T				**_array;
-
+		T				*_array;
 		unsigned int	_size;
-
 
 } ;
 
