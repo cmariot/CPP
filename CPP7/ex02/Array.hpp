@@ -6,67 +6,100 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 14:24:46 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/29 17:28:37 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/03/30 13:51:31 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ARRAY_HPP
-#define ARRAY_HPP
+# define ARRAY_HPP
 
-#include <iostream>
+# include <iostream>
+# include <stdexcept>
 
-template <class T>
-class	Array
+/* Classe template de tableau, entierement definie dans le .hpp */
+
+template <class T> class Array
 {
 
 	public:
 
+		// Constructeur par defaut : tableau vide
 		Array(void) : _size(0)
 		{
-			std::cout << "Constructeur par default" << std::endl;
-			this->_array = new T [0];
+			_array = new T [0];
+		}
+
+		// Constructeur par taille : tableau de taille n initialise par defaut
+		Array(size_t n) : _size(n)
+		{
+			_array = new T [n];
+		}
+
+		// Constructeur par copie
+		Array(Array const & copy)
+		{
+			*this = copy;
 			return ;
 		}
 
-		Array(unsigned int n) : _size(n)
-		{
-			std::cout << "Constructeur par unsigned int" << std::endl;
-			this->_array = new T [n];
-			return ;
-		}
-
-		~Array(void)
-		{
-			std::cout << "Destructeur" << std::endl;
-			delete [] this->_array;
-		}
-
-		unsigned int	size(void) const
-		{
-			return (this->_size);
-		}
-
+		// Surcharge de l'operateur d'affectation
 		Array const &	operator = (Array const & rhs)
 		{
-			this->_size = rhs.size();
-			this->_array = new T [this->_size];
-			for (int i = 0; i < this->_size; i++)
-				this->_array[i] = rhs._array[i];
+			_size = rhs.size();
+			_array = new T [_size];
+			for (size_t i = 0; i < _size; i++)
+				_array[i] = rhs._array[i];
 			return (*this);
 		}
 
-		//TO DO :
-		//	- [ ] Surcharge d'operateur d'affectation
-		//	- [ ] Constructeur par copie
-		//	- [ ] Operateur d'indice [] /!\ index invalide
-		//	- [ ] fonction membre size()
+		// Destructeur
+		~Array(void)
+		{
+			delete [] _array;
+		}
+
+		// Fonction membre retournant la taille du tableau
+		size_t	size(void) const
+		{
+			return (_size);
+		}
+
+		// Surcharge de l'operateur d'index
+		T & operator [] (size_t pos) const
+		{
+			try
+			{
+				if (pos > this->size() - 1)
+					throw std::out_of_range ("Exception: Invalid index");
+			}
+			catch (std::out_of_range & oor)
+			{
+				std::cout << oor.what() << std::endl;
+			}
+			return (this->_array[pos]);
+		};
 
 	private:
 
-		T				*_array;
-		unsigned int	_size;
+		T			*_array;		// Tableau d'elements de type T
+		size_t		_size;			// Taille du tableau
 
 } ;
 
-#endif
+// Surcharge de l'operateur << : Affiche les elements du tableau
+template <typename T>
+std::ostream & operator << (std::ostream & output, Array<T> & rhs)
+{
+	if (rhs.size() == 0)
+		output << "Empty array." << std::endl;
+	else
+	{
+		output << "[";
+		for (size_t i = 0 ; i < (rhs.size() - 1) ; i++)
+			output << i << ":" << rhs[i] << ", ";
+		output << rhs.size() - 1 << ":" << rhs[rhs.size() - 1] << "]" << std::endl;
+	}
+	return (output);
+}
 
+#endif
