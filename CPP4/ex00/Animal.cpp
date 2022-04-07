@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 09:49:34 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/21 15:00:43 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/07 14:41:31 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,10 @@ Animal const &	Animal::operator = (Animal const & rhs)
 
 std::string	Animal::getType(void) const
 {
-	return (this->type);
+	return (type);
 }
 
 void	Animal::makeSound(void) const
 {
-	std::cout << "* Not an human sound *" << std::endl;
+	std::cout << "* Animal sound *" << std::endl;
 }

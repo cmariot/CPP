@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 09:49:34 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/21 14:17:38 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/07 14:52:18 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ class	AAnimal
 
 		std::string	getType(void) const;					// Return type
 
-		virtual void	makeSound(void) const = 0;				// Fonction membre virtual = methode
+		virtual void	makeSound(void) const = 0;			// Fonction membre virtual = methode
 
 
 	protected:

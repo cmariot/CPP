@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 14:21:47 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/21 18:40:55 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/07 14:55:34 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ AMateria::~AMateria(void)
 AMateria const &	AMateria::operator = (AMateria const & rhs)
 {
 	//std::cout << "Affectation operator (=) called" << std::endl;
-	this->_type = rhs._type;
+	_type = rhs._type;
 	return (*this);
 }
 
@@ -65,7 +65,7 @@ AMateria const &	AMateria::operator = (AMateria const & rhs)
 
 std::string const & AMateria::getType() const
 {
-	return (this->_type);
+	return (_type);
 }
 
 void	AMateria::use(ICharacter& target)

@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 14:41:24 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/22 09:11:50 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/07 15:03:38 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ void test1(void)
 
 	toto.equip(cure);
 	toto.use(0, toto);
-
 }
 
 void test2(void)

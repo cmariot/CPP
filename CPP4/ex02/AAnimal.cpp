@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 09:49:34 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/21 14:12:39 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/07 14:52:36 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ AAnimal::~AAnimal(void)
 AAnimal const &	AAnimal::operator = (AAnimal const & rhs)
 {
 	(void)rhs;
-	//this->_var = rhs._var;
 	return (*this);
 }
 

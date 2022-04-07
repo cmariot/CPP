@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 14:22:23 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/21 18:39:02 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/07 14:56:54 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 Cure::Cure(void)
 {
 	//std::cout << "Cure default constructor called." << std::endl;
-	this->_type = "cure";
+	_type = "cure";
 	return ;
 }
 
@@ -47,7 +47,7 @@ Cure::~Cure(void)
 //Operateur d'affectation (=)
 Cure const &	Cure::operator = (AMateria const & rhs)
 {
-	this->_type = rhs.getType();
+	_type = rhs.getType();
 	return (*this);
 }
 

@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 16:27:01 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/21 18:30:23 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/07 15:02:24 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,3 @@ class	MateriaSource : public IMateriaSource
 } ;
 
 #endif
-

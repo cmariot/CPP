@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 14:22:23 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/21 18:40:19 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/07 14:56:22 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 Ice::Ice(void)
 {
 	//std::cout << "Ice default constructor called." << std::endl;
-	this->_type = "ice";
+	_type = "ice";
 	return ;
 }
 
@@ -47,7 +47,7 @@ Ice::~Ice(void)
 //Operateur d'affectation (=)
 Ice const &	Ice::operator = (AMateria const & rhs)
 {
-	this->_type = rhs.getType();
+	_type = rhs.getType();
 	return (*this);
 }
 
