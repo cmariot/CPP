@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 09:53:40 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/21 14:14:53 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/11 09:01:03 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,17 +68,17 @@ void	Dog::makeSound(void) const
 
 void	Dog::set_idea(int i, std::string idea)
 {
-	if (i < 0 || i > 100)
-		std::cout << "Error, out of range [0;100]" << std::endl;
+	if (i < 0 || i > 99)
+		std::cout << "Error, out of range [0;99]" << std::endl;
 	else
 		this->_brain->_ideas[i] = idea;
 }
 
 std::string	Dog::get_idea(int i) const
 {
-	if (i < 0 || i > 100)
+	if (i < 0 || i > 99)
 	{
-		std::cout << "Error, out of range [0;100]" << std::endl;
+		std::cout << "Error, out of range [0;99]" << std::endl;
 		return ("");
 	}
 	else

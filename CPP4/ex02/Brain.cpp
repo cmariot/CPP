@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 11:49:15 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/21 13:01:15 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/11 09:00:10 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,17 +59,17 @@ Brain const &	Brain::operator = (Brain const & rhs)
 
 void	Brain::set_idea(int i, std::string idea)
 {
-	if (i < 0 || i > 100)
-		std::cout << "Error, out of range [0;100]" << std::endl;
+	if (i < 0 || i > 99)
+		std::cout << "Error, out of range [0;99]" << std::endl;
 	else
 		this->_ideas[i] = idea;
 }
 
 std::string	Brain::get_idea(int i) const
 {
-	if (i < 0 || i > 100)
+	if (i < 0 || i > 99)
 	{
-		std::cout << "Error, out of range [0;100]" << std::endl;
+		std::cout << "Error, out of range [0;99]" << std::endl;
 		return ("");
 	}
 	else

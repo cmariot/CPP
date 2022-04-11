@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 14:22:16 by cmariot           #+#    #+#             */
-/*   Updated: 2022/04/07 14:56:04 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/11 09:03:08 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,6 @@ class	Ice : public AMateria
 		AMateria*	clone(void) const;					// Methode pure de AMateria implementee dans Cure
 		void		use(ICharacter& target);			// Surcharge de la methode simple de AMateria
 
-
 } ;
 
 #endif
-

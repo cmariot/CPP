@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 09:49:34 by cmariot           #+#    #+#             */
-/*   Updated: 2022/04/07 14:52:36 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/11 08:57:12 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,5 @@ std::string	AAnimal::getType(void) const
 
 void	AAnimal::makeSound(void) const
 {
-	std::cout << "* Not an human sound *" << std::endl;
+	std::cout << "* Animal sound *" << std::endl;
 }

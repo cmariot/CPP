@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 14:25:31 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/21 18:06:15 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/11 09:03:31 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class	IMateriaSource
 {
 	public:
 
-		virtual ~IMateriaSource() {}
+		virtual ~IMateriaSource() {};
 		virtual void learnMateria(AMateria*) = 0;
 		virtual AMateria* createMateria(std::string const & type) = 0;
 

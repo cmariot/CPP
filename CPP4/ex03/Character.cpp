@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 16:27:24 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/22 09:05:56 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/11 09:09:44 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ void Character::equip(AMateria* m)
 
 void Character::unequip(int idx)
 {
-	if (idx >= 0 && idx <= 4 && this->_inventaire[idx])
+	if (idx >= 0 && idx <= 3 && this->_inventaire[idx])
 	{
 		if (this->_inventaire[idx]->getType() == "ice")
 		{
@@ -131,7 +131,7 @@ void Character::unequip(int idx)
 
 void Character::use(int idx, ICharacter& target)
 {
-	if (idx >= 0 && idx <= 4 && this->_inventaire[idx])
+	if (idx >= 0 && idx <= 3 && this->_inventaire[idx])
 	{
 		this->_inventaire[idx]->use(target);
 		delete this->_inventaire[idx];

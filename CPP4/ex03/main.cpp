@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 14:41:24 by cmariot           #+#    #+#             */
-/*   Updated: 2022/04/07 15:03:38 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/11 09:11:54 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ void test2(void)
     AMateria* tmp;
     tmp = src->createMateria("ice");
     me->equip(tmp);
+    tmp = src->createMateria("ice");
+    me->equip(tmp);
     tmp = src->createMateria("cure");
     me->equip(tmp);
     tmp = src->createMateria("Ice");
@@ -62,7 +64,7 @@ void test2(void)
 
 int	main(void)
 {
-	test1();
+//	test1();
 	test2();
 	return (0);
 }
