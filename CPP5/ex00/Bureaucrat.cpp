@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 10:30:53 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/24 16:58:57 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/11 15:47:03 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,22 +29,22 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name)
 	//std::cout << "Bureaucrat name and grade constructor called." << std::endl;
 	try
 	{
-		if (grade >= 0 && grade <= 150)
-			this->_grade = grade;
+		if (grade >= 1 && grade <= 150)
+			_grade = grade;
 		else if (grade > 150)
 			throw Bureaucrat::GradeTooHighException();
-		else if (grade < 0)
+		else if (grade < 1)
 			throw Bureaucrat::GradeTooLowException();
 	}
 	catch (Bureaucrat::GradeTooLowException & exception)
 	{
 		std::cout << exception.what() << std::endl;
-		this->_grade = 0;
+		_grade = 1;
 	}
 	catch (Bureaucrat::GradeTooHighException & exception)
 	{
 		std::cout << exception.what() << std::endl;
-		this->_grade = 150;
+		_grade = 150;
 	}
 	return ;
 }
@@ -72,8 +72,7 @@ Bureaucrat::~Bureaucrat(void)
 //Operateur d'affectation (=)
 Bureaucrat const &	Bureaucrat::operator = (Bureaucrat const & rhs)
 {
-	this->_name = rhs._name;
-	this->_grade = rhs._grade;
+	_grade = rhs._grade;
 	return (*this);
 }
 
@@ -91,24 +90,24 @@ std::ostream &	operator << (std::ostream & output, Bureaucrat const & rhs)
 
 std::string	Bureaucrat::getName(void) const
 {
-	return (this->_name);
+	return (_name);
 }
 
 int	Bureaucrat::getGrade(void) const
 {
-	return (this->_grade);
+	return (_grade);
 }
 
 void Bureaucrat::incrementGrade(void)
 {
 	try
 	{
-		if (this->_grade < 150)
-			this->_grade += 1;
+		if (_grade > 1)
+			_grade -= 1;
 		else
-			throw Bureaucrat::GradeTooHighException();
+			throw Bureaucrat::GradeTooLowException();
 	}
-	catch (Bureaucrat::GradeTooHighException & exception)
+	catch (Bureaucrat::GradeTooLowException & exception)
 	{
 		std::cout << exception.what() << std::endl;
 	}
@@ -118,12 +117,12 @@ void Bureaucrat::decrementGrade(void)
 {
 	try
 	{
-		if (this->_grade > 0)
-			this->_grade -= 1;
+		if (_grade < 150)
+			_grade += 1;
 		else
-			throw Bureaucrat::GradeTooLowException();
+			throw Bureaucrat::GradeTooHighException();
 	}
-	catch (Bureaucrat::GradeTooLowException & exception)
+	catch (Bureaucrat::GradeTooHighException & exception)
 	{
 		std::cout << exception.what() << std::endl;
 	}

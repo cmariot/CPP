@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 09:54:16 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/21 13:09:31 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/11 12:34:26 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class	Cat : public Animal
 
 		Cat(void);									// Constructeur par default
 		Cat(Cat const & copy);						// Constructeur par copie
-		virtual ~Cat(void);									// Destructeur
+		virtual ~Cat(void);							// Destructeur
 		Cat const &	operator = (Cat const & rhs);	// Surcharge d'opérateur d’affectation
 
 		virtual void	makeSound(void) const;		// Fonction membre virtual = methode

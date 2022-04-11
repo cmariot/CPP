@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 09:53:40 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/21 14:15:10 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/11 10:58:28 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include "AAnimal.hpp"
 #include "Brain.hpp"
 
-// La classe Dog herite des attributs et fonctions membre de AAnimal
+// La classe Dog herite des attributs et fonctions membre de Animal
 class	Dog : public AAnimal
 {
 

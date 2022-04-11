@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 09:49:34 by cmariot           #+#    #+#             */
-/*   Updated: 2022/04/11 08:53:56 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/11 10:33:13 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,7 @@ Animal::~Animal(void)
 //Operateur d'affectation (=)
 Animal const &	Animal::operator = (Animal const & rhs)
 {
-	(void)rhs;
-	//this->_var = rhs._var;
+	type = rhs.type;
 	return (*this);
 }
 

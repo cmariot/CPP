@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 09:48:42 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/21 13:16:38 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/11 10:55:06 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	test_copie(void)
 {
 	Dog	*a_copier = new Dog;
 
-	a_copier->set_idea(1, "Eat");
+	a_copier->set_idea(1, "Nouvelle super idee");
 	Dog	destination = *a_copier;
 	delete a_copier;
 	std::cout << destination.get_idea(1) << std::endl;
@@ -62,8 +62,8 @@ void	test_pdf(void)
 
 int	main(void)
 {
-	test_construction(10);
-	test_copie();
+	//test_construction(10);
+	//test_copie();
 	test_pdf();
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 14:22:16 by cmariot           #+#    #+#             */
-/*   Updated: 2022/04/11 09:03:08 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/11 11:17:10 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ class	Ice : public AMateria
 		Ice const &	operator = (AMateria const & rhs);	// Surcharge d'opérateur d’affectation
 
 		AMateria*	clone(void) const;					// Methode pure de AMateria implementee dans Cure
-		void		use(ICharacter& target);			// Surcharge de la methode simple de AMateria
+		void		use(ICharacter & target);			// Surcharge de la methode simple de AMateria
 
 } ;
 

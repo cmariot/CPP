@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 12:52:54 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/19 17:39:48 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/11 15:45:27 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@ class	WrongAnimal
 
 	public:
 
-		WrongAnimal(void);										// Constructeur par default
+		WrongAnimal(void);											// Constructeur par default
 		WrongAnimal(WrongAnimal const & copy);						// Constructeur par copie
 		virtual ~WrongAnimal(void);									// Destructeur
 		WrongAnimal const &	operator = (WrongAnimal const & rhs);	// Surcharge d'opérateur d’affectation
 
-		std::string	getType(void) const;					// Return type
+		std::string	getType(void) const;							// Return type
 
-		virtual void	makeSound(void) const;				// Fonction membre virtual = methode
+		void	makeSound(void) const;						// Fonction membre virtual = methode
 
 
 	protected:
@@ -37,4 +37,3 @@ class	WrongAnimal
 } ;
 
 #endif
-

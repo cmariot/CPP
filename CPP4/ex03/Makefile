@@ -6,7 +6,7 @@
 #    By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/30 11:15:47 by cmariot           #+#    #+#              #
-#    Updated: 2022/04/11 09:18:06 by cmariot          ###   ########.fr        #
+#    Updated: 2022/04/11 12:35:25 by cmariot          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,9 +24,9 @@ NAME			= interface
 
 CC				= c++
 
-CFLAGS			= -Wall -g3 #-Wextra -Werror -std=c++98 -g3 -O2
+CFLAGS			= -Wall -Wextra -Werror -std=c++98 -g3 -O2
 
-LFLAGS			= -Wall -g3 #-Wextra -Werror -std=c++98 -g3 -O2
+LFLAGS			= -Wall -Wextra -Werror -std=c++98 -g3 -O2
 
 
 # **************************************************************************** #

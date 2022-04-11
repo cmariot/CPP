@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 09:53:40 by cmariot           #+#    #+#             */
-/*   Updated: 2022/04/11 09:01:03 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/11 10:58:56 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@
 Dog::Dog(void)
 {
 	std::cout << "Dog default constructor called." << std::endl;
-	this->type = "Dog";
-	this->AAnimal::type = this->type;
-	this->_brain = new Brain;
+	type = "Dog";
+	AAnimal::type = type;
+	_brain = new Brain;
 	return ;
 }
 
@@ -38,8 +38,8 @@ Dog::Dog(Dog const & copy)
 Dog::~Dog(void)
 {
 	std::cout << "Dog destructor called." << std::endl;
-	if (this->_brain)
-		delete this->_brain;
+	if (_brain)
+		delete _brain;
 	return ;
 }
 
@@ -51,8 +51,8 @@ Dog::~Dog(void)
 //Operateur d'affectation (=)
 Dog const &	Dog::operator = (Dog const & rhs)
 {
-	this->type = rhs.type;
-	this->_brain = new Brain(*(rhs._brain));
+	type = rhs.type;
+	_brain = new Brain(*(rhs._brain));
 	return (*this);
 }
 
@@ -71,7 +71,7 @@ void	Dog::set_idea(int i, std::string idea)
 	if (i < 0 || i > 99)
 		std::cout << "Error, out of range [0;99]" << std::endl;
 	else
-		this->_brain->_ideas[i] = idea;
+		_brain->ideas[i] = idea;
 }
 
 std::string	Dog::get_idea(int i) const
@@ -79,8 +79,8 @@ std::string	Dog::get_idea(int i) const
 	if (i < 0 || i > 99)
 	{
 		std::cout << "Error, out of range [0;99]" << std::endl;
-		return ("");
+		return ("Error");
 	}
 	else
-		return (this->_brain->_ideas[i]);
+		return (_brain->ideas[i]);
 }

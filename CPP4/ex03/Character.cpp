@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 16:27:24 by cmariot           #+#    #+#             */
-/*   Updated: 2022/04/11 09:23:11 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/11 11:28:09 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,9 @@ Character::Character(std::string name) : _name(name), _nb_ice_to_delete(0), _nb_
 {
 	//std::cout << "Character default constructor called." << std::endl;
 	for (int i = 0; i < 4; i++)
-		this->_inventaire[i] = NULL;
+		_inventaire[i] = NULL;
+	_ice_to_delete = NULL;
+	_cure_to_delete = NULL;
 	return ;
 }
 
@@ -40,10 +42,10 @@ Character::~Character(void)
 	for (int i = 0; i < 4; i++)
 		if (_inventaire[i] != NULL)
 			delete _inventaire[i];
-	if (this->_nb_ice_to_delete)
-		delete [] this->_ice_to_delete;
-	if (this->_nb_cure_to_delete)
-		delete [] this->_cure_to_delete;
+	if (_nb_ice_to_delete)
+		delete [] _ice_to_delete;
+	if (_nb_cure_to_delete)
+		delete [] _cure_to_delete;
 	return ;
 }
 
@@ -55,15 +57,15 @@ Character::~Character(void)
 //Operateur d'affectation (=)
 Character const &	Character::operator = (Character const & rhs)
 {
-	this->_name = rhs._name;
+	_name = rhs._name;
 
 	for (int i = 0; i < 4; i++)
 		if (this->_inventaire[i])
-			delete this->_inventaire[i];
+			delete _inventaire[i];
 	
 	for (int i = 0; i < 4; i++)
 		if (rhs._inventaire[i])
-			this->_inventaire[i] = rhs._inventaire[i]->clone();
+			_inventaire[i] = rhs._inventaire[i]->clone();
 	
 	return (*this);
 }
@@ -75,7 +77,7 @@ Character const &	Character::operator = (Character const & rhs)
 
 std::string const & Character::getName(void) const
 {
-	return (this->_name);
+	return (_name);
 }
 
 void Character::equip(AMateria* m)
@@ -95,47 +97,49 @@ void Character::equip(AMateria* m)
 
 void Character::unequip(int idx)
 {
-	if (idx >= 0 && idx <= 3 && this->_inventaire[idx] != NULL)
+	if (idx >= 0 && idx <= 3 && _inventaire[idx] != NULL)
 	{
-		if (this->_inventaire[idx]->getType() == "ice")
+		if (_inventaire[idx]->getType() == "ice")
 		{
-			this->_nb_ice_to_delete += 1;
-			AMateria *tmp_array = new Ice[this->_nb_ice_to_delete];
+			_nb_ice_to_delete += 1;
+			AMateria *tmp_array = new Ice[_nb_ice_to_delete];
 			int	i = 0;
-			while (i < this->_nb_ice_to_delete - 1)
+			while (i < _nb_ice_to_delete - 1)
 			{
-				tmp_array[i] = this->_ice_to_delete[i];
+				tmp_array[i] = _ice_to_delete[i];
 				i++;
 			}
-			tmp_array[i] = *(this->_inventaire[idx]);
-			delete [] this->_ice_to_delete;
-			this->_ice_to_delete = tmp_array;
-			this->_inventaire[idx] = NULL;
+			tmp_array[i] = *(_inventaire[idx]);
+			if (_ice_to_delete)
+				delete [] _ice_to_delete;
+			_ice_to_delete = tmp_array;
+			_inventaire[idx] = NULL;
 		}
-		else if (this->_inventaire[idx]->getType() == "cure") 
+		else if (_inventaire[idx]->getType() == "cure") 
 		{
-			this->_nb_cure_to_delete += 1;
-			AMateria *tmp_array2 = new Cure[this->_nb_cure_to_delete];
+			_nb_cure_to_delete += 1;
+			AMateria *tmp_array2 = new Cure[_nb_cure_to_delete];
 			int	j = 0;
-			while (j < this->_nb_cure_to_delete - 1)
+			while (j < _nb_cure_to_delete - 1)
 			{
-				tmp_array2[j] = this->_cure_to_delete[j];
+				tmp_array2[j] = _cure_to_delete[j];
 				j++;
 			}
-			tmp_array2[j] = *(this->_inventaire[idx]);
-			delete [] this->_cure_to_delete;
-			this->_cure_to_delete = tmp_array2;
-			this->_inventaire[idx] = NULL;
+			tmp_array2[j] = *(_inventaire[idx]);
+			if (_cure_to_delete)
+				delete [] _cure_to_delete;
+			_cure_to_delete = tmp_array2;
+			_inventaire[idx] = NULL;
 		}
 	}
 }
 
 void Character::use(int idx, ICharacter& target)
 {
-	if (idx >= 0 && idx <= 3 && this->_inventaire[idx])
+	if (idx >= 0 && idx <= 3 && _inventaire[idx])
 	{
-		this->_inventaire[idx]->use(target);
-		delete this->_inventaire[idx];
-		this->_inventaire[idx] = NULL;
+		_inventaire[idx]->use(target);
+		delete _inventaire[idx];
+		_inventaire[idx] = NULL;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 10:30:53 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/24 10:48:40 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/11 16:32:00 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ class	Bureaucrat
 
 	private:
 
-		std::string	_name;											// Nom du bureaucrate
+		std::string	const _name;									// Nom du bureaucrate
 		int			_grade;											// Grade du bureaucrate
 
 
@@ -51,7 +51,7 @@ class	Bureaucrat
 		public:
 			virtual const char * what() const throw()
 			{
-				return ("Error: grade too high.");
+				return ("Exception: grade too high.");
 			}
 	} ;
 
@@ -61,7 +61,7 @@ class	Bureaucrat
 		public:
 			virtual const char * what() const throw()
 			{
-				return ("Error: grade too low.");
+				return ("Exception: grade too low.");
 			}
 	} ;
 

@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 14:22:23 by cmariot           #+#    #+#             */
-/*   Updated: 2022/04/07 14:56:54 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/11 11:16:58 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ AMateria* Cure::clone(void) const
 }
 
 //Methode use heritee de AMateria
-void	Cure::use(ICharacter& target)
+void	Cure::use(ICharacter & target)
 {
 	std::cout << "* heals " << target.getName() << "’s wounds *" << std::endl;
 }

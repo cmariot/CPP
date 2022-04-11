@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 09:49:34 by cmariot           #+#    #+#             */
-/*   Updated: 2022/04/11 08:57:12 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/11 10:56:23 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ AAnimal::~AAnimal(void)
 //Operateur d'affectation (=)
 AAnimal const &	AAnimal::operator = (AAnimal const & rhs)
 {
-	(void)rhs;
+	type = rhs.type;
 	return (*this);
 }
 
@@ -57,7 +57,7 @@ AAnimal const &	AAnimal::operator = (AAnimal const & rhs)
 
 std::string	AAnimal::getType(void) const
 {
-	return (this->type);
+	return (type);
 }
 
 void	AAnimal::makeSound(void) const

@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 09:48:42 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/21 14:20:22 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/11 11:04:44 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,8 @@ int	main(void)
 {
 	//AAnimal abstrait;
 
-	test_construction(10);
-	test_copie();
+	//test_construction(10);
+	//test_copie();
 	test_pdf();
 	return (0);
 }

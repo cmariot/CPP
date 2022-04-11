@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 12:52:54 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/19 17:27:22 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/11 12:24:37 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ WrongAnimal::~WrongAnimal(void)
 //Operateur d'affectation (=)
 WrongAnimal const &	WrongAnimal::operator = (WrongAnimal const & rhs)
 {
-	this->type = rhs.type;
+	type = rhs.type;
 	return (*this);
 }
 
@@ -57,7 +57,7 @@ WrongAnimal const &	WrongAnimal::operator = (WrongAnimal const & rhs)
 
 std::string	WrongAnimal::getType(void) const
 {
-	return (this->type);
+	return (type);
 }
 
 void	WrongAnimal::makeSound(void) const

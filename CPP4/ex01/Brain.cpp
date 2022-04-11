@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 11:49:15 by cmariot           #+#    #+#             */
-/*   Updated: 2022/04/11 08:58:33 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/11 10:47:09 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Brain::Brain(void)
 {
 	std::cout << "Brain default constructor called." << std::endl;
 	for (int i = 0; i < 100; i++)
-		this->_ideas[i] = "eat, sleep, repeat";
+		set_idea(i, "eat, sleep, repeat");
 	return ;
 }
 
@@ -49,7 +49,7 @@ Brain::~Brain(void)
 Brain const &	Brain::operator = (Brain const & rhs)
 {
 	for (int i = 0; i < 100; i++)
-		this->_ideas[i] = rhs._ideas[i];
+		ideas[i] = rhs.ideas[i];
 	return (*this);
 }
 
@@ -62,7 +62,7 @@ void	Brain::set_idea(int i, std::string idea)
 	if (i < 0 || i > 99)
 		std::cout << "Error, out of range [0;99]" << std::endl;
 	else
-		this->_ideas[i] = idea;
+		ideas[i] = idea;
 }
 
 std::string	Brain::get_idea(int i) const
@@ -73,5 +73,5 @@ std::string	Brain::get_idea(int i) const
 		return ("");
 	}
 	else
-		return (this->_ideas[i]);
+		return (ideas[i]);
 }

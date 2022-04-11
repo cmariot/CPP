@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 10:30:10 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/24 17:03:45 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/11 16:28:30 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	test_bureaucrates(void)
 	std::cout << foo << std::endl;
 
 	//test catch decrementation < 0
-	Bureaucrat	boss("Boos", 0);
+	Bureaucrat	boss("Boos", 1);
 	std::cout << boss << std::endl;
 	boss.decrementGrade();
 	
@@ -41,18 +41,18 @@ void	test_bureaucrates(void)
 void	test_forms(void)
 {
 	Bureaucrat	foo("Foo", 5);
-	Form	formulaire("formulaire B53", 4, 2);
+	Form	formulaire("formulaire A", 4, 2);
 
 	std::cout << foo << std::endl;
 	std::cout << formulaire << std::endl;
 
 	foo.signForm(&formulaire);
 
-	foo.decrementGrade();
-	foo.decrementGrade();
-	foo.decrementGrade();
-	foo.decrementGrade();
-	foo.decrementGrade();
+	foo.incrementGrade();
+	foo.incrementGrade();
+	foo.incrementGrade();
+	foo.incrementGrade();
+	foo.incrementGrade();
 
 	std::cout << foo << std::endl;
 	foo.signForm(&formulaire);

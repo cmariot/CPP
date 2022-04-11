@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 09:54:16 by cmariot           #+#    #+#             */
-/*   Updated: 2022/04/11 09:00:37 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/11 10:58:44 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@
 Cat::Cat(void)
 {
 	std::cout << "Cat default constructor called." << std::endl;
-	this->type = "Cat";
-	this->AAnimal::type = this->type;
-	this->_brain = new Brain;
+	type = "Cat";
+	AAnimal::type = type;
+	_brain = new Brain;
 	return ;
 }
 
@@ -38,7 +38,7 @@ Cat::Cat(Cat const & copy)
 Cat::~Cat(void)
 {
 	std::cout << "Cat destructor called." << std::endl;
-	delete this->_brain;
+	delete _brain;
 	return ;
 }
 
@@ -50,8 +50,8 @@ Cat::~Cat(void)
 //Operateur d'affectation (=)
 Cat const &	Cat::operator = (Cat const & rhs)
 {
-	this->type = rhs.type;
-	this->_brain = new Brain(*(rhs._brain));
+	type = rhs.type;
+	_brain = new Brain(*(rhs._brain));
 	return (*this);
 }
 
@@ -70,7 +70,7 @@ void	Cat::set_idea(int i, std::string idea)
 	if (i < 0 || i > 99)
 		std::cout << "Error, out of range [0;99]" << std::endl;
 	else
-		this->_brain->_ideas[i] = idea;
+		_brain->ideas[i] = idea;
 }
 
 std::string	Cat::get_idea(int i) const
@@ -78,8 +78,8 @@ std::string	Cat::get_idea(int i) const
 	if (i < 0 || i > 99)
 	{
 		std::cout << "Error, out of range [0;99]" << std::endl;
-		return ("");
+		return ("Error");
 	}
 	else
-		return (this->_brain->_ideas[i]);
+		return (_brain->ideas[i]);
 }

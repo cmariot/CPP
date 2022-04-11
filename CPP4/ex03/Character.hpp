@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 16:27:24 by cmariot           #+#    #+#             */
-/*   Updated: 2022/04/07 14:59:36 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/11 11:20:16 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ class	Character : public ICharacter
 
 		std::string		_name;											// Nom du personnage
 		AMateria*		_inventaire[4];									// Inventaire pouvant comporter jusqu'a 4 materias
-		
 
 		AMateria*		_ice_to_delete;									// Liste des AMateria a delete si unequip
 		int				_nb_ice_to_delete;								// Nombre de materia a delete a la fin

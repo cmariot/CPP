@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 16:27:01 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/21 18:47:37 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/11 11:40:20 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ MateriaSource::MateriaSource(void)
 {
 	//std::cout << "MateriaSource default constructor called." << std::endl;
 	for (int i = 0; i < 4; i++)
-		this->_materia_source[i] = NULL;
+		_materia_source[i] = NULL;
 	return ;
 }
 
@@ -52,12 +52,12 @@ MateriaSource::~MateriaSource(void)
 MateriaSource const &	MateriaSource::operator = (MateriaSource const & rhs)
 {
 	for (int i = 0; i < 4; i++)
-		if (this->_materia_source[i])
-			delete this->_materia_source[i];
+		if (_materia_source[i])
+			delete _materia_source[i];
 	
 	for (int i = 0; i < 4; i++)
 		if (rhs._materia_source[i])
-			this->_materia_source[i] = rhs._materia_source[i]->clone();
+			_materia_source[i] = rhs._materia_source[i]->clone();
 
 	return (*this);
 }
@@ -93,5 +93,6 @@ AMateria*	MateriaSource::createMateria(std::string const & type)
 			return (this->_materia_source[i]->clone());
 		}
 	}
+	std::cout << "Unknown materia." << std::endl;
 	return (0);
 }

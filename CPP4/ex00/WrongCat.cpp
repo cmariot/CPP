@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 12:53:06 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/19 17:05:03 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/11 12:24:55 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 WrongCat::WrongCat(void)
 {
 	std::cout << "WrongCat default constructor called." << std::endl;
-	this->type = "WrongCat";
+	type = "WrongCat";
 	return ;
 }
 
@@ -47,7 +47,7 @@ WrongCat::~WrongCat(void)
 //Operateur d'affectation (=)
 WrongCat const &	WrongCat::operator = (WrongCat const & rhs)
 {
-	this->type = rhs.type;
+	type = rhs.type;
 	return (*this);
 }
 
