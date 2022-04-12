@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 08:58:21 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/29 10:19:16 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/12 10:05:02 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,5 @@ uintptr_t serialize(Data* ptr)
 	{
 		ret = reinterpret_cast<uintptr_t>(ptr);
 	}
-	return ret;
+	return (ret);
 }

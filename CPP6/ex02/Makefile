@@ -6,7 +6,7 @@
 #    By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/30 11:15:47 by cmariot           #+#    #+#              #
-#    Updated: 2022/03/29 11:08:21 by cmariot          ###   ########.fr        #
+#    Updated: 2022/04/12 10:18:38 by cmariot          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,9 @@ LFLAGS			= -Wall -Wextra -Werror -std=c++98 -g3 -O2
 
 
 SRCS		= main.cpp \
-			  Base.cpp
+			  Base.cpp \
+			  generate.cpp \
+			  identify.cpp
 
 OBJ			:= $(SRCS:.cpp=.o)
 
@@ -91,7 +93,7 @@ re :	fclean all
 
 header:
 		@printf "$(CYAN)"
-		@printf "CPP module06 ex00 :\n"
+		@printf "CPP module06 ex02 :\n"
 		@printf "$(RESET)"
 
 footer: 
@@ -101,5 +103,3 @@ footer:
 		@printf "./" 
 		@printf $(NAME)
 		@printf "\n"
-
-
