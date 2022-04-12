@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 08:41:57 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/29 08:47:37 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/12 16:22:24 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ Data::~Data(void)
 //Operateur d'affectation (=)
 Data const &	Data::operator = (Data const & rhs)
 {
-	this->_data = rhs._data;
+	this->_data = rhs.getData();
 	return (*this);
 }
 

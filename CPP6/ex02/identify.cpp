@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 10:14:36 by cmariot           #+#    #+#             */
-/*   Updated: 2022/04/12 10:17:59 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/12 15:09:32 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include "C.hpp"
 
 #include <iostream>
+#include <typeinfo>
 
 void	identify(Base *p)
 {

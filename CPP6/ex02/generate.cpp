@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 10:12:19 by cmariot           #+#    #+#             */
-/*   Updated: 2022/04/12 10:14:09 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/12 15:34:06 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,30 +16,31 @@
 #include "C.hpp"
 
 #include <iostream>
+#include <stdlib.h>
 
 Base *generate(void)
 {
 	Base *ret = 0;
 
-	std::srand (time(0));
+	std::srand (time(NULL));
 	switch (std::rand() % 3)
 	{
 		case (0):
 		{
-			std::cout << "gererate() returned a pointer on the A class." << std::endl;
 			ret = new A;
+			std::cout << "gererate() returned a pointer on the A class." << std::endl;
 			break ;
 		}
 		case (1):
 		{
-			std::cout << "gererate() returned a pointer on the B class." << std::endl;
 			ret = new B;
+			std::cout << "gererate() returned a pointer on the B class." << std::endl;
 			break ;
 		}
 		case (2):
 		{
-			std::cout << "gererate() returned a pointer on the C class." << std::endl;
 			ret = new C;
+			std::cout << "gererate() returned a pointer on the C class." << std::endl;
 			break ;
 		}
 	}

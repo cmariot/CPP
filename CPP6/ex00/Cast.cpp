@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 11:48:04 by cmariot           #+#    #+#             */
-/*   Updated: 2022/04/12 09:59:04 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/12 16:21:03 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,40 +17,50 @@
 /***********************************************/
 
 //Constructeur par default
-Cast::Cast(char *arg) : minus_inf(false), null(false), plus_inf(false), int_conversion_overflow(false), _str(arg), _char(0), _int(0), _float(0), _double(0), _char_non_displayable(false), _int_overflow(false), _float_overflow(false), _double_overflow(false), _unknown_type(false)
+Cast::Cast(char *arg) : 
+	minus_inf(false),
+	null(false),
+	plus_inf(false),
+	int_conversion_overflow(false),
+	_str(arg),
+	_char(0),
+	_int(0),
+	_float(0),
+	_double(0),
+	_char_non_displayable(false),
+	_int_overflow(false),
+	_float_overflow(false),
+	_double_overflow(false),
+	_unknown_type(false)
 {
-	if (isChar(this->_str))
+	if (isChar(_str))
 	{
 		Cast::strToChar();
 		Cast::convertChar();
 	}
-	else if (isInt(this->_str))
+	else if (isInt(_str))
 	{
 		Cast::strToInt();
 		Cast::convertInt();
 	}
-	else if (isFloat(this->_str))
+	else if (isFloat(_str))
 	{
 		Cast::strToFloat();
 		Cast::convertFloat();
 	}
-	else if (isDouble(this->_str))
+	else if (isDouble(_str))
 	{
 		Cast::strToDouble();
 		Cast::convertDouble();
 	}
 	else
-	{
-		this->_unknown_type = true;
-	}
-	return ;
+		_unknown_type = true;
 }
 
 //Constructeur par copie
 Cast::Cast(Cast const & copy)
 {
 	*this = copy;
-	return ;
 }
 
 //Destructeur
@@ -70,6 +80,7 @@ Cast const &	Cast::operator = (Cast const & rhs)
 	minus_inf = rhs.minus_inf;
 	null = rhs.null;
 	plus_inf = rhs.plus_inf;
+	int_conversion_overflow = rhs.int_conversion_overflow;
 	_str = rhs._str;
 	_char = rhs._char;
 	_int = rhs._int;
@@ -111,7 +122,7 @@ std::ostream &	operator << (std::ostream & output, Cast const & rhs)
 	}
 	else
 	{
-		if (isprint(rhs.getChar()) == true)
+		if (isprint(rhs.getChar()) != 0)
 			output << "char   : " << rhs.getChar() << std::endl;
 		else 
 			output << "char   : Non displayable"  << std::endl;
@@ -134,7 +145,7 @@ std::ostream &	operator << (std::ostream & output, Cast const & rhs)
 
 bool	Cast::isChar(std::string str) const
 {
-	if (str.length() != 1 || isdigit(str[0]) == true)
+	if (str.length() != 1 || isdigit(str[0]) != 0)
 		return (false);
 	return (true);
 }
@@ -197,9 +208,9 @@ bool	Cast::isDouble(std::string str) const
 
 void	Cast::strToChar(void)
 {
-	this->_char = this->_str[0];
-	if (isprint(this->_char) == false)
-		this->_char_non_displayable = true;
+	_char = _str[0];
+	if (isprint(_char) == false)
+		_char_non_displayable = true;
 }
 
 void	Cast::strToInt(void)
@@ -208,9 +219,9 @@ void	Cast::strToInt(void)
 
 	tmp = strtol(_str.c_str(), NULL, 0);
 	if (tmp >= INT_MIN && tmp <= INT_MAX)
-		this->_int = static_cast<int>(tmp);
+		_int = static_cast<int>(tmp);
 	else
-		this->_int_overflow = true;
+		_int_overflow = true;
 }
 
 void	Cast::strToFloat(void)
@@ -218,19 +229,19 @@ void	Cast::strToFloat(void)
 	char	*end;
 	float	tmp;
 
-	if (this->_str == "-inff")
-		this->minus_inf = true;
-	else if (this->_str == "nanf")
-		this->null = true;
-	else if (this->_str == "+inff")
-		this->plus_inf = true;
+	if (_str == "-inff")
+		minus_inf = true;
+	else if (_str == "nanf")
+		null = true;
+	else if (_str == "+inff")
+		plus_inf = true;
 	else
 	{
-		tmp = strtod(this->_str.c_str(), &end);
-		if ((end == this->_str.c_str() + (this->_str.length() - 1)) && *end == 'f')
-			this->_float = tmp;
+		tmp = strtod(_str.c_str(), &end);
+		if ((end == _str.c_str() + (_str.length() - 1)) && *end == 'f')
+			_float = tmp;
 		else
-			this->_float_overflow = true;
+			_float_overflow = true;
 	}
 }
 
@@ -239,79 +250,79 @@ void	Cast::strToDouble(void)
 	char	*end;
 	float	tmp;
 
-	if (this->_str == "-inf")
-		this->minus_inf = true;
-	else if (this->_str == "nan")
-		this->null = true;
-	else if (this->_str == "+inf")
-		this->plus_inf = true;
+	if (_str == "-inf")
+		minus_inf = true;
+	else if (_str == "nan")
+		null = true;
+	else if (_str == "+inf")
+		plus_inf = true;
 	else
 	{
-		tmp = strtod(this->_str.c_str(), &end);
-		if (end == this->_str.c_str() + this->_str.length())
-			this->_double = tmp;
+		tmp = strtod(_str.c_str(), &end);
+		if (end == _str.c_str() + _str.length())
+			_double = tmp;
 		else
-			this->_double_overflow = true;
+			_double_overflow = true;
 	}
 }
 
 void	Cast::convertChar(void)
 {
-	this->_int = static_cast<int>(this->_char);
-	this->_float = static_cast<float>(this->_char);
-	this->_double = static_cast<double>(this->_char);
+	_int = static_cast<int>(_char);
+	_float = static_cast<float>(_char);
+	_double = static_cast<double>(_char);
 }
 
 void	Cast::convertInt(void)
 {
-	this->_char = static_cast<char>(this->_int);
-	this->_float = static_cast<float>(this->_int);
-	this->_double = static_cast<double>(this->_int);
+	_char = static_cast<char>(_int);
+	_float = static_cast<float>(_int);
+	_double = static_cast<double>(_int);
 }
 
 void	Cast::convertFloat(void)
 {
-	this->_char = static_cast<char>(this->_float);
-	if (this->_float >= static_cast<float>(INT_MIN) && this->_float <= static_cast<float>(INT_MAX))
-		this->_int = static_cast<int>(this->_float);
+	_char = static_cast<char>(_float);
+	if (_float >= static_cast<float>(INT_MIN) && _float <= static_cast<float>(INT_MAX))
+		_int = static_cast<int>(_float);
 	else
-		this->int_conversion_overflow = true;
-	this->_double = static_cast<double>(this->_float);
+		int_conversion_overflow = true;
+	_double = static_cast<double>(_float);
 }
 
 void	Cast::convertDouble(void)
 {
-	this->_char = static_cast<char>(this->_double);
-	if (this->_double >= static_cast<double>(INT_MIN) && this->_double <= static_cast<double>(INT_MAX))
-		this->_int = static_cast<int>(this->_float);
+	_char = static_cast<char>(this->_double);
+	if (_double >= static_cast<double>(INT_MIN) && _double <= static_cast<double>(INT_MAX))
+		_int = static_cast<int>(_double);
 	else
-		this->int_conversion_overflow = true;
-	this->_float = static_cast<float>(this->_double);
+		int_conversion_overflow = true;
+	_float = static_cast<float>(_double);
 }
 
 char	Cast::getChar(void) const
 {
-	return (this->_char);
+	return (_char);
 }
 
 int		Cast::getInt(void) const
 {
-	return (this->_int);
+	return (_int);
 }
 
 float	Cast::getFloat(void) const
 {
-	return (this->_float);
+	return (_float);
 }
 
 double	Cast::getDouble(void) const
 {
-	return (this->_double);
+	return (_double);
 }
 
 bool	Cast::impossibleConversion(void) const
 {
-	if (this->_int_overflow || this->_double_overflow || this->_float_overflow || this->_unknown_type)
+	if (_int_overflow || _double_overflow || _float_overflow || _unknown_type)
 		return (true);
 	else
 		return (false);

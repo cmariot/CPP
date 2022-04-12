@@ -6,7 +6,7 @@
 #    By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/30 11:15:47 by cmariot           #+#    #+#              #
-#    Updated: 2022/04/12 10:03:49 by cmariot          ###   ########.fr        #
+#    Updated: 2022/04/12 16:24:25 by cmariot          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,9 +24,9 @@ NAME			= convert
 
 CC				= c++
 
-CFLAGS			= -Wall -Wextra -Werror -std=c++98 -g3 -O2
+CFLAGS			= -Wall -Wextra -Werror -Wno-unused -std=c++98
 
-LFLAGS			= -Wall -Wextra -Werror -std=c++98 -g3 -O2
+LFLAGS			= -Wall -Wextra -Werror -Wno-unused -std=c++98
 
 
 # **************************************************************************** #
