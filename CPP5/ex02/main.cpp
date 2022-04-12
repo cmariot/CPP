@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 10:30:10 by cmariot           #+#    #+#             */
-/*   Updated: 2022/04/11 18:21:34 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/12 11:43:10 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	test_robotomy(void)
 {
 	Bureaucrat				foo("Foo", 1);
 	Bureaucrat				bar("Bar", 1);
-	RobotomyRequestForm		form("Dyson");
+	RobotomyRequestForm		form("Robotomy");
 
 	foo.signForm(&form);
 	bar.executeForm(form);

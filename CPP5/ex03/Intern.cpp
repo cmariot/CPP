@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 16:11:49 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/24 17:18:43 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/12 11:42:22 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ Intern::~Intern(void)
 //Operateur d'affectation (=)
 Intern const &	Intern::operator = (Intern const & rhs)
 {
-	(void)rhs;
+	static_cast<void>(rhs);
 	return (*this);
 }
 
@@ -75,7 +75,7 @@ Form	*Intern::makeForm(std::string form_name, std::string form_target)
 				return (form);
 			}
 		}
-		throw Intern::UnknownFormException(); 
+		throw Intern::UnknownFormException();
 	}
 	catch (Intern::UnknownFormException & exception)
 	{

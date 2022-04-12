@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 11:52:11 by cmariot           #+#    #+#             */
-/*   Updated: 2022/04/12 09:43:02 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/12 11:17:24 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ class	Form
 					return ("Form exception: grade too low.");
 				}
 		} ;
-
 
 } ;
 

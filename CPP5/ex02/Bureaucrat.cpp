@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 10:30:53 by cmariot           #+#    #+#             */
-/*   Updated: 2022/04/12 09:44:44 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/12 11:15:59 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,9 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name)
 }
 
 //Constructeur par copie
-Bureaucrat::Bureaucrat(Bureaucrat const & copy)
+Bureaucrat::Bureaucrat(Bureaucrat const & copy) : _name(copy.getName()), _grade(getGrade())
 {
 	//std::cout << "Bureaucrat copy constructor called." << std::endl;
-	*this = copy;
 	return ;
 }
 
