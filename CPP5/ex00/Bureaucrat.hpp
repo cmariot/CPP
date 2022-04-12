@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 10:30:53 by cmariot           #+#    #+#             */
-/*   Updated: 2022/04/11 14:04:29 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/12 09:39:31 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ class	Bureaucrat
 
 	private:
 
-		std::string	const _name;									// Nom du bureaucrate
-		int			_grade;											// Grade du bureaucrate
+		std::string	const	_name;									// Nom du bureaucrate
+		int					_grade;									// Grade du bureaucrate
 
 
 	// Exception jetee si grade trop haut lors de la construction ou lors de l'incrementation

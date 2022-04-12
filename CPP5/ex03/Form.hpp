@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 11:52:11 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/24 12:08:29 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/12 09:32:08 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ class	Form
 			public:
 				virtual const char * exception() const throw()
 				{
-					return ("Execution exception: grade too low.");
+					return ("Execution exception: grade too high.");
 				}
 		} ;
 

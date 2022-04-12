@@ -6,7 +6,7 @@
 #    By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/30 11:15:47 by cmariot           #+#    #+#              #
-#    Updated: 2022/03/23 16:12:14 by cmariot          ###   ########.fr        #
+#    Updated: 2022/04/12 09:34:00 by cmariot          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -96,7 +96,7 @@ re :	fclean all
 
 header:
 		@printf "$(CYAN)"
-		@printf "CPP module05 ex02 :\n"
+		@printf "CPP module05 ex03 :\n"
 		@printf "$(RESET)"
 
 footer: 
@@ -106,5 +106,3 @@ footer:
 		@printf "./" 
 		@printf $(NAME)
 		@printf "\n"
-
-

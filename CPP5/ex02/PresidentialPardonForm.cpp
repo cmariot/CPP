@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 16:16:27 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/24 11:15:59 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/11 17:41:55 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ PresidentialPardonForm::~PresidentialPardonForm(void)
 //Operateur d'affectation (=)
 PresidentialPardonForm const &	PresidentialPardonForm::operator = (PresidentialPardonForm const & rhs)
 {
-	this->_target = rhs._target;
+	_target = rhs._target;
 	return (*this);
 }
 
@@ -58,7 +58,5 @@ PresidentialPardonForm const &	PresidentialPardonForm::operator = (PresidentialP
 void PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {
 	if (makeVerif(executor.getGrade(), getExecutionGrade()) == 0)
-	{
 		std::cout << executor.getName() << " has been pardoned by the president Zaphod Beeblebrox." << std::endl;
-	}
 }

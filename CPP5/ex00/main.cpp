@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 10:30:10 by cmariot           #+#    #+#             */
-/*   Updated: 2022/04/11 16:18:51 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/12 09:41:15 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	main(void)
 {
 	//tests incrementation/decrementation
-	Bureaucrat	foo("Foo", 5);
+	Bureaucrat	foo("Foo", 42);
 	std::cout << foo << std::endl;
 	foo.decrementGrade();
 	std::cout << foo << std::endl;
@@ -23,7 +23,7 @@ int	main(void)
 	std::cout << foo << std::endl;
 
 	//test catch decrementation < 1
-	Bureaucrat	boss("Boos", 1);
+	Bureaucrat	boss("Boss", 1);
 	std::cout << boss << std::endl;
 	boss.incrementGrade();
 	
@@ -33,8 +33,8 @@ int	main(void)
 	stagiaire.decrementGrade();
 
 	//test catch erreurs d'initialisation
-	Bureaucrat	neg("Boos", -10);
-	Bureaucrat	sup("Boos", 300);
+	Bureaucrat	neg("ToHigh", -10);
+	Bureaucrat	sup("ToLow", 300);
 
 	return (0);
 }

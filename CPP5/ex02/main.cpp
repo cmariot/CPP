@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 10:30:10 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/24 17:17:07 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/11 18:21:34 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,49 +18,46 @@
 
 void	test_creation_arbuste(void)
 {
-	Bureaucrat				me("Charles", 0);
-	Bureaucrat				jardinier("Foo", 0);
-	ShrubberyCreationForm	form("arbres");
+	Bureaucrat				foo("Foo", 1);
+	Bureaucrat				bar("Bar", 1);
+	ShrubberyCreationForm	form("Arbres");
 
-	me.signForm(&form);
-
-	jardinier.executeForm(form);
+	foo.signForm(&form);
+	bar.executeForm(form);
 }
 
 void	test_robotomy(void)
 {
-	Bureaucrat				me("Charles", 0);
-	Bureaucrat				robotomizer("Foo", 0);
+	Bureaucrat				foo("Foo", 1);
+	Bureaucrat				bar("Bar", 1);
 	RobotomyRequestForm		form("Dyson");
 
-	me.signForm(&form);
-	
-	robotomizer.executeForm(form);
+	foo.signForm(&form);
+	bar.executeForm(form);
 }
 
 void	test_president(void)
 {
-	Bureaucrat				me("Charles", 0);
-	Bureaucrat				president("Bar", 0);
+	Bureaucrat				foo("Foo", 1);
+	Bureaucrat				bar("Bar", 1);
 	PresidentialPardonForm	form("Pardon");
 
-	me.signForm(&form);
-	
-	president.executeForm(form);
+	foo.signForm(&form);
+	bar.executeForm(form);
 }
 
-void	test_sans_signature_grade_too_low(void)
+void	test_sans_signature_grade_too_high(void)
 {
-	RobotomyRequestForm Foo("Bar");
-	//Bureaucrat			Boss("Me", 0);
-	Bureaucrat			Nul("Mush", 150);
+	RobotomyRequestForm foo("Foo");
+	Bureaucrat			boss("Boss", 1);
+	Bureaucrat			noob("Noob", 150);
 
-	//Boss.signForm(&Foo);
-	Nul.executeForm(Foo);
-	//for (int i = 0; i < 150; i++)
-	//	Nul.decrementGrade();
-	std::cout << Nul << std::endl;
-	//Nul.executeForm(Foo);
+	//boss.signForm(&foo);
+	noob.executeForm(foo);
+	//for (int i = 0; i < 149; i++)
+	//	noob.incrementGrade();
+	//std::cout << noob << std::endl;
+	//noob.executeForm(foo);
 }
 
 int	main(void)
@@ -74,7 +71,7 @@ int	main(void)
 	test_president();
 	std::cout << std::endl;
 	
-//	test_sans_signature_grade_too_low();
+//	test_sans_signature_grade_too_high();
 	
 	return (0);
 }

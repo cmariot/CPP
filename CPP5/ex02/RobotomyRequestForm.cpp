@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 16:16:11 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/24 11:16:26 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/11 17:42:41 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) const
 	if (makeVerif(executor.getGrade(), getExecutionGrade()) == 0)
 	{
 		 /* initialize random seed: */
-		std::srand (time(NULL));
+		std::srand(time(NULL));
 		/* generate a random number between 0 and 1 */
 		switch (std::rand() % 2)
 		{

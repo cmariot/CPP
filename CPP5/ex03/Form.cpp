@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 11:52:11 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/24 11:13:08 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/12 09:32:52 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,8 @@
 /*            CONSTRUCTEURS/DESTRUCTEURS       */
 /***********************************************/
 
-/***********************************************/
-/*            CONSTRUCTEURS/DESTRUCTEURS       */
-/***********************************************/
-
 //Constructeur par default
-Form::Form(void): _name("default"), _signed(0), _signature_grade(0), _execution_grade(0)
+Form::Form(void): _name("default"), _signed(0), _signature_grade(1), _execution_grade(1)
 {
 	//std::cout << "Form default constructor called." << std::endl;
 	return ;
@@ -34,9 +30,9 @@ Form::Form(std::string name, int signature_grade, int execution_grade) : _name(n
 	try
 	{
 		if (signature_grade > 150)
-			throw Form::GradeTooHighException();
-		else if (signature_grade < 0)
 			throw Form::GradeTooLowException();
+		else if (signature_grade < 1)
+			throw Form::GradeTooHighException();
 	}
 	catch (Form::GradeTooLowException & exception)
 	{
@@ -71,7 +67,7 @@ Form::~Form(void)
 //Operateur d'affectation (=)
 Form const &	Form::operator = (Form const & rhs)
 {
-	this->_signed = rhs._signed;
+	_signed = rhs._signed;
 	return (*this);
 }
 
@@ -95,34 +91,34 @@ std::ostream &	operator << (std::ostream & output, Form const & rhs)
 
 std::string		Form::getName(void) const
 {
-	return (this->_name);
+	return (_name);
 }
 
-bool			Form::getSignature(void) const
+bool	Form::getSignature(void) const
 {
-	return (this->_signed);
+	return (_signed);
 }
 
 int		Form::getSignatureGrade(void) const
 {
-	return (this->_signature_grade);
+	return (_signature_grade);
 }
 
 int		Form::getExecutionGrade(void) const
 {
-	return (this->_execution_grade);
+	return (_execution_grade);
 }
 
 void	Form::beSigned(Bureaucrat *bureaucrat)
 {
 	try
 	{
-		if (bureaucrat->getGrade() <= this->getSignatureGrade())
+		if (bureaucrat->getGrade() <= getSignatureGrade())
 			bureaucrat->signForm(this);
 		else
-			throw Form::GradeTooLowException();
+			throw Form::GradeTooHighException();
 	}
-	catch (Form::GradeTooLowException & exception)
+	catch (Form::GradeTooHighException & exception)
 	{
 		std::cout << exception.what() << std::endl;
 		return ;
@@ -131,25 +127,19 @@ void	Form::beSigned(Bureaucrat *bureaucrat)
 
 void	Form::setSignature(void)
 {
-	this->_signed = 1;
+	_signed = 1;
 }
 
 int		Form::makeVerif(int executor_grade, int execution_form_grade) const
 {
 	try
 	{
-		if (executor_grade <= execution_form_grade && this->_signed)
-		{
+		if (executor_grade <= execution_form_grade && this->_signed == 1)
 			return (0);
-		}
 		else if (this->_signed == 0)
-		{
 			throw Form::SignatureException();
-		}
 		else
-		{
 			throw Form::ExecutionException();
-		}
 	}
 	catch (Form::SignatureException & exception)
 	{

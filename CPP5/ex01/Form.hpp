@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 11:52:11 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/24 10:51:27 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/12 09:43:02 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class	Form
 
 		~Form(void);														// Destructeur
 
-		Form const &	operator = (Form const & rhs);						// Surcharge d'opérateur d’affectation
+		Form const & operator = (Form const & rhs);							// Surcharge d'opérateur d’affectation
 
 		std::string		getName(void) const;								// Retourne _name
 		bool			getSignature(void) const;							// Retourn _signed
@@ -73,4 +73,3 @@ class	Form
 std::ostream & operator << (std::ostream & out, Form const & rhs);
 
 #endif
-
