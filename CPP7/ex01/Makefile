@@ -6,7 +6,7 @@
 #    By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/30 11:15:47 by cmariot           #+#    #+#              #
-#    Updated: 2022/03/29 12:09:46 by cmariot          ###   ########.fr        #
+#    Updated: 2022/04/13 17:50:23 by cmariot          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@
 #                          PROJECT'S DIRECTORIES                               #
 # **************************************************************************** #
 
-NAME			= template
+NAME			= iter
 
 
 # **************************************************************************** #
@@ -24,9 +24,9 @@ NAME			= template
 
 CC				= c++
 
-CFLAGS			= -Wall -Wextra -Werror -std=c++98 -g3 -O2
+CFLAGS			= -Wall -Wextra -Werror -std=c++98
 
-LFLAGS			= -Wall -Wextra -Werror -std=c++98 -g3 -O2
+LFLAGS			= -Wall -Wextra -Werror -std=c++98
 
 
 # **************************************************************************** #
@@ -90,7 +90,7 @@ re :	fclean all
 
 header:
 		@printf "$(CYAN)"
-		@printf "CPP module07 ex00 :\n"
+		@printf "CPP module07 ex01 :\n"
 		@printf "$(RESET)"
 
 footer: 
