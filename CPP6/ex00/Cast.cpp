@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 11:48:04 by cmariot           #+#    #+#             */
-/*   Updated: 2022/04/12 16:21:03 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/13 17:39:25 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,41 +17,27 @@
 /***********************************************/
 
 //Constructeur par default
-Cast::Cast(char *arg) : 
-	minus_inf(false),
-	null(false),
-	plus_inf(false),
-	int_conversion_overflow(false),
-	_str(arg),
-	_char(0),
-	_int(0),
-	_float(0),
-	_double(0),
-	_char_non_displayable(false),
-	_int_overflow(false),
-	_float_overflow(false),
-	_double_overflow(false),
-	_unknown_type(false)
+Cast::Cast(char *arg) : _str(arg), _unknown_type(false), _minus_inf(false), _null(false), _plus_inf(false), _overflow(false), _points(false)
 {
 	if (isChar(_str))
 	{
-		Cast::strToChar();
-		Cast::convertChar();
+		strToChar();
+		convertChar();
 	}
 	else if (isInt(_str))
 	{
-		Cast::strToInt();
-		Cast::convertInt();
+		strToInt();
+		convertInt();
 	}
 	else if (isFloat(_str))
 	{
-		Cast::strToFloat();
-		Cast::convertFloat();
+		strToFloat();
+		convertFloat();
 	}
 	else if (isDouble(_str))
 	{
-		Cast::strToDouble();
-		Cast::convertDouble();
+		strToDouble();
+		convertDouble();
 	}
 	else
 		_unknown_type = true;
@@ -77,63 +63,41 @@ Cast::~Cast(void)
 //Operateur d'affectation (=)
 Cast const &	Cast::operator = (Cast const & rhs)
 {
-	minus_inf = rhs.minus_inf;
-	null = rhs.null;
-	plus_inf = rhs.plus_inf;
-	int_conversion_overflow = rhs.int_conversion_overflow;
 	_str = rhs._str;
 	_char = rhs._char;
 	_int = rhs._int;
 	_float = rhs._float;
 	_double = rhs._double;
-	_char_non_displayable = rhs._char_non_displayable;
-	_int_overflow = rhs._int_overflow;
-	_float_overflow = rhs._float_overflow;
-	_double_overflow = rhs._double_overflow;
 	_unknown_type = rhs._unknown_type;
+	_minus_inf = rhs._minus_inf;
+	_null = rhs._null;
+	_plus_inf = rhs._plus_inf;
+	_overflow = rhs._overflow;
 	return (*this);
 }
 
 //Operateur <<
 std::ostream &	operator << (std::ostream & output, Cast const & rhs)
 {
-	if (rhs.impossibleConversion() == true)
-		std::cout << "Sorry, couldn't convert your input, it may be caused by an overflow or an unknown type." << std::endl;
-	else if (rhs.minus_inf == true)
-	{
-		output << "char   : impossible" << std::endl;
-		output << "int    : impossible" << std::endl;
-		output << "float  : -inff" << std::endl;
-		output << "double : -inf" << std::endl;
-	}
-	else if (rhs.null == true)
-	{
-		output << "char   : impossible" << std::endl;
-		output << "int    : impossible" << std::endl;
-		output << "float  : nanf" << std::endl;
-		output << "double : nan" << std::endl;
-	}
-	else if (rhs.plus_inf == true)
-	{
-		output << "char   : impossible" << std::endl;
-		output << "int    : impossible" << std::endl;
-		output << "float  : +inff" << std::endl;
-		output << "double : +inf" << std::endl;
-	}
+	if (rhs.getError() == true)
+		rhs.displayError(output);
 	else
 	{
-		if (isprint(rhs.getChar()) != 0)
-			output << "char   : " << rhs.getChar() << std::endl;
-		else 
-			output << "char   : Non displayable"  << std::endl;
+		output << "Char    : ";
+		rhs.displayChar(output);
+		output << std::endl;
 		
-		if (rhs.int_conversion_overflow == false) 
-			output << "int    : " << rhs.getInt() << std::endl;
-		else
-			output << "int    : impossible" << std::endl;
-
-		output << "float  : " << rhs.getFloat() << "f" << std::endl;
-		output << "double : " << rhs.getDouble() << std::endl;
+		output << "Int     : ";
+		rhs.displayInt(output);
+		output << std::endl;
+		
+		output << "Float   : ";
+		rhs.displayFloat(output);
+		output << std::endl;
+		
+		output << "Double  : ";
+		rhs.displayDouble(output);
+		output << std::endl;
 	}
 	return (output);
 }
@@ -162,7 +126,7 @@ bool	Cast::isInt(std::string str) const
 	return (true);
 }
 
-bool	Cast::isFloat(std::string str) const
+bool	Cast::isFloat(std::string str)
 {
 	int	number_of_points = 0;
 
@@ -177,7 +141,10 @@ bool	Cast::isFloat(std::string str) const
 		else if (isdigit(str[i]) == false)
 		{
 			if (str[i] == '.' && ++number_of_points == 1)
+			{
+				_points = true;
 				continue ;
+			}
 			else
 				return (false);
 		}
@@ -185,7 +152,7 @@ bool	Cast::isFloat(std::string str) const
 	return (true);
 }
 
-bool	Cast::isDouble(std::string str) const
+bool	Cast::isDouble(std::string str)
 {
 	int	number_of_points = 0;
 
@@ -198,7 +165,10 @@ bool	Cast::isDouble(std::string str) const
 		else if (isdigit(str[i]) == false)
 		{
 			if (str[i] == '.' && ++number_of_points == 1)
+			{
+				_points = true;
 				continue ;
+			}
 			else
 				return (false);
 		}
@@ -209,8 +179,6 @@ bool	Cast::isDouble(std::string str) const
 void	Cast::strToChar(void)
 {
 	_char = _str[0];
-	if (isprint(_char) == false)
-		_char_non_displayable = true;
 }
 
 void	Cast::strToInt(void)
@@ -221,7 +189,7 @@ void	Cast::strToInt(void)
 	if (tmp >= INT_MIN && tmp <= INT_MAX)
 		_int = static_cast<int>(tmp);
 	else
-		_int_overflow = true;
+		_overflow = true;
 }
 
 void	Cast::strToFloat(void)
@@ -230,18 +198,20 @@ void	Cast::strToFloat(void)
 	float	tmp;
 
 	if (_str == "-inff")
-		minus_inf = true;
+		_minus_inf = true;
 	else if (_str == "nanf")
-		null = true;
+		_null = true;
 	else if (_str == "+inff")
-		plus_inf = true;
+		_plus_inf = true;
 	else
 	{
 		tmp = strtod(_str.c_str(), &end);
-		if ((end == _str.c_str() + (_str.length() - 1)) && *end == 'f')
+		if ((end == _str.c_str() + (_str.length() - 1)) && *end == 'f'
+			&& tmp >= static_cast<float>(INT_MIN) 
+			&& tmp <= static_cast<float>(INT_MAX))
 			_float = tmp;
 		else
-			_float_overflow = true;
+			_overflow = true;
 	}
 }
 
@@ -251,18 +221,20 @@ void	Cast::strToDouble(void)
 	float	tmp;
 
 	if (_str == "-inf")
-		minus_inf = true;
+		_minus_inf = true;
 	else if (_str == "nan")
-		null = true;
+		_null = true;
 	else if (_str == "+inf")
-		plus_inf = true;
+		_plus_inf = true;
 	else
 	{
 		tmp = strtod(_str.c_str(), &end);
-		if (end == _str.c_str() + _str.length())
-			_double = tmp;
+		if (end == _str.c_str() + _str.length()
+			&& tmp >= static_cast<double>(INT_MIN) 
+			&& tmp <= static_cast<double>(INT_MAX))
+			_double = static_cast<double>(tmp);
 		else
-			_double_overflow = true;
+			_overflow = true;
 	}
 }
 
@@ -283,47 +255,81 @@ void	Cast::convertInt(void)
 void	Cast::convertFloat(void)
 {
 	_char = static_cast<char>(_float);
-	if (_float >= static_cast<float>(INT_MIN) && _float <= static_cast<float>(INT_MAX))
-		_int = static_cast<int>(_float);
-	else
-		int_conversion_overflow = true;
+	_int = static_cast<int>(_float);
 	_double = static_cast<double>(_float);
 }
 
 void	Cast::convertDouble(void)
 {
-	_char = static_cast<char>(this->_double);
-	if (_double >= static_cast<double>(INT_MIN) && _double <= static_cast<double>(INT_MAX))
-		_int = static_cast<int>(_double);
-	else
-		int_conversion_overflow = true;
+	_char = static_cast<char>(_double);
+	_int = static_cast<int>(_double);
 	_float = static_cast<float>(_double);
 }
 
-char	Cast::getChar(void) const
+bool	Cast::getError(void) const
 {
-	return (_char);
-}
-
-int		Cast::getInt(void) const
-{
-	return (_int);
-}
-
-float	Cast::getFloat(void) const
-{
-	return (_float);
-}
-
-double	Cast::getDouble(void) const
-{
-	return (_double);
-}
-
-bool	Cast::impossibleConversion(void) const
-{
-	if (_int_overflow || _double_overflow || _float_overflow || _unknown_type)
+	if (_unknown_type || _overflow)
 		return (true);
 	else
 		return (false);
+}
+
+void	Cast::displayError(std::ostream & output) const
+{
+	if (_unknown_type)
+		output << "Error : Cannot convert your input." << std::endl;
+	else if (_overflow)
+		output << "Error : Overflow." << std::endl;
+}
+
+void	Cast::displayChar(std::ostream & output) const
+{
+	if (_minus_inf || _null || _plus_inf)
+		output << "Impossible";
+	else if (isprint(_char) == 0)
+		output << "Non displayable";
+	else
+		output << _char;
+}
+
+void	Cast::displayInt(std::ostream & output) const
+{
+	if (_minus_inf || _null || _plus_inf)
+		output << "Impossible";
+	else
+		output << _int;
+}
+
+void	Cast::displayFloat(std::ostream & output) const
+{
+	if (_minus_inf)
+		output << "-inff";
+	else if (_null)
+		output << "nanf";
+	else if (_plus_inf)
+		output << "+inff";
+	else
+	{
+		if (_points)
+			output << std::fixed << _float << "f";
+		else
+			output << std::fixed << _float << "f";
+	}
+}
+
+void	Cast::displayDouble(std::ostream & output) const
+{
+	if (_minus_inf)
+		output << "-inf";
+	else if (_null)
+		output << "nan";
+	else if (_plus_inf)
+		output << "+inf";
+	else
+	{
+		if (_points)
+			output << std::fixed << _double;
+		else
+			output << std::fixed << _double;
+	}
 }

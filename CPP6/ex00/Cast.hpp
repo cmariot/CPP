@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 11:48:04 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/28 14:42:15 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/13 17:39:38 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,18 +28,13 @@ class	Cast
 		~Cast(void);									// Destructeur
 		Cast const & operator = (Cast const & rhs);		// Surcharge d'opérateur d’affectation
 
-		char	getChar(void) const;
-		int		getInt(void) const;
-		float	getFloat(void) const;
-		double	getDouble(void) const;
+		bool			getError(void) const;
 
-		bool	impossibleConversion(void) const;
-
-		bool	minus_inf;
-		bool	null;
-		bool	plus_inf;
-		
-		bool	int_conversion_overflow;
+		void			displayChar(std::ostream & output) const;
+		void			displayInt(std::ostream & output) const;
+		void			displayFloat(std::ostream & output) const;
+		void			displayDouble(std::ostream & output) const;
+		void			displayError(std::ostream & output) const;
 
 	private:
 
@@ -50,18 +45,20 @@ class	Cast
 		float			_float;
 		double			_double;
 
-		bool			_char_non_displayable;
-
-		bool			_int_overflow;
-		bool			_float_overflow;
-		bool			_double_overflow;
-
 		bool			_unknown_type;
 
-		bool			isChar(std::string str)		const;
-		bool			isInt(std::string str)		const;
-		bool			isFloat(std::string str)	const;
-		bool			isDouble(std::string str)	const;
+		bool			_minus_inf;
+		bool			_null;
+		bool			_plus_inf;
+
+		bool			_overflow;
+
+		bool			_points;
+
+		bool			isChar(std::string str) const;
+		bool			isInt(std::string str) const;
+		bool			isFloat(std::string str);
+		bool			isDouble(std::string str);
 
 		void			strToChar(void);
 		void			strToInt(void);
