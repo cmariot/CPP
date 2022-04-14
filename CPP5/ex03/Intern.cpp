@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 16:11:49 by cmariot           #+#    #+#             */
-/*   Updated: 2022/04/12 11:42:22 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/14 15:49:18 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,7 @@ Intern::~Intern(void)
 //Operateur d'affectation (=)
 Intern const &	Intern::operator = (Intern const & rhs)
 {
-	static_cast<void>(rhs);
-	return (*this);
+	return (rhs);
 }
 
 
@@ -55,31 +54,49 @@ Intern const &	Intern::operator = (Intern const & rhs)
 /*                FONCTIONS MEMBRES            */
 /***********************************************/
 
+Form	*Intern::getPresidentialPardonForm(std::string const &target)
+{
+	return (new PresidentialPardonForm(target));
+}
+
+Form	*Intern::getRobotomyRequestForm(std::string const &target)
+{
+	return (new RobotomyRequestForm(target));
+}
+
+Form	*Intern::getShrubberyCreationForm(std::string const &target)
+{
+	return (new ShrubberyCreationForm(target));
+}
+
 Form	*Intern::makeForm(std::string form_name, std::string form_target)
 {
+	Form *form = NULL;
+
+	std::string	known_forms[3] =	{"presidential pardon",
+									"robotomy request",
+									"shrubbery creation"};
+
+	Form *(Intern::*f[3])(std::string const &) =	{&Intern::getPresidentialPardonForm,
+													&Intern::getRobotomyRequestForm,
+													&Intern::getShrubberyCreationForm};
+
 	try
 	{
-		std::string	known_forms[3] = {"presidential pardon", "robotomy request", "shrubbery creation"};
-		Form *form = NULL;
 		for (int i = 0; i < 3; i++)
 		{
 			if (form_name == known_forms[i])
 			{
-				if (i == 0)
-					form = new PresidentialPardonForm(form_target);
-				else if (i == 1)
-					form = new RobotomyRequestForm(form_target);
-				else if (i == 2)
-					form = new ShrubberyCreationForm(form_target);
+				form = (this->*f[i])(form_target);
 				std::cout << "Intern creates " << form->getName() << std::endl;
-				return (form);
 			}
 		}
-		throw Intern::UnknownFormException();
+		if (form == NULL)
+			throw Intern::UnknownFormException();
 	}
 	catch (Intern::UnknownFormException & exception)
 	{
 		std::cout << exception.what() << std::endl;
-		return (NULL);
 	}
+	return (form);
 }

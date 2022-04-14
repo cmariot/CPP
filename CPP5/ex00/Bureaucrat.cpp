@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 10:30:53 by cmariot           #+#    #+#             */
-/*   Updated: 2022/04/12 11:14:37 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/14 15:02:28 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,19 +32,19 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name)
 		if (grade >= 1 && grade <= 150)
 			_grade = grade;
 		else if (grade > 150)
-			throw Bureaucrat::GradeTooHighException();
-		else if (grade < 1)
 			throw Bureaucrat::GradeTooLowException();
+		else if (grade < 1)
+			throw Bureaucrat::GradeTooHighException();
 	}
 	catch (Bureaucrat::GradeTooLowException & exception)
 	{
 		std::cout << exception.what() << std::endl;
-		_grade = 1;
+		_grade = 150;
 	}
 	catch (Bureaucrat::GradeTooHighException & exception)
 	{
 		std::cout << exception.what() << std::endl;
-		_grade = 150;
+		_grade = 1;
 	}
 	return ;
 }
@@ -104,9 +104,9 @@ void Bureaucrat::incrementGrade(void)
 		if (_grade > 1)
 			_grade -= 1;
 		else
-			throw Bureaucrat::GradeTooLowException();
+			throw Bureaucrat::GradeTooHighException();
 	}
-	catch (Bureaucrat::GradeTooLowException & exception)
+	catch (Bureaucrat::GradeTooHighException & exception)
 	{
 		std::cout << exception.what() << std::endl;
 	}
@@ -119,9 +119,9 @@ void Bureaucrat::decrementGrade(void)
 		if (_grade < 150)
 			_grade += 1;
 		else
-			throw Bureaucrat::GradeTooHighException();
+			throw Bureaucrat::GradeTooLowException();
 	}
-	catch (Bureaucrat::GradeTooHighException & exception)
+	catch (Bureaucrat::GradeTooLowException & exception)
 	{
 		std::cout << exception.what() << std::endl;
 	}

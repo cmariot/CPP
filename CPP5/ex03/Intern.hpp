@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 16:11:49 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/24 11:56:15 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/14 15:47:37 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,11 @@ class	Intern
 		Form	*makeForm(std::string form_name, std::string target_form);	// Renvoie un formulaire de type
 																			// form_name et dont la cible est
 																			// target_form
+
+		Form	*getPresidentialPardonForm(std::string const &target);
+		Form	*getRobotomyRequestForm(std::string const &target);
+		Form	*getShrubberyCreationForm(std::string const &target);
+
 
 		// Exception jetee si le formulaire n'est pas connu
 		class UnknownFormException : public std::exception
