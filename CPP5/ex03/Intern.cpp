@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 16:11:49 by cmariot           #+#    #+#             */
-/*   Updated: 2022/04/14 15:49:18 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/15 08:44:04 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,15 +84,11 @@ Form	*Intern::makeForm(std::string form_name, std::string form_target)
 	try
 	{
 		for (int i = 0; i < 3; i++)
-		{
 			if (form_name == known_forms[i])
-			{
 				form = (this->*f[i])(form_target);
-				std::cout << "Intern creates " << form->getName() << std::endl;
-			}
-		}
 		if (form == NULL)
 			throw Intern::UnknownFormException();
+		std::cout << "Intern creates " << form->getName() << std::endl;
 	}
 	catch (Intern::UnknownFormException & exception)
 	{
