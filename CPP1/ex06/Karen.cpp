@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 09:26:44 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/10 14:45:50 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/14 15:09:23 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,4 @@ void Karen::complain(std::string level) const
 			break ;
 		}
 	}
-
 }
