@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 14:24:46 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/30 13:51:31 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/19 10:39:11 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ template <class T> class Array
 			return (_size);
 		}
 
-		// Surcharge de l'operateur d'index
+		// Surcharge de l'operateur d'indice
 		T & operator [] (size_t pos) const
 		{
 			try

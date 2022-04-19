@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 10:30:10 by cmariot           #+#    #+#             */
-/*   Updated: 2022/04/12 09:48:50 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/15 13:48:19 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,5 @@ int	main(void)
 	test_shrubbery();
 
 	test_bidon();
-
 	return (0);
 }
