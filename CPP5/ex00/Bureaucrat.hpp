@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 10:30:53 by cmariot           #+#    #+#             */
-/*   Updated: 2022/04/12 09:39:31 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/19 08:33:01 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ class	Bureaucrat
 		std::string	getName(void) const;							// Retourne _name
 		int			getGrade(void) const;							// Retourne _grade
 
-		void		incrementGrade(void);							// Fait +1 sur le grade (perte de pouvoir)
-		void		decrementGrade(void);							// Fait -1 sur le grade (gin de pouvoir)
+		void		incrementGrade(void);							// Fait -1 sur le grade (gain de pouvoir)
+		void		decrementGrade(void);							// Fait +1 sur le grade (perte de pouvoir)
 
 	private:
 
