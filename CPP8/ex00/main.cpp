@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 15:59:16 by cmariot           #+#    #+#             */
-/*   Updated: 2022/04/19 10:42:50 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/20 11:19:38 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int	main(void)
 {
+
 	//Test list
 	{
 		std::list<int>	my_list;
@@ -49,5 +50,6 @@ int	main(void)
 		
 		std::cout << "Try to find 42 : " << ret << std::endl;
 	}
+
 	return (0);
 }
