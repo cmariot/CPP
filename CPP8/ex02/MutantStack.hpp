@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 12:07:33 by cmariot           #+#    #+#             */
-/*   Updated: 2022/04/07 14:33:57 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/19 11:30:10 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ template <class T,  class Container = std::deque<T> >
 class MutantStack : public std::stack<T, Container>
 {
 	public :
-		
+
 		// Constructeur par default
 		MutantStack(void)
 		{

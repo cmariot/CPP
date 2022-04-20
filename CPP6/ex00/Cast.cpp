@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 11:48:04 by cmariot           #+#    #+#             */
-/*   Updated: 2022/04/13 17:39:25 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/19 10:22:02 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 /***********************************************/
 
 //Constructeur par default
-Cast::Cast(char *arg) : _str(arg), _unknown_type(false), _minus_inf(false), _null(false), _plus_inf(false), _overflow(false), _points(false)
+Cast::Cast(char *arg) : _str(arg), _unknown_type(false), _minus_inf(false), _null(false), _plus_inf(false), _overflow(false)
 {
 	if (isChar(_str))
 	{
@@ -141,10 +141,7 @@ bool	Cast::isFloat(std::string str)
 		else if (isdigit(str[i]) == false)
 		{
 			if (str[i] == '.' && ++number_of_points == 1)
-			{
-				_points = true;
 				continue ;
-			}
 			else
 				return (false);
 		}
@@ -165,10 +162,7 @@ bool	Cast::isDouble(std::string str)
 		else if (isdigit(str[i]) == false)
 		{
 			if (str[i] == '.' && ++number_of_points == 1)
-			{
-				_points = true;
 				continue ;
-			}
 			else
 				return (false);
 		}
@@ -309,12 +303,7 @@ void	Cast::displayFloat(std::ostream & output) const
 	else if (_plus_inf)
 		output << "+inff";
 	else
-	{
-		if (_points)
-			output << std::fixed << _float << "f";
-		else
-			output << std::fixed << _float << "f";
-	}
+		output << std::fixed << _float << "f";
 }
 
 void	Cast::displayDouble(std::ostream & output) const
@@ -326,10 +315,5 @@ void	Cast::displayDouble(std::ostream & output) const
 	else if (_plus_inf)
 		output << "+inf";
 	else
-	{
-		if (_points)
-			output << std::fixed << _double;
-		else
-			output << std::fixed << _double;
-	}
+		output << std::fixed << _double;
 }

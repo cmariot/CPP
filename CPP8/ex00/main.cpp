@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/30 15:59:16 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/31 12:22:52 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/19 10:42:50 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,16 @@ int	main(void)
 		std::cout << "For the vector, first occurence at index : " << ret << std::endl;
 	}
 
+	//Test value not found
+	{
+		std::vector<int> my_vector;
+
+		my_vector.push_back(4);
+		my_vector.push_back(2);
+		
+		int ret = easyfind<std::vector<int> >(my_vector, 42);
+		
+		std::cout << "Try to find 42 : " << ret << std::endl;
+	}
 	return (0);
 }

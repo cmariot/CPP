@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 11:48:04 by cmariot           #+#    #+#             */
-/*   Updated: 2022/04/13 17:39:38 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/19 10:22:11 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,6 @@ class	Cast
 		bool			_plus_inf;
 
 		bool			_overflow;
-
-		bool			_points;
 
 		bool			isChar(std::string str) const;
 		bool			isInt(std::string str) const;
