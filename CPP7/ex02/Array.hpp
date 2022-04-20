@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 14:24:46 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/30 13:51:31 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/20 11:00:46 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,12 @@
 
 template <class T> class Array
 {
+
+	private:
+
+		T			*_array;		// Tableau d'elements de type T
+		size_t		_size;			// Taille du tableau
+
 
 	public:
 
@@ -78,11 +84,6 @@ template <class T> class Array
 			}
 			return (this->_array[pos]);
 		};
-
-	private:
-
-		T			*_array;		// Tableau d'elements de type T
-		size_t		_size;			// Taille du tableau
 
 } ;
 

@@ -6,7 +6,7 @@
 #    By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/30 11:15:47 by cmariot           #+#    #+#              #
-#    Updated: 2022/03/29 17:10:02 by cmariot          ###   ########.fr        #
+#    Updated: 2022/04/20 10:52:34 by cmariot          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,9 +24,9 @@ NAME			= array
 
 CC				= c++
 
-CFLAGS			= -Wall -Wextra -Werror -std=c++98 -g3 -O2
+CFLAGS			= -Wall -Wextra -Werror -std=c++98
 
-LFLAGS			= -Wall -Wextra -Werror -std=c++98 -g3 -O2
+LFLAGS			= -Wall -Wextra -Werror -std=c++98
 
 
 # **************************************************************************** #
