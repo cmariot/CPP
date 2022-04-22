@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 14:24:46 by cmariot           #+#    #+#             */
-/*   Updated: 2022/04/20 11:04:18 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/22 12:47:08 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <iostream>
 # include <stdexcept>
+# include <string.h>
 
 /* Classe template de tableau, entierement definie dans le .hpp */
 
@@ -39,6 +40,8 @@ template <class T> class Array
 		Array(size_t n) : _size(n)
 		{
 			_array = new T [n];
+			for (size_t i = 0; i < n; i++)
+				memset(&(_array[i]), 0, sizeof(T));
 		}
 
 		// Constructeur par copie
