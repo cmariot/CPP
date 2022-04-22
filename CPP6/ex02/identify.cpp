@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 10:14:36 by cmariot           #+#    #+#             */
-/*   Updated: 2022/04/13 15:00:46 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/20 14:10:39 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,34 +43,10 @@ void	identify(Base *p)
 
 void	identify(Base &p)
 {
-	try
-	{
-		A & first = dynamic_cast<A &>(p);
-		static_cast<void>(first);
+	if (dynamic_cast<A const *>(&p))
 		std::cout << "identify (with ref) find the type A." << std::endl;
-	}
-	catch (std::bad_cast &bc)
-	{
-		try
-		{
-			B & second = dynamic_cast<B &>(p);
-			static_cast<void>(second);
-			std::cout << "identify (with ref) find the type B." << std::endl;
-		}
-		catch (std::bad_cast &bc)
-		{
-			try
-			{
-				C & third = dynamic_cast<C &>(p);
-				static_cast<void>(third);
-				std::cout << "identify (with ref) find the type C." << std::endl;
-			}
-			catch (std::bad_cast &bc)
-			{
-				std::cout << "Error." << std::endl;
-			}
-		}
-	}
+	else if (dynamic_cast<B const *>(&p))
+		std::cout << "identify (with ref) find the type B." << std::endl;
+	else if (dynamic_cast<C const *>(&p))
+		std::cout << "identify (with ref) find the type C." << std::endl;
 }
-
-

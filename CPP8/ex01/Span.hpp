@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 12:24:45 by cmariot           #+#    #+#             */
-/*   Updated: 2022/04/22 11:11:14 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/22 11:17:28 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 #include <iostream>
 #include <vector>
+#include <climits>
+#include <algorithm>
 
 class	Span
 {
@@ -61,6 +63,4 @@ class	Span
 
 std::ostream & operator << (std::ostream & output, Span & rhs);
 
-
 #endif
-
