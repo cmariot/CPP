@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 12:24:23 by cmariot           #+#    #+#             */
-/*   Updated: 2022/04/20 11:20:27 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/22 11:09:57 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	range_test(void)
 int	main(void)
 {
 	tests_42();
-	//my_tests();
-	//range_test();
+	my_tests();
+	range_test();
 	return (0);
 }

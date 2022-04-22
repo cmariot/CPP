@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 12:24:45 by cmariot           #+#    #+#             */
-/*   Updated: 2022/04/06 20:28:19 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/22 11:11:14 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,35 +33,34 @@ class	Span
 		size_t	shortestSpan(void) const;				// Return the smallest gap between 2 numbers of the container
 		size_t	longestSpan(void) const;				// Return the bigest gap between 2 numbers of the container
 
-		std::vector<int>	*_vector;					// Array of elements
-		size_t				_size;						// Size of the container
-		size_t				_nb_elements;				// Current number of elements
+		std::vector<int>	*vector;					// Array of elements
+		size_t				size;						// Size of the container
+		size_t				nb_elements;				// Current number of elements
+
+	private :
+		
+		class SpanFull : public std::exception
+		{
+			public :
+				virtual const char *what() const throw()
+				{
+					return ("Exception: Can't add a number, the span is full.");
+				}
+		} ;
+
+		class NotEnoughNumbers : public std::exception
+		{
+			public :
+				virtual const char *what() const throw()
+				{
+					return ("Exception: Can't return a value, there is not enough numbers.");
+				}
+		} ;
 
 } ;
 
 std::ostream & operator << (std::ostream & output, Span & rhs);
 
-class SpanFull : public std::exception
-{
-	public :
-
-		virtual const char *what() const throw()
-		{
-			return ("Exception: Can't add a number, the span is full.");
-		}
-
-} ;
-
-class NotEnoughNumbers : public std::exception
-{
-	public :
-
-		virtual const char *what() const throw()
-		{
-			return ("Exception: Can't return a value, there is not enough numbers.");
-		}
-
-} ;
 
 #endif
 
