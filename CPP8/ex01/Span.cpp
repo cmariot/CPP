@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 12:24:45 by cmariot           #+#    #+#             */
-/*   Updated: 2022/04/22 11:13:18 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/22 14:04:37 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,7 +121,7 @@ size_t	Span::shortestSpan(void) const
 		else
 		{
 			std::vector<int> *tmp(vector);
-			std::sort (tmp->begin(), tmp->begin() + nb_elements);
+			std::sort(tmp->begin(), tmp->begin() + nb_elements);
 
 			size_t shortest_span = UINT_MAX;
 			for (std::vector<int>::iterator it = tmp->begin() ; it != (tmp->begin() + nb_elements - 1); it++)
@@ -146,7 +146,7 @@ size_t	Span::longestSpan(void) const
 		else
 		{
 			std::vector<int> *tmp(vector);
-			std::sort (tmp->begin(), tmp->begin() + nb_elements);
+			std::sort(tmp->begin(), tmp->begin() + nb_elements);
 
 			std::vector<int>::iterator min = tmp->begin();
 			std::vector<int>::iterator max = tmp->begin() + nb_elements - 1;

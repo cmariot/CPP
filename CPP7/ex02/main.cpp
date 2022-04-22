@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 14:24:10 by cmariot           #+#    #+#             */
-/*   Updated: 2022/03/30 14:03:11 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/22 13:56:44 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	main(void)
 	Array<std::string> test4 = test3;
 	std::cout << "Copie du tableau de string :" << test4;
 	test3[0] = "Plop";
-	test4[0] = "Mush";
+	test4[1] = "Mush";
 
 	std::cout << "Tableau de string 1 modifie : " << test3;
 	std::cout << "Tableau de string 2 modifie : " << test4;
