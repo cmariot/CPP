@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 12:24:45 by cmariot           #+#    #+#             */
-/*   Updated: 2022/04/23 20:23:56 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/24 01:34:46 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ Span::Span(Span const & copy)
 Span::~Span(void)
 {
 	//std::cout << "Span destructor called." << std::endl;
-	delete [] this->vector;
+	delete [] vector;
 	return ;
 }
 
@@ -60,9 +60,7 @@ Span const &	Span::operator = (Span const & rhs)
 std::ostream & operator << (std::ostream & output, Span & rhs)
 {
 	for (std::vector<int>::iterator it = rhs.vector->begin() ; it != (rhs.vector->begin() + rhs.nb_elements); it++)
-	{
 		output << *it << " ";
-	}
 	output << std::endl;
 	return (output);
 }
@@ -86,72 +84,49 @@ void	Span::addNumber(int number)
 
 void	Span::addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end)
 {
-	try
+	while (1)
 	{
-		while (1)
-		{
-			if (nb_elements > size)
-				throw (SpanFull());
-			vector->push_back(*begin);
-			nb_elements++;
-			begin++;
-			if (begin == end)
-				break ;
-		}
-	}
-	catch (Span::SpanFull & sf)
-	{
-		std::cerr << sf.what() << std::endl;
+		if (nb_elements > size)
+			throw (SpanFull());
+		vector->push_back(*begin);
+		nb_elements++;
+		begin++;
+		if (begin == end)
+			break ;
 	}
 }
 
 size_t	Span::shortestSpan(void) const
 {
-	try
+	if (nb_elements <= 1)
+		throw (NotEnoughNumbers());
+	else
 	{
-		if (nb_elements <= 1)
-			throw (NotEnoughNumbers());
-		else
-		{
-			std::vector<int> *tmp(vector);
-			std::sort (tmp->begin(), tmp->begin() + nb_elements);
+		std::vector<int> *tmp(vector);
+		std::sort(tmp->begin(), tmp->begin() + nb_elements);
 
-			size_t shortest_span = UINT_MAX;
-			for (std::vector<int>::iterator it = tmp->begin() ; it != (tmp->begin() + nb_elements - 1); it++)
-				if (shortest_span > static_cast<size_t>(*(it + 1) -  *it))
-					shortest_span = *(it + 1) -  *it;
-			return (shortest_span);
-		}
-	}
-	catch (Span::NotEnoughNumbers & nen)
-	{
-		std::cerr << nen.what() << std::endl;
-		return (0);
+		size_t shortest_span = UINT_MAX;
+		for (std::vector<int>::iterator it = tmp->begin() ; it != (tmp->begin() + nb_elements - 1); it++)
+			if (shortest_span > static_cast<size_t>(*(it + 1) -  *it))
+				shortest_span = *(it + 1) -  *it;
+		return (shortest_span);
 	}
 }
 
 size_t	Span::longestSpan(void) const
 {
-	try
+	if (nb_elements <= 1)
+		throw (NotEnoughNumbers());
+	else
 	{
-		if (nb_elements <= 1)
-			throw (NotEnoughNumbers());
-		else
-		{
-			std::vector<int> *tmp(vector);
-			std::sort (tmp->begin(), tmp->begin() + nb_elements);
+		std::vector<int> *tmp(vector);
+		std::sort(tmp->begin(), tmp->begin() + nb_elements);
 
-			std::vector<int>::iterator min = tmp->begin();
-			std::vector<int>::iterator max = tmp->begin() + nb_elements - 1;
+		std::vector<int>::iterator min = tmp->begin();
+		std::vector<int>::iterator max = tmp->begin() + nb_elements - 1;
 
-			size_t range = static_cast<size_t>(*max - *min);
+		size_t range = static_cast<size_t>(*max - *min);
 
-			return (range);	
-		}
-	}
-	catch (Span::NotEnoughNumbers & nen)
-	{
-		std::cerr << nen.what() << std::endl;
-		return (0);
+		return (range);	
 	}
 }
