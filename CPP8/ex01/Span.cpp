@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 12:24:45 by cmariot           #+#    #+#             */
-/*   Updated: 2022/04/22 11:13:18 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/23 20:23:56 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,20 +75,13 @@ std::ostream & operator << (std::ostream & output, Span & rhs)
 
 void	Span::addNumber(int number)
 {
-	try
+	if (nb_elements < size)
 	{
-		if (nb_elements < size)
-		{
-			vector->push_back(number);
-			nb_elements++;
-		}
-		else
-			throw (SpanFull());
+		vector->push_back(number);
+		nb_elements++;
 	}
-	catch (Span::SpanFull & sf)
-	{
-		std::cerr << sf.what() << std::endl;
-	}
+	else
+		throw (SpanFull());
 }
 
 void	Span::addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end)

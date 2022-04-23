@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 12:24:45 by cmariot           #+#    #+#             */
-/*   Updated: 2022/04/22 11:17:28 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/23 20:27:06 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,6 @@ class	Span
 		size_t				size;						// Size of the container
 		size_t				nb_elements;				// Current number of elements
 
-	private :
-		
 		class SpanFull : public std::exception
 		{
 			public :
