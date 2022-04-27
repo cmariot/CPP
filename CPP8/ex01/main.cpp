@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 12:24:23 by cmariot           #+#    #+#             */
-/*   Updated: 2022/04/23 20:36:41 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/27 13:54:43 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,7 @@ void	my_tests(void)
 	{
 		std::cout << nen.what() << std::endl;
 	}
-	//Remplissage
-	//+ Exception : Essaye d'ajouter un nombre alors que plein
+	//Remplissage + Exception : Essaye d'ajouter un nombre alors que plein
 	try
 	{
 		for (int i = 0 ; i < 20000 ; i++)

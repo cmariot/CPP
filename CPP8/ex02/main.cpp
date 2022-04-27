@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 12:06:39 by cmariot           #+#    #+#             */
-/*   Updated: 2022/04/25 12:38:25 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/27 14:03:17 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,17 @@ void test_on_mutantStack(void)
 		std::cout << *it << std::endl;
 		++it;
 	}
+
+	MutantStack<int>::reverse_iterator rit = mstack.rbegin();
+	MutantStack<int>::reverse_iterator rite = mstack.rend();
 	
+	while (rit != rite)
+	{
+		std::cout << *rit << std::endl;
+		++rit;
+	}
+
+
 	std::stack<int> s(mstack);
 
 	std::cout << (s == mstack) << std::endl;
@@ -85,6 +95,14 @@ void test_on_list(void)
 		++it;
 	}
 	
+	std::list<int>::reverse_iterator rit = mlist.rbegin();
+	std::list<int>::reverse_iterator rite = mlist.rend();
+	
+	while (rit != rite)
+	{
+		std::cout << *rit << std::endl;
+		++rit;
+	}
 	std::list<int> s(mlist);
 
 	std::cout << (s == mlist) << std::endl;

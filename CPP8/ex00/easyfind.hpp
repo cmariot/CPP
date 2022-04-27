@@ -6,7 +6,7 @@
 /*   By: cmariot <cmariot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 00:28:30 by cmariot           #+#    #+#             */
-/*   Updated: 2022/04/22 20:56:49 by cmariot          ###   ########.fr       */
+/*   Updated: 2022/04/27 13:51:04 by cmariot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define EASYFIND_HPP
 
 # include <algorithm>
+# include <stdexcept>
 
 template <typename T>
 int	easyfind(T const & container, int to_find)
